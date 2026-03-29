@@ -1,0 +1,123 @@
+:root {
+    --verde-header: #587e69;
+    --verde-agua-bg: #a1d3bc;
+    --azul-petroleo-bg: #1a6c82;
+    --vermelho: #ed3237;
+    --laranja: #f39c12;
+    --roxo: #8e44ad;
+    --cinza: #666666;
+    --branco: #ffffff;
+    --preto-texto: #333333;
+    --creme: #fdf6e3; /* Cor para a onda e rodapé */
+    --font-main: 'Fredoka', sans-serif;
+}
+
+body { font-family: var(--font-main); margin: 0; background-color: var(--azul-petroleo-bg); color: var(--branco); overflow-x: hidden; }
+
+/* HEADER */
+.main-header { background: var(--verde-header); padding: 25px 0; border-bottom: 5px solid var(--branco); position: sticky; top: 0; z-index: 100; }
+.header-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+.nav-links { display: flex; gap: 50px; }
+.nav-links a { text-decoration: none; color: var(--branco); font-weight: 700; font-size: 1.1rem; transition: color 0.3s; }
+.logo-principal img { height: 100px; cursor: pointer; }
+
+/* TELAS */
+.page { display: none; min-height: 80vh; animation: fadeIn 0.5s; }
+.page.active { display: block; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+/* LANDING LINKS (HOME) */
+.landing-links { padding: 80px 20px; text-align: center; }
+.landing-container { max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; align-items: center; }
+.landing-box { 
+    width: 100%; max-width: 450px; text-decoration: none; padding: 25px; 
+    border-radius: 15px; background: var(--branco); color: var(--verde-header); 
+    font-weight: 700; font-size: 1.4rem; display: flex; 
+    align-items: center; justify-content: center; gap: 15px;
+    box-shadow: 0 6px 0 #ddd; transition: 0.2s;
+}
+.landing-box:hover { transform: translateY(-5px); box-shadow: 0 10px 0 #ccc; }
+.box-whatsapp { border-left: 10px solid #25d366; }
+.box-menu { border-left: 10px solid var(--vermelho); }
+.box-address { border-left: 10px solid var(--azul-petroleo-bg); }
+
+/* SEÇÃO NOSSAS DELÍCIAS NA HOME (COMO NA FOTO) */
+.nossas-delicias-home { padding: 60px 20px; text-align: center; }
+.titulo-area { margin-bottom: 40px; }
+.img-titulo { max-width: 450px; } /* Aumentado o tamanho da imagem da escrita */
+.category-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; max-width: 1000px; margin: 0 auto; }
+.cat-card { padding: 20px; border-radius: 20px; cursor: pointer; border: 5px solid transparent; transition: border-color 0.3s; }
+.cat-card img { width: 100%; max-width: 200px; }
+
+/* Cores das Categorias na referência */
+.h-red { border-color: var(--vermelho); background: rgba(237, 50, 55, 0.1); color: var(--vermelho); }
+.h-orange { border-color: var(--laranja); background: rgba(243, 156, 18, 0.1); color: var(--laranja); }
+.h-purple { border-color: var(--roxo); background: rgba(142, 68, 173, 0.1); color: var(--roxo); }
+.h-gray { border-color: var(--cinza); background: rgba(102, 102, 102, 0.1); color: var(--cinza); }
+
+.btn-cat { border: none; padding: 15px; width: 100%; border-radius: 10px; color: var(--branco); font-weight: 700; font-size: 1.1rem; cursor: pointer; text-shadow: 1px 1px 2px rgba(0,0,0,0.3); font-family: 'Fredoka'; }
+.h-red .btn-cat { background-color: var(--vermelho); }
+.h-orange .btn-cat { background-color: var(--laranja); }
+.h-purple .btn-cat { background-color: var(--roxo); }
+.h-gray .btn-cat { background-color: var(--cinza); }
+
+/* QUEM SOMOS */
+.amigo-history { background-color: var(--verde-agua-bg); padding: 80px 20px; color: var(--verde-header); }
+.history-container { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 50px; }
+.history-text { flex: 1; font-size: 1.2rem; line-height: 1.8; font-weight: 600; }
+.history-illustration img { width: 100%; max-width: 500px; }
+
+/* NOSSO ESPAÇO */
+.espaco-section { text-align: center; padding: 60px 20px; }
+.loja-galeria { display: flex; gap: 20px; justify-content: center; margin: 40px 0; flex-wrap: wrap; }
+.loja-galeria img { width: 45%; max-width: 500px; border-radius: 20px; border: 5px solid white; }
+.btn-maps { background: #4285F4; color: white; padding: 20px 40px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1.2rem; display: inline-flex; align-items: center; gap: 15px; }
+
+/* CARDÁPIO */
+.page-cardapio { padding: 60px 20px; }
+.category-tabs { display: flex; justify-content: center; gap: 15px; margin-bottom: 40px; flex-wrap: wrap; }
+.category-tabs button { background: var(--vermelho); color: white; border: none; padding: 10px 25px; border-radius: 50px; font-weight: 700; cursor: pointer; font-family: 'Fredoka'; }
+.product-list-container { max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 15px; }
+.product-item { background: var(--branco); color: var(--preto-texto); padding: 20px; border-radius: 10px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+.product-info h4 { margin: 0; color: var(--azul-petroleo-bg); font-size: 1.2rem; }
+.product-info p { margin: 5px 0; font-size: 0.9rem; color: #666; }
+.product-price { color: var(--vermelho); font-size: 1.3rem; font-weight: 700; }
+.btn-add { background: var(--verde-header); color: var(--branco); border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-weight: 700; font-family: 'Fredoka'; }
+
+/* ONDA ANTES DO RODAPÉ */
+.footer-wave { line-height: 0; width: 100%; margin-top: 50px; }
+.footer-wave svg { display: block; width: 100%; height: 100px; }
+
+/* RODAPÉ CREME */
+.main-footer { background: var(--creme); padding: 50px 20px; color: var(--verde-header); }
+.footer-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+.footer-logo img { height: 100px; }
+.footer-info { text-align: right; line-height: 1.8; }
+.footer-info strong { color: var(--verde-header); font-size: 1.2rem; }
+
+/* CARRINHO CIRCULAR */
+.cart-fixed-circular { position: fixed; bottom: 30px; right: 30px; width: 80px; height: 80px; background-color: var(--vermelho); color: var(--branco); border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 2.5rem; cursor: pointer; z-index: 500; box-shadow: 0 8px 15px rgba(0,0,0,0.3); }
+#cart-count { position: absolute; top: 0; right: 0; background-color: var(--branco); color: var(--vermelho); border-radius: 50%; width: 25px; height: 25px; font-size: 1.1rem; font-weight: 700; display: flex; justify-content: center; align-items: center; }
+
+/* UTILITÁRIOS */
+.hidden { display: none !important; }
+
+/* MODAIS */
+.modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 1000; display: flex; justify-content: center; align-items: center; }
+.modal-content { background: var(--branco); color: var(--preto-texto); padding: 30px; border-radius: 15px; width: 90%; max-width: 500px; max-height: 80vh; overflow-y: auto; font-family: 'Fredoka'; }
+
+/* Carrinho com Lixeira */
+.cart-item-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #eee; }
+.cart-item-info { flex: 1; padding-right: 15px; }
+.cart-item-remove { color: var(--vermelho); cursor: pointer; font-size: 1.2rem; }
+
+/* Estilo do checkout */
+.checkout-fields label { display: block; margin-top: 15px; font-weight: bold; }
+.checkout-fields input, .checkout-fields select { width: 100%; padding: 12px; margin-top: 5px; border: 2px solid #ddd; border-radius: 8px; font-size: 1rem; font-family: 'Fredoka'; }
+.btn-send { background: #25d366; color: var(--branco); border: none; width: 100%; padding: 15px; border-radius: 10px; font-weight: 700; font-size: 1.2rem; cursor: pointer; margin-top: 20px; font-family: 'Fredoka'; }
+
+/* Modal de Opções (Açaí/Shake com Adicionais e Tamanho) */
+.options-area h4 { color: var(--verde-header); margin: 20px 0 10px; border-bottom: 2px solid var(--verde-agua-bg); padding-bottom: 5px; }
+.opt-tam-select, .opt-flavor-input { width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 5px; }
+.add-on-option { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid #eee; }
+.btn-add-to-cart-options { background: var(--verde-header); color: var(--branco); border: none; width: 100%; padding: 15px; border-radius: 10px; font-weight: 700; cursor: pointer; margin-top: 20px; font-family: 'Fredoka'; }

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorvete Amigo Salinas</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body onload="showPage('home')">
+
+    <header class="main-header">
+        <div class="header-container">
+            <nav class="nav-links nav-left">
+                <a href="javascript:void(0)" onclick="showPage('home')">HOME</a>
+                <a href="javascript:void(0)" onclick="showPage('quem-somos')">QUEM SOMOS</a>
+            </nav>
+            <div class="logo-principal" onclick="showPage('home')">
+                <img src="img/logo-header.png" alt="Sorvete Amigo Salinas">
+            </div>
+            <nav class="nav-links nav-right">
+                <a href="javascript:void(0)" onclick="showPage('cardapio-page')">SABORES</a>
+                <a href="javascript:void(0)" onclick="showPage('nosso-espaco')">NOSSO ESPAÇO</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="home" class="page active">
+        <section class="landing-links">
+            <div class="landing-container">
+                <a href="https://wa.me/5538988353543" class="landing-box box-whatsapp">
+                    <i class="fab fa-whatsapp"></i> WHATSAPP
+                </a>
+                <a href="javascript:void(0)" onclick="showPage('cardapio-page')" class="landing-box box-menu">
+                    <i class="fas fa-ice-cream"></i> CARDÁPIO
+                </a>
+                <a href="https://www.google.com/maps/search/?api=1&query=Sorvete+Amigo+Salinas+Rua+Raul+Soares+39" target="_blank" class="landing-box box-address">
+                    <i class="fas fa-map-marker-alt"></i> ENDEREÇO
+                </a>
+            </div>
+        </section>
+
+        <section class="nossas-delicias-home">
+            <div class="titulo-area">
+                <img src="img/titulo-nossas-delicias.png" alt="Nossas Delícias" class="img-titulo">
+                <p>Potes, picolés, açaí, shakes, self-service ou nossas taças. Oferecemos tudo com a melhor qualidade e é claro, se compartilhar, fica mais gostoso!</p>
+            </div>
+            
+            <div class="category-grid">
+                <div class="cat-card h-red" onclick="showPage('cardapio-page')">
+                    <img src="img/sorvetes-img.png" alt="Sorvetes">
+                    <button class="btn-cat">SORVETES</button>
+                </div>
+                <div class="cat-card h-orange" onclick="showPage('cardapio-page')">
+                    <img src="img/picoles-img.png" alt="Picolés">
+                    <button class="btn-cat">PICOLÉS</button>
+                </div>
+                <div class="cat-card h-purple" onclick="showPage('cardapio-page')">
+                    <img src="img/acai-img.png" alt="Açaí">
+                    <button class="btn-cat">AÇAÍ</button>
+                </div>
+                <div class="cat-card h-gray" onclick="showPage('cardapio-page')">
+                    <img src="img/cardapio-completo-img.png" alt="Cardápio">
+                    <button class="btn-cat cardapio-btn">CARDÁPIO COMPLETO</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <main id="quem-somos" class="page">
+        <section class="amigo-history">
+            <div class="history-container">
+                <div class="history-text">
+                    <p>Seja bem vindo, amigo! Já conhece nossa história?</p>
+                    <p>Nascemos em a Araçuaí, no Vale do Jequitinhonha, a partir de um único sonho: Semear e cultivar experiências de amizade. Agora estamos há mais de 25 anos refrescando a vida dos nossos amigos através de todas as nossas delícias!</p>
+                    <p>Conheça nossos produtos a seguir, mas não deixe de se “achegar um bucadim” aqui no nosso espaço amigo!</p>
+                </div>
+                <div class="history-illustration">
+                    <img src="img/pq-amigo-bom.png" alt="Porque Amigo é tudo de bom">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <main id="nosso-espaco" class="page">
+        <section class="espaco-section">
+            <h1 class="page-title">Nosso Espaço em Salinas</h1>
+            <p>Venha nos visitar e ter uma experiência deliciosa em um ambiente feito para amigos.</p>
+            <div class="loja-galeria">
+                <img src="img/loja-1.jpg" alt="Loja Amigo Salinas 1">
+                <img src="img/loja-2.jpg" alt="Loja Amigo Salinas 2">
+            </div>
+            <a href="https://www.google.com/maps/search/?api=1&query=Sorvete+Amigo+Salinas+Rua+Raul+Soares+39" target="_blank" class="btn-maps">
+                <i class="fas fa-map-marker-alt"></i> VER NO GOOGLE MAPS
+            </a>
+        </section>
+    </main>
+
+    <main id="cardapio-page" class="page page-cardapio">
+        <section class="products-section">
+            <h2 class="section-title">CARDÁPIO</h2>
+            
+            <div class="category-tabs">
+                <button onclick="filterMenu('potes')">POTES</button>
+                <button onclick="filterMenu('picoles')">PICOLÉS</button>
+                <button onclick="filterMenu('acai')">AÇAÍS</button>
+                <button onclick="filterMenu('shakes')">MILKSHAKES</button>
+            </div>
+
+            <div id="product-list" class="product-list-container">
+                </div>
+        </section>
+    </main>
+
+    <div class="footer-wave">
+        <svg viewBox="0 0 1440 320" preserveAspectRatio="none">
+            <path fill="#fdf6e3" fill-opacity="1" d="M0,128L48,128C96,128,192,128,288,112C384,96,480,64,576,64C672,64,768,96,864,112C960,128,1056,128,1152,112C1248,96,1344,64,1392,48L1440,32L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+        </svg>
+    </div>
+
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img src="img/logo-footer.png" alt="Logo">
+            </div>
+            <div class="footer-info">
+                <p><strong>CONTATO</strong></p>
+                <p><i class="fab fa-instagram"></i> @sorveteamigosalinas</p>
+                <p><i class="fab fa-whatsapp"></i> (38) 9 8835-3543</p>
+                <p><i class="fas fa-map-marker-alt"></i> Rua Raul Soares, 39 - Centro, Salinas - MG</p>
+            </div>
+        </div>
+    </footer>
+
+    <div id="cart-fixed-circular" class="cart-fixed-circular hidden" onclick="openCartModal()">
+        <span id="cart-count">0</span>
+        <i class="fas fa-shopping-cart"></i>
+    </div>
+
+    <div id="cart-modal" class="modal hidden">
+        <div class="modal-content modal-cart">
+            <h3>Seu Pedido</h3>
+            <div id="cart-items"></div>
+            <hr>
+            <div class="form-group checkout-fields">
+                <label>Nome:</label>
+                <input type="text" id="cust-name" placeholder="Seu nome">
+                <label>Bairro Salinas (Taxa):</label>
+                <select id="cust-bairro" onchange="renderCartModal()">
+                    <option value="0">Selecione o Bairro</option>
+                    <option value="3">Alto Casa Blanca (Taxa R$ 3,00)</option>
+                    <option value="3">Alto Paraíso (Taxa R$ 3,00)</option>
+                    <option value="3">Alto São João (Taxa R$ 3,00)</option>
+                    <option value="3">Alvorada (Taxa R$ 3,00)</option>
+                    <option value="4">Aroeiras (Taxa R$ 4,00)</option>
+                    <option value="4">Belvedere (Taxa R$ 4,00)</option>
+                    <option value="3">Betel (Taxa R$ 3,00)</option>
+                    <option value="4">Betel 2 (Taxa R$ 4,00)</option>
+                    <option value="3">Boa Vista (Taxa R$ 3,00)</option>
+                    <option value="4">Boulevard (Taxa R$ 4,00)</option>
+                    <option value="3">Casa Blanca (Taxa R$ 3,00)</option>
+                    <option value="3">Centro (Taxa R$ 3,00)</option>
+                    <option value="7">Chácara Bananal (Taxa R$ 7,00)</option>
+                    <option value="3">Cidade Jardim (Taxa R$ 3,00)</option>
+                    <option value="7">Cidade Nova (Taxa R$ 7,00)</option>
+                    <option value="3">Cândido Village (Taxa R$ 3,00)</option>
+                    <option value="3">Esplanada (Taxa R$ 3,00)</option>
+                    <option value="3">Floresta (Taxa R$ 3,00)</option>
+                    <option value="3">Frutal (Taxa R$ 3,00)</option>
+                    <option value="5">Ifmng (Taxa R$ 5,00)</option>
+                    <option value="3">Industrial (Taxa R$ 3,00)</option>
+                    <option value="3">Maracanã (Taxa R$ 3,00)</option>
+                    <option value="3">Muritiba (Taxa R$ 3,00)</option>
+                    <option value="3">Mário Guedes (Taxa R$ 3,00)</option>
+                    <option value="3">Nova Esperança (Taxa R$ 3,00)</option>
+                    <option value="3">Nova Panorama (Taxa R$ 3,00)</option>
+                    <option value="3">Panorama (Taxa R$ 3,00)</option>
+                    <option value="3">Parque Industrial (Taxa R$ 3,00)</option>
+                    <option value="4">Primavera (Taxa R$ 4,00)</option>
+                    <option value="3">Progresso (Taxa R$ 3,00)</option>
+                    <option value="3">Prolongamento Santo Antônio (Taxa R$ 3,00)</option>
+                    <option value="7">Próximo Ao Piscinão (Taxa R$ 7,00)</option>
+                    <option value="7">Próximo Ao Posto Jenipapo (Taxa R$ 7,00)</option>
+                    <option value="7">Próximo Ao Posto Tamburil (Taxa R$ 7,00)</option>
+                    <option value="7">Próximo a APAC (Taxa R$ 7,00)</option>
+                    <option value="3">Raquel (Taxa R$ 3,00)</option>
+                    <option value="3">Sagrada Familia (Taxa R$ 3,00)</option>
+                    <option value="3">Santa Felicidade (Taxa R$ 3,00)</option>
+                    <option value="3">Santa Marta (Taxa R$ 3,00)</option>
+                    <option value="3">Santa Mônica (Taxa R$ 3,00)</option>
+                    <option value="3">Santo Antônio (Taxa R$ 3,00)</option>
+                    <option value="3">Santo Expedito (Taxa R$ 3,00)</option>
+                    <option value="3">Silvio Santiago (Taxa R$ 3,00)</option>
+                    <option value="3">São Fidélis (Taxa R$ 3,00)</option>
+                    <option value="4">São Fidélis 2 (Taxa R$ 4,00)</option>
+                    <option value="3">São Geraldo (Taxa R$ 3,00)</option>
+                    <option value="3">São José (Taxa R$ 3,00)</option>
+                    <option value="3">São Miguel (Taxa R$ 3,00)</option>
+                    <option value="3">São Pedro (Taxa R$ 3,00)</option>
+                    <option value="3">Vale Do Sol (Taxa R$ 3,00)</option>
+                    <option value="3">Vila Aparecida (Taxa R$ 3,00)</option>
+                    <option value="3">Vila Canaã (Taxa R$ 3,00)</option>
+                    <option value="3">Vila De Santa Cruz (Taxa R$ 3,00)</option>
+                    <option value="3">Vila Januária (Taxa R$ 3,00)</option>
+                    <option value="3">Vila Santa Marta (Taxa R$ 3,00)</option>
+                    <option value="3">Vila Sobradinho (Taxa R$ 3,00)</option>
+                    <option value="3">Vista Alegre (Taxa R$ 3,00)</option>
+                </select>
+                <label>Endereço Completo:</label>
+                <input type="text" id="cust-address" placeholder="Rua, número, ref.">
+                <label>Forma de Pagamento:</label>
+                <select id="cust-payment">
+                    <option value="Pix">Pix</option>
+                    <option value="Cartão">Cartão (Débito/Crédito)</option>
+                    <option value="Dinheiro">Dinheiro</option>
+                </select>
+            </div>
+            <button class="btn-send" onclick="sendWhatsApp()">Finalizar e Enviar via WhatsApp</button>
+            <button class="btn-close" onclick="closeCartModal()">Continuar Comprando</button>
+        </div>
+    </div>
+
+    <div id="product-options-modal" class="modal hidden">
+        <div class="modal-content options-modal">
+            <h3 id="opt-product-name">Opções do Produto</h3>
+            <hr>
+            <div id="product-details-area">
+                </div>
+            <button class="btn-add-to-cart-options" onclick="addProductWithOptionsToCart()">Adicionar ao Pedido</button>
+            <button class="btn-close-options" onclick="closeOptionsModal()">Cancelar</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
