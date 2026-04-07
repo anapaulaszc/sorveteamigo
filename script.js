@@ -5,15 +5,15 @@ const database = [
     // POTES
     { id: 1, cat: 'potes', nome: 'Pote Trufatto 1L', preco: 35.00, desc: 'Sorvete de ninho amigo, mesclado com trufa de chocolate.', image: 'img/pote-trufatto.png' },
     { id: 2, cat: 'potes', nome: 'Pote Chocolate Belga 1L', preco: 35.00, desc: 'Sorvete nobre de chocolate belga, mesclado com creme leitissimo.', image: 'img/pote-belga.png' },
-    { id: 4, cat: 'potes', nome: 'Pote Ninho com Avelã 1.5L', preco: 36.00, desc: 'Sorvete de ninhom e chocolate avelã', image: 'img/pote-ninho-avela.png' },
-    { id: 6, cat: 'potes', nome: 'Pote Leite Condensado 1.5L', preco: 27.00, desc: 'Sorvete sabor leite condensado com morango.', image: 'img/pote-leite-condensado.png' },
-    { id: 7, cat: 'potes', nome: 'Pote Napolitano 1.8L', preco: 33.00, desc: 'Sorvete sabor chocolate, creme e morango.', image: 'img/pote-napolitano.png' },
+    { id: 4, cat: 'potes', nome: 'Pote Ninho com Avelã 1,5L', preco: 36.00, desc: 'Sorvete de ninhom e chocolate avelã', image: 'img/pote-ninho-avela.png' },
+    { id: 6, cat: 'potes', nome: 'Pote Leite Condensado 1,5L', preco: 27.00, desc: 'Sorvete sabor leite condensado com morango.', image: 'img/pote-leite-condensado.png' },
+    { id: 7, cat: 'potes', nome: 'Pote Napolitano 1,8L', preco: 33.00, desc: 'Sorvete sabor chocolate, creme e morango.', image: 'img/pote-napolitano.png' },
     { id: 8, cat: 'potes', nome: 'Pote Ninho 1L', preco: 22.00, desc: 'Sorvete de ninho.', image: 'img/pote-ninho-1l.png' },
-    { id: 9, cat: 'potes', nome: 'Pote Flocos 1.5L', preco: 31.00, desc: 'Sorvete de creme com flocos de chocolate.', image: 'img/pote-flocos.png' },
-    { id: 10, cat: 'potes', nome: 'Pote Chocolate Branco 1.5L', preco: 31.00, desc: 'Sorvete de chocolate branco com pedaços de chocolate ao leite.', image: 'img/pote-choc-branco.png' },
-    { id: 11, cat: 'potes', nome: 'Pote Abacaxi 1.5L', preco: 32.00, desc: 'Sorvete sabor abacaxi com cobertura de caramelo.', image: 'img/pote-abacaxi.png' },
-    { id: 12, cat: 'potes', nome: 'Pote Mousse de Maracujá 1.5L', preco: 32.00, desc: 'Sorvete sabor mousse de maracujá.', image: 'img/pote-maracuja.png' },
-    { id: 13, cat: 'potes', nome: 'Pote Açaí Puro 1.5L', preco: 50.00, desc: 'Açaí puro, sem corantes.', image: 'img/pote-acai-puro.png' },
+    { id: 9, cat: 'potes', nome: 'Pote Flocos 1,5L', preco: 31.00, desc: 'Sorvete de creme com flocos de chocolate.', image: 'img/pote-flocos.png' },
+    { id: 10, cat: 'potes', nome: 'Pote Chocolate Branco 1,5L', preco: 31.00, desc: 'Sorvete de chocolate branco com pedaços de chocolate ao leite.', image: 'img/pote-choc-branco.png' },
+    { id: 11, cat: 'potes', nome: 'Pote Abacaxi 1,5L', preco: 32.00, desc: 'Sorvete sabor abacaxi com cobertura de caramelo.', image: 'img/pote-abacaxi.png' },
+    { id: 12, cat: 'potes', nome: 'Pote Mousse de Maracujá 1,5L', preco: 32.00, desc: 'Sorvete sabor mousse de maracujá.', image: 'img/pote-maracuja.png' },
+    { id: 13, cat: 'potes', nome: 'Pote Açaí Puro 1,5L', preco: 50.00, desc: 'Açaí puro, sem corantes.', image: 'img/pote-acai-puro.png' },
     { id: 14, cat: 'potes', nome: 'Pote Açaí com Cupuaçu 1L', preco: 35.00, desc: 'Açaí mescladocom creme de cupuaçu.', image: 'img/pote-acai-cupuacu.png' },
     { id: 15, cat: 'potes', nome: 'Açaí Puro 240ml', preco: 12.00, desc: 'Açaí puro, sem corantes.', image: 'img/pote-acai-240.png' },
     { id: 20, cat: 'potes', nome: 'Pote de Chocolate Branco 240ml', preco: 10.00, desc: 'Sorvete de chocolate branco com calda de chocolate', image: 'img/pote-branco-240.png'},
@@ -59,10 +59,10 @@ const database = [
 
     // MILKSHAKES
     { id: 300, cat: 'shakes', nome: 'Milk Shake Amigo', preco: 0, desc: 'Escolha até 2 Sabores do Self-Service + Cobertura.', image: 'img/shake-imaginario.png', complexOptions: true, selfServiceFlavors: true, tamanhos: { '330ml': 18.00, '440ml': 19.00, '550ml': 21.00 } },
-    { id: 301, cat: 'shakes', nome: 'Shake Afeto', preco: 0, desc: 'Shakede sorvete Café com Creme Avelã e Café Solúvel.', image: 'img/shake-afeto.png', complexOptions: true, tamanhos: { '330ml': 21.00, '440ml': 23.00 } },
-    { id: 302, cat: 'shakes', nome: 'Shake Festa', preco: 0, desc: 'Shake de sorvete Ninho com Geleia Morango e Leite em Pó.', image: 'img/shake-festa.png', complexOptions: true, tamanhos: { '330ml': 21.00, '440ml': 23.00 } },
-    { id: 303, cat: 'shakes', nome: 'Shake Recreio', preco: 0, desc: 'Shake de sorvete Ninho com Leite em Pó e Creme Avelã.', image: 'img/shake-recreio.png', complexOptions: true, tamanhos: { '330ml': 21.00, '440ml': 23.00 } },
-    { id: 304, cat: 'shakes', nome: 'Shake Energia', preco: 0, desc: 'Shake de sorvete Kinderovo com flocos de Ovomaltine, Creme Avelã e Leite em pó.', image: 'img/shake-energia.png', complexOptions: true, tamanhos: { '330ml': 21.00, '440ml': 23.00 } },
+    { id: 301, cat: 'shakes', nome: 'Shake Afeto', preco: 0, desc: 'Milk Shake de sorvete Café com Creme Avelã e Café Solúvel.', image: 'img/shake-afeto.png', complexOptions: true, tamanhos: { '330ml': 21.00, '440ml': 23.00 } },
+    { id: 302, cat: 'shakes', nome: 'Shake Festa', preco: 0, desc: 'Milk Shake de sorvete Ninho com Geleia Morango e Leite em Pó.', image: 'img/shake-festa.png', complexOptions: true, tamanhos: { '330ml': 21.00, '440ml': 23.00 } },
+    { id: 303, cat: 'shakes', nome: 'Shake Recreio', preco: 0, desc: 'Milk Shake de sorvete Ninho com Leite em Pó e Creme Avelã.', image: 'img/shake-recreio.png', complexOptions: true, tamanhos: { '330ml': 21.00, '440ml': 23.00 } },
+    { id: 304, cat: 'shakes', nome: 'Shake Energia', preco: 0, desc: 'Milk Shake de sorvete Kinderovo com flocos de Ovomaltine, Creme Avelã e Leite em pó.', image: 'img/shake-energia.png', complexOptions: true, tamanhos: { '330ml': 21.00, '440ml': 23.00 } },
 
     // TAÇAS
     { id: 400, cat: 'tacas', nome: 'Aconchego', preco: 25.00, desc: 'irresistível bolinho quente de chocolate com recheio cremoso, sorvete de creme, pedaços de fruta da época, canudo tub hall e cobertura de chocolate.', image: 'img/taca-aconchego.png' },
@@ -210,7 +210,14 @@ function openOptionsModal(id) {
 
     // AQUI: Lógica atualizada para Adicionais com Miniaturas
     if (prod.cat === 'acai' || prod.cat === 'shakes') {
-        modalHTML += `<h4 style="margin-top:15px; margin-bottom: 10px;">Adicionais:</h4><div class="adds-grid" style="max-height:200px; overflow-y:auto; border:1px solid #eee; padding:5px; border-radius:8px; background:#fff;">`;
+        modalHTML += `
+            <div class="accordion-header" onclick="toggleAdicionais()" style="display: flex; justify-content: space-between; align-items: center; padding: 12px; background: #f9f9f9; border-radius: 8px; cursor: pointer; margin-top: 15px; border: 1px solid #eee; font-weight: bold;">
+                <span>Acrescentar Adicionais?</span>
+                <i id="icon-angle" class="fas fa-plus"></i>
+            </div>
+            
+            <div id="container-adicionais" style="display: none; max-height:200px; overflow-y:auto; border:1px solid #eee; padding:5px; border-radius:0 0 8px 8px; background:#fff; border-top:none;">
+        `;
         
         let listToUse = prod.cat === 'shakes' ? adicionaisList.filter(a => a.nome === 'Chantilly') : adicionaisList;
 
@@ -410,3 +417,96 @@ window.onload = function() {
         });
     }
 };
+
+function buscarProduto() {
+    const termo = document.getElementById('input-busca').value.toLowerCase();
+    const listContainer = document.getElementById('product-list');
+    listContainer.innerHTML = '';
+
+    // Busca em todo o banco de dados, independente da categoria
+    const resultados = database.filter(p => 
+        p.nome.toLowerCase().includes(termo) || 
+        p.desc.toLowerCase().includes(termo)
+    );
+
+    if (resultados.length === 0) {
+        listContainer.innerHTML = '<p style="text-align:center; color:#666; margin-top:20px;">Nenhum produto encontrado...</p>';
+        return;
+    }
+
+    // Renderiza os resultados (reutilizando a lógica do filterMenu)
+    resultados.forEach(p => {
+        let precoTexto = p.complexOptions ? 
+            `A partir de R$ ${Math.min(...Object.values(p.tamanhos)).toFixed(2)}` : 
+            `R$ ${p.preco.toFixed(2)}`;
+        
+        const div = document.createElement('div');
+        div.className = 'product-item';
+        div.innerHTML = `
+            <div class="product-content-wrapper" style="display: flex; align-items: center; width: 100%; gap: 15px;">
+                ${p.image ? `<img src="${p.image}" alt="${p.nome}" style="width: 70px; height: 70px; object-fit: contain; border-radius: 8px; background: #fff;">` : ''}
+                <div class="product-info" style="flex: 1;">
+                    <h4 style="margin: 0; font-size: 16px;">${p.nome}</h4>
+                    <p style="margin: 3px 0; font-size: 12px; color: #666;">${p.desc}</p>
+                    <span class="product-price" style="font-weight: bold; color: #ed3237;">${precoTexto}</span>
+                </div>
+                <button class="btn-add" style="background: #28a745; color: white; border: none; border-radius: 50%; width: 35px; height: 35px; font-size: 20px; cursor: pointer;">+</button>
+            </div>
+        `;
+        div.onclick = () => openOptionsModal(p.id);
+        listContainer.appendChild(div);
+    });
+}
+
+// FUNÇÃO PARA ABRIR/FECHAR ADICIONAIS
+function toggleAdicionais() {
+    const container = document.getElementById('container-adicionais');
+    const icon = document.getElementById('icon-angle');
+    
+    if (container.style.display === 'none' || container.style.display === '') {
+        container.style.display = 'block';
+        icon.classList.replace('fa-plus', 'fa-minus');
+    } else {
+        container.style.display = 'none';
+        icon.classList.replace('fa-minus', 'fa-plus');
+    }
+}
+
+// FUNÇÃO PARA A BUSCA FUNCIONAR
+function buscarProduto() {
+    const termo = document.getElementById('input-busca').value.toLowerCase();
+    const listContainer = document.getElementById('product-list');
+    listContainer.innerHTML = '';
+
+    const resultados = database.filter(p => 
+        p.nome.toLowerCase().includes(termo) || 
+        p.desc.toLowerCase().includes(termo)
+    );
+
+    if (resultados.length === 0) {
+        listContainer.innerHTML = '<p style="text-align:center; color:#666; margin-top:20px;">Nenhum produto encontrado...</p>';
+        return;
+    }
+
+    resultados.forEach(p => {
+        let precoTexto = p.complexOptions ? 
+            `A partir de R$ ${Math.min(...Object.values(p.tamanhos)).toFixed(2)}` : 
+            `R$ ${p.preco.toFixed(2)}`;
+        
+        const div = document.createElement('div');
+        div.className = 'product-item';
+        div.innerHTML = `
+            <div class="product-content-wrapper" style="display: flex; align-items: center; width: 100%; gap: 15px;">
+                ${p.image ? `<img src="${p.image}" alt="${p.nome}" style="width: 70px; height: 70px; object-fit: contain; border-radius: 8px; background: #fff;">` : ''}
+                <div class="product-info" style="flex: 1;">
+                    <h4 style="margin: 0; font-size: 16px;">${p.nome}</h4>
+                    <p style="margin: 3px 0; font-size: 12px; color: #666;">${p.desc}</p>
+                    <span class="product-price" style="font-weight: bold; color: #ed3237;">${precoTexto}</span>
+                </div>
+                <button class="btn-add" style="background: #28a745; color: white; border: none; border-radius: 50%; width: 35px; height: 35px; font-size: 20px; cursor: pointer;">+</button>
+            </div>
+        `;
+        div.onclick = () => openOptionsModal(p.id);
+        listContainer.appendChild(div);
+    });
+}
