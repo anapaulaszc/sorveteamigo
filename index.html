@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-<body onload="showPage('home')">
+<body>
 
     <header class="main-header">
         <div class="header-container">
@@ -25,6 +25,12 @@
             </nav>
         </div>
     </header>
+
+    <div class="header-wave">
+        <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+            <path fill="#ffffff" d="M0,0L1440,0L1440,30C1440,30,1080,120,720,120C360,120,0,30,0,30Z"></path>
+        </svg>
+    </div>
 
     <main id="home" class="page active">
         <section class="landing-links">
@@ -43,26 +49,22 @@
 
         <section class="nossas-delicias-home">
             <div class="titulo-area">
-                <img src="img/titulo-nossas-delicias.png" alt="Nossas Delícias" class="img-titulo">
+                <img src="img/titulo-nossas-delicias.png" alt="Nossas Delícias" class="img-titulo-grande">
                 <p>Potes, picolés, açaí, shakes, self-service ou nossas taças. Oferecemos tudo com a melhor qualidade e é claro, se compartilhar, fica mais gostoso!</p>
             </div>
             
             <div class="category-grid">
-                <div class="cat-card h-red" onclick="showPage('cardapio-page')">
+                <div class="cat-card-simple" onclick="showPage('cardapio-page', 'potes')">
                     <img src="img/sorvetes-img.png" alt="Sorvetes">
-                    <button class="btn-cat">SORVETES</button>
                 </div>
-                <div class="cat-card h-orange" onclick="showPage('cardapio-page')">
+                <div class="cat-card-simple" onclick="showPage('cardapio-page', 'picoles')">
                     <img src="img/picoles-img.png" alt="Picolés">
-                    <button class="btn-cat">PICOLÉS</button>
                 </div>
-                <div class="cat-card h-purple" onclick="showPage('cardapio-page')">
+                <div class="cat-card-simple" onclick="showPage('cardapio-page', 'acai')">
                     <img src="img/acai-img.png" alt="Açaí">
-                    <button class="btn-cat">AÇAÍ</button>
                 </div>
-                <div class="cat-card h-gray" onclick="showPage('cardapio-page')">
+                <div class="cat-card-simple" onclick="showPage('cardapio-page', 'shakes')">
                     <img src="img/cardapio-completo-img.png" alt="Cardápio">
-                    <button class="btn-cat cardapio-btn">CARDÁPIO COMPLETO</button>
                 </div>
             </div>
         </section>
@@ -73,7 +75,7 @@
             <div class="history-container">
                 <div class="history-text">
                     <p>Seja bem vindo, amigo! Já conhece nossa história?</p>
-                    <p>Nascemos em a Araçuaí, no Vale do Jequitinhonha, a partir de um único sonho: Semear e cultivar experiências de amizade. Agora estamos há mais de 25 anos refrescando a vida dos nossos amigos através de todas as nossas delícias!</p>
+                    <p>Nascemos em a Araçuaí, no Vale do Jequitinhonha, a partir de um único sonho: Semear e cultivar experiências de amizade. Agora estamos há mais de 25 anos refrescando a vida dos nossos amigos!</p>
                     <p>Conheça nossos produtos a seguir, mas não deixe de se “achegar um bucadim” aqui no nosso espaço amigo!</p>
                 </div>
                 <div class="history-illustration">
@@ -85,44 +87,51 @@
 
     <main id="nosso-espaco" class="page">
         <section class="espaco-section">
-            <h1 class="page-title">Nosso Espaço em Salinas</h1>
-            <p>Venha nos visitar e ter uma experiência deliciosa em um ambiente feito para amigos.</p>
-            <div class="loja-galeria">
-                <img src="img/loja-1.jpg" alt="Loja Amigo Salinas 1">
-                <img src="img/loja-2.jpg" alt="Loja Amigo Salinas 2">
+            <h1 class="page-title" style="text-align: center; margin-top: 20px;">Nosso Espaço em Salinas</h1>
+            <div class="espaco-container-novo">
+                <div class="foto-card">
+                    <img src="img/loja-1.jpg" alt="Loja Sorvete Amigo Salinas 1">
+                    <p>Ambiente Aconchegante</p>
+                </div>
+                <div class="foto-card">
+                    <img src="img/loja-2.jpg" alt="Loja Sorvete Amigo Salinas 2">
+                    <p>Qualidade Amigo</p>
+                </div>
             </div>
-            <a href="https://www.google.com/maps/search/?api=1&query=Sorvete+Amigo+Salinas+Rua+Raul+Soares+39" target="_blank" class="btn-maps">
-                <i class="fas fa-map-marker-alt"></i> VER NO GOOGLE MAPS
-            </a>
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="https://www.google.com/maps/search/?api=1&query=Sorvete+Amigo+Salinas+Rua+Raul+Soares+39" target="_blank" class="landing-box box-address" style="display: inline-flex; width: auto; padding: 15px 30px;">
+                    <i class="fas fa-map-marker-alt"></i> VER NO GOOGLE MAPS
+                </a>
+            </div>
         </section>
     </main>
 
     <main id="cardapio-page" class="page page-cardapio">
         <section class="products-section">
-            <h2 class="section-title">CARDÁPIO</h2>
-            
+            <h2 class="section-title" style="text-align: center; margin-top: 20px;">CARDÁPIO</h2>
             <div class="category-tabs">
                 <button onclick="filterMenu('potes')">POTES</button>
                 <button onclick="filterMenu('picoles')">PICOLÉS</button>
                 <button onclick="filterMenu('acai')">AÇAÍS</button>
                 <button onclick="filterMenu('shakes')">MILKSHAKES</button>
+                <button onclick="filterMenu('tacas')">TAÇAS</button>
+                <button onclick="filterMenu('outros')">OUTROS</button>
             </div>
-
             <div id="product-list" class="product-list-container">
                 </div>
         </section>
     </main>
 
-    <div class="footer-wave">
-        <svg viewBox="0 0 1440 320" preserveAspectRatio="none">
-            <path fill="#fdf6e3" fill-opacity="1" d="M0,128L48,128C96,128,192,128,288,112C384,96,480,64,576,64C672,64,768,96,864,112C960,128,1056,128,1152,112C1248,96,1344,64,1392,48L1440,32L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+    <div class="footer-wave" style="line-height: 0;">
+        <svg viewBox="0 0 1440 120" preserveAspectRatio="none" style="height: 80px; display: block;">
+            <path fill="#fdf6e3" d="M0,120L1440,120L1440,80C1440,80,1080,0,720,0C360,0,0,80,0,80Z"></path>
         </svg>
     </div>
 
     <footer class="main-footer">
         <div class="footer-container">
             <div class="footer-logo">
-                <img src="img/logo-footer.png" alt="Logo">
+                <img src="img/logo-footer.png" alt="Logo" class="img-footer-grande">
             </div>
             <div class="footer-info">
                 <p><strong>CONTATO</strong></p>
@@ -133,7 +142,7 @@
         </div>
     </footer>
 
-    <div id="cart-fixed-circular" class="cart-fixed-circular hidden" onclick="openCartModal()">
+    <div id="cart-fixed-circular" class="cart-fixed-circular" onclick="openCartModal()" style="display: none;">
         <span id="cart-count">0</span>
         <i class="fas fa-shopping-cart"></i>
     </div>
@@ -146,6 +155,7 @@
             <div class="form-group checkout-fields">
                 <label>Nome:</label>
                 <input type="text" id="cust-name" placeholder="Seu nome">
+                
                 <label>Bairro Salinas (Taxa):</label>
                 <select id="cust-bairro" onchange="renderCartModal()">
                     <option value="0">Selecione o Bairro</option>
@@ -207,15 +217,24 @@
                     <option value="3">Vila Sobradinho (Taxa R$ 3,00)</option>
                     <option value="3">Vista Alegre (Taxa R$ 3,00)</option>
                 </select>
+
                 <label>Endereço Completo:</label>
                 <input type="text" id="cust-address" placeholder="Rua, número, ref.">
+
                 <label>Forma de Pagamento:</label>
-                <select id="cust-payment">
+                <select id="cust-payment" onchange="toggleTroco()">
                     <option value="Pix">Pix</option>
                     <option value="Cartão">Cartão (Débito/Crédito)</option>
                     <option value="Dinheiro">Dinheiro</option>
                 </select>
+
+                <div id="troco-container" style="display: none;">
+                    <label>Troco para quanto?</label>
+                    <input type="number" id="cust-troco" placeholder="Ex: 50">
+                </div>
             </div>
+            
+            <div id="min-order-msg"></div> 
             <button class="btn-send" onclick="sendWhatsApp()">Finalizar e Enviar via WhatsApp</button>
             <button class="btn-close" onclick="closeCartModal()">Continuar Comprando</button>
         </div>
@@ -223,12 +242,11 @@
 
     <div id="product-options-modal" class="modal hidden">
         <div class="modal-content options-modal">
-            <h3 id="opt-product-name">Opções do Produto</h3>
-            <hr>
-            <div id="product-details-area">
-                </div>
-            <button class="btn-add-to-cart-options" onclick="addProductWithOptionsToCart()">Adicionar ao Pedido</button>
-            <button class="btn-close-options" onclick="closeOptionsModal()">Cancelar</button>
+            <div id="product-details-area"></div>
+            <div class="modal-actions" style="margin-top: 20px; display: flex; flex-direction: column; gap: 10px;">
+                <button class="btn-confirm" onclick="addProductWithOptionsToCart()">Adicionar ao Pedido</button>
+                <button class="btn-cancel" onclick="closeOptionsModal()">Cancelar</button>
+            </div>
         </div>
     </div>
 

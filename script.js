@@ -1,347 +1,412 @@
-// BANCO DE DADOS COMPLETO (Copie e cole isso tudo)
+// ==========================================
+// 1. BANCO DE DADOS INTEGRAL
+// ==========================================
 const database = [
     // POTES
-    { id: 1, cat: 'potes', nome: 'Pote Trufatto 1L', preco: 35.00, desc: 'Leite condensado com chocolate trufado.' },
-    { id: 2, cat: 'potes', nome: 'Pote Chocolate Belga 1L', preco: 35.00, desc: 'Chocolate, creme leitíssimo e gotas.' },
-    { id: 3, cat: 'potes', nome: 'Pote Pistache 1L', preco: 40.00, desc: 'Pistache premium cremoso.' },
-    { id: 4, cat: 'potes', nome: 'Pote Ninho com Avelã 1.5L', preco: 36.00, desc: 'Leite condensado, chocolate e avelã.' },
-    { id: 5, cat: 'potes', nome: 'Pote Morango Cremoso 1.5L', preco: 32.00, desc: 'Leite condensado com morango.' },
-    { id: 6, cat: 'potes', nome: 'Pote Leite Condensado 1.5L', preco: 27.00, desc: 'Mix com morango.' },
-    { id: 7, cat: 'potes', nome: 'Pote Napolitano 1.8L', preco: 33.00, desc: 'Chocolate, creme e morango.' },
-    { id: 8, cat: 'potes', nome: 'Pote Ninho 1L', preco: 22.00, desc: 'Puro sabor Ninho.' },
-    { id: 9, cat: 'potes', nome: 'Pote Flocos 1.5L', preco: 31.00, desc: 'Creme com chocolate.' },
-    { id: 10, cat: 'potes', nome: 'Pote Chocolate Branco 1.5L', preco: 31.00, desc: 'Com raspas e cobertura.' },
-    { id: 11, cat: 'potes', nome: 'Pote Abacaxi 1.5L', preco: 32.00, desc: 'Com cobertura de caramelo.' },
-    { id: 12, cat: 'potes', nome: 'Pote Mousse de Maracujá 1.5L', preco: 32.00, desc: 'Azedinho e cremoso.' },
-    { id: 13, cat: 'potes', nome: 'Açaí Puro 1.5L', preco: 50.00, desc: 'Açaí premium concentrado.' },
-    { id: 14, cat: 'potes', nome: 'Açaí com Cupuaçu 1L', preco: 35.00, desc: 'Mix perfeito.' },
-    { id: 15, cat: 'potes', nome: 'Açaí Puro 240ml', preco: 12.00, desc: 'Individual.' },
-    { id: 16, cat: 'potes', nome: 'Napolitano 500ml', preco: 19.00, desc: 'Individual.' },
-    { id: 17, cat: 'potes', nome: 'Açaí Zero 240ml', preco: 15.00, desc: 'Sem açúcar.' },
-    { id: 18, cat: 'potes', nome: 'Morango Zero 240ml', preco: 15.00, desc: 'Sem açúcar.' },
+    { id: 1, cat: 'potes', nome: 'Pote Trufatto 1L', preco: 35.00, desc: 'Sorvete de ninho amigo, mesclado com trufa de chocolate.', image: 'img/pote-trufatto.png' },
+    { id: 2, cat: 'potes', nome: 'Pote Chocolate Belga 1L', preco: 35.00, desc: 'Sorvete nobre de chocolate belga, mesclado com creme leitissimo.', image: 'img/pote-belga.png' },
+    { id: 4, cat: 'potes', nome: 'Pote Ninho com Avelã 1.5L', preco: 36.00, desc: 'Sorvete de ninhom e chocolate avelã', image: 'img/pote-ninho-avela.png' },
+    { id: 6, cat: 'potes', nome: 'Pote Leite Condensado 1.5L', preco: 27.00, desc: 'Sorvete sabor leite condensado com morango.', image: 'img/pote-leite-condensado.png' },
+    { id: 7, cat: 'potes', nome: 'Pote Napolitano 1.8L', preco: 33.00, desc: 'Sorvete sabor chocolate, creme e morango.', image: 'img/pote-napolitano.png' },
+    { id: 8, cat: 'potes', nome: 'Pote Ninho 1L', preco: 22.00, desc: 'Sorvete de ninho.', image: 'img/pote-ninho-1l.png' },
+    { id: 9, cat: 'potes', nome: 'Pote Flocos 1.5L', preco: 31.00, desc: 'Sorvete de creme com flocos de chocolate.', image: 'img/pote-flocos.png' },
+    { id: 10, cat: 'potes', nome: 'Pote Chocolate Branco 1.5L', preco: 31.00, desc: 'Sorvete de chocolate branco com pedaços de chocolate ao leite.', image: 'img/pote-choc-branco.png' },
+    { id: 11, cat: 'potes', nome: 'Pote Abacaxi 1.5L', preco: 32.00, desc: 'Sorvete sabor abacaxi com cobertura de caramelo.', image: 'img/pote-abacaxi.png' },
+    { id: 12, cat: 'potes', nome: 'Pote Mousse de Maracujá 1.5L', preco: 32.00, desc: 'Sorvete sabor mousse de maracujá.', image: 'img/pote-maracuja.png' },
+    { id: 13, cat: 'potes', nome: 'Pote Açaí Puro 1.5L', preco: 50.00, desc: 'Açaí puro, sem corantes.', image: 'img/pote-acai-puro.png' },
+    { id: 14, cat: 'potes', nome: 'Pote Açaí com Cupuaçu 1L', preco: 35.00, desc: 'Açaí mescladocom creme de cupuaçu.', image: 'img/pote-acai-cupuacu.png' },
+    { id: 15, cat: 'potes', nome: 'Açaí Puro 240ml', preco: 12.00, desc: 'Açaí puro, sem corantes.', image: 'img/pote-acai-240.png' },
+    { id: 20, cat: 'potes', nome: 'Pote de Chocolate Branco 240ml', preco: 10.00, desc: 'Sorvete de chocolate branco com calda de chocolate', image: 'img/pote-branco-240.png'},
+    { id: 16, cat: 'potes', nome: 'Pote Napolitano 500ml', preco: 19.00, desc: 'Sorvete sabor chocolate, creme e morango.', image: 'img/pote-napolitano-500.png' },
+    { id: 17, cat: 'potes', nome: 'Pote Açaí Zero 240ml', preco: 15.00, desc: 'Açaí puro sem adição de açúcar.', image: 'img/pote-acai-zero.png' },
+    { id: 18, cat: 'potes', nome: 'Pote Morango Zero 240ml', preco: 15.00, desc: 'Sorvete sabor de morango com recheio de morango sem adição de açúcar.', image: 'img/morango-zero.png' },
+    { id: 19, cat: 'potes', nome: 'Pote Chocolate Zero 240ml', preco: 15.00, desc: 'Sorvete sabor chocolate com recheio de trufa de chocolate sem adição de açúcar.', image: 'img/choc-zero.png' },
 
     // PICOLÉS
-    { id: 100, cat: 'picoles', nome: 'Picolé Limão', preco: 5.00, desc: 'Fruta.' },
-    { id: 101, cat: 'picoles', nome: 'Picolé Uva', preco: 5.00, desc: 'Fruta.' },
-    { id: 102, cat: 'picoles', nome: 'Picolé Napolitano', preco: 5.00, desc: 'Ao leite.' },
-    { id: 103, cat: 'picoles', nome: 'Picolé Groselha', preco: 5.00, desc: 'Fruta.' },
-    { id: 104, cat: 'picoles', nome: 'Picolé Morango Cremoso', preco: 6.00, desc: 'Ao leite.' },
-    { id: 105, cat: 'picoles', nome: 'Picolé Chocolate', preco: 6.00, desc: 'Ao leite.' },
-    { id: 106, cat: 'picoles', nome: 'Picolé Milho', preco: 6.00, desc: 'Ao leite.' },
-    { id: 107, cat: 'picoles', nome: 'Picolé Mousse Maracujá', preco: 6.00, desc: 'Ao leite.' },
-    { id: 108, cat: 'picoles', nome: 'Picolé Ninho', preco: 6.00, desc: 'Ao leite.' },
-    { id: 109, cat: 'picoles', nome: 'Picolé Coco', preco: 6.00, desc: 'Ao leite.' },
-    { id: 110, cat: 'picoles', nome: 'Picolé Graviola', preco: 6.00, desc: 'Fruta.' },
-    { id: 111, cat: 'picoles', nome: 'Picolé Açaí com Ninho', preco: 7.00, desc: 'Energia.' },
-    { id: 112, cat: 'picoles', nome: 'Picolé Morango Zero Açúcar', preco: 7.00, desc: 'Saudável.' },
-    { id: 113, cat: 'picoles', nome: 'Picolé Pinta Língua', preco: 4.50, desc: 'Kids.' },
-    { id: 114, cat: 'picoles', nome: 'Picolé Supremo Ninho Trufado', preco: 9.00, desc: 'Linha Premium.' },
-    { id: 115, cat: 'picoles', nome: 'Picolé Maracujá Trufado', preco: 9.00, desc: 'Linha Premium.' },
-    { id: 116, cat: 'picoles', nome: 'Picolé Brigadeiro', preco: 8.00, desc: 'Cremoso.' },
-    { id: 117, cat: 'picoles', nome: 'Paleta Ninho com Ovomaltine', preco: 12.00, desc: 'A gigante.' },
-    { id: 118, cat: 'picoles', nome: 'Paleta Croquito', preco: 12.00, desc: 'A gigante.' },
-    { id: 120, cat: 'picoles', nome: 'Picolé Pistache Supremo', preco: 15.00, desc: 'Premium máxima.' },
+    { id: 121, cat: 'picoles', nome: 'Açaí Amigo', preco: 2.50, desc: 'O queridinho da galera.', image: 'img/acai-70ml.png' },
+    { id: 100, cat: 'picoles', nome: 'Picolé Limão', preco: 5.00, desc: 'Picolé sabor limão.', image: 'img/picole-limao.png' },
+    { id: 101, cat: 'picoles', nome: 'Picolé Uva', preco: 5.00, desc: 'Picolé sabor uva.', image: 'img/picole-uva.png' },
+    { id: 102, cat: 'picoles', nome: 'Picolé Napolitano', preco: 5.00, desc: 'Picolé sabor de leite condensado e morango com cobertura de chocolate ao leite.', image: 'img/picole-napolitano.png' },
+    { id: 103, cat: 'picoles', nome: 'Picolé Groselha', preco: 5.00, desc: 'Picolé sabor groselha.', image: 'img/picole-groselha.png' },
+    { id: 104, cat: 'picoles', nome: 'Picolé Morango Cremoso', preco: 6.00, desc: 'Picolé sabor morango com recheio de morango.', image: 'img/picole-morango.png' },
+    { id: 105, cat: 'picoles', nome: 'Picolé Chocolate', preco: 6.00, desc: 'Picolé de chocolate.', image: 'img/picole-chocolate.png' },
+    { id: 106, cat: 'picoles', nome: 'Picolé Milho', preco: 6.00, desc: 'Picolé sabor milho com recheio de pamonha doce.', image: 'img/picole-milho.png' },
+    { id: 107, cat: 'picoles', nome: 'Picolé Mousse Maracujá', preco: 6.00, desc: 'Picolé sabor mousse de maracujá com recheio de creme de maracujá.', image: 'img/picole-maracuja.png' },
+    { id: 108, cat: 'picoles', nome: 'Picolé Ninho', preco: 6.00, desc: 'Picolé de leite.', image: 'img/picole-ninho.png' },
+    { id: 109, cat: 'picoles', nome: 'Picolé Coco', preco: 6.00, desc: 'Picolé sabor coco.', image: 'img/picole-coco.png' },
+    { id: 110, cat: 'picoles', nome: 'Picolé Graviola', preco: 6.00, desc: 'Picolé sabor graviola.', image: 'img/picole-graviola.png' },
+    { id: 121, cat: 'picoles', nome: 'Picolé Morango Silvestre', preco: 6.00, desc: 'Picolé sabor morango silvestre.', image: 'img/picole-morango-sil.png' },
+    { id: 111, cat: 'picoles', nome: 'Picolé Açaí com Ninho', preco: 7.00, desc: 'Picolé de açaí com recheio de ninho amigo.', image: 'img/picole-acai-ninho.png' },
+    { id: 112, cat: 'picoles', nome: 'Picolé Morango Zero Açúcar', preco: 7.00, desc: 'Picolé sabor morango com recheio de morangosem adição de açúcar.', image: 'img/picole-morango-zero.png' },
+    { id: 113, cat: 'picoles', nome: 'Picolé Pinta Língua', preco: 4.50, desc: 'Picolé sabor tutti frutti.', image: 'img/picole-pinta-lingua.png' },
+    { id: 114, cat: 'picoles', nome: 'Picolé Ninho Trufado', preco: 9.00, desc: 'Picolé de ninho com recheio de chocolate meio amargo com casquinha.', image: 'img/picole-ninho-trufado.png' },
+    { id: 119, cat: 'picoles', nome: 'Picolé Supremo', preco: 9.00, desc: 'Picolé sabor quatro leites recheado com chocolate ao leite, com cobertura de chocolate branco e flocos crocantes.', image: 'img/picole-supremo.png' },
+    { id: 115, cat: 'picoles', nome: 'Picolé Maracujá Trufado', preco: 9.00, desc: 'Picolé sabor maracujá com recheio de chocolate e cobertura de chocolate ao leite.', image: 'img/picole-maracuja-trufado.png' },
+    { id: 116, cat: 'picoles', nome: 'Picolé Brigadeiro', preco: 8.00, desc: 'Picolé sabor chocolate com cobertura de chocolate ao leite e granulado de chocolate.', image: 'img/picole-brigadeiro.png' },
+    { id: 117, cat: 'picoles', nome: 'Paleta Ninho com Ovomaltine', preco: 12.00, desc: 'Paleta sabor ninho com recheio de ovomaltine.', image: 'img/paleta-ninho.png' },
+    { id: 118, cat: 'picoles', nome: 'Paleta Croquito', preco: 12.00, desc: 'Picolé de caramelo com cobertura de chocolate ao leite e flocos crocantes.', image: 'img/paleta-croquito.png' },
+    { id: 120, cat: 'picoles', nome: 'Picolé Pistache Supremo', preco: 15.00, desc: 'Picolé sabor pistache com calda e pedaços de pistache.', image: 'img/picole-pistache.png' },
 
-    // AÇAÍS COMPLEXOS (with complexOptions=true)
-    { id: 200, cat: 'acai', nome: 'CALOR Açaí Amigo', preco: 0, desc: 'Granola, Salada de Frutas, Leite em Pó.', complexOptions: true, tamanhos: { '330ml': 22.00, '440ml': 23.00, '550ml': 25.00 } },
-    { id: 201, cat: 'acai', nome: 'UNIÃO Açaí Amigo', preco: 0, desc: 'Creme Ninho, Mousse Morango, Creme Avelã.', complexOptions: true, tamanhos: { '330ml': 22.00, '440ml': 23.00, '550ml': 25.00 } },
-    { id: 202, cat: 'acai', nome: 'COMPANHIA Açaí Amigo', preco: 0, desc: 'Creme Avelã, Creme Ninho, Gotas Chocolate.', complexOptions: true, tamanhos: { '330ml': 22.00, '440ml': 23.00, '550ml': 25.00 } },
-    { id: 203, cat: 'acai', nome: 'ABRAÇO Açaí Amigo', preco: 0, desc: 'Banana, Leite em Pó, Leite Condensado.', complexOptions: true, tamanhos: { '330ml': 18.00, '440ml': 20.00, '550ml': 22.00 } },
-    { id: 204, cat: 'acai', nome: 'ALEGRIA Açaí Amigo', preco: 0, desc: 'Leite em Pó e Creme Avelã.', complexOptions: true, tamanhos: { '330ml': 22.00, '440ml': 23.00, '550ml': 25.00 } },
-    
-    // AÇAÍS SIMPLES (sem complexOptions)
-    { id: 205, cat: 'acai', nome: 'Açaí AMOR 480ml', preco: 26.00, desc: 'Frutas da Época, Ninho, Condensado.' },
-    { id: 206, cat: 'acai', nome: 'Açaí AVENTURA 450ml', preco: 32.00, desc: 'Bombom, Ninho, Picolé Premium.' },
-    { id: 207, cat: 'acai', nome: 'Açaí DIVERSÃO 250ml', preco: 15.00, desc: 'Ninho, Banana e Disqueti.' },
+    // AÇAÍS
+    { id: 200, cat: 'acai', nome: 'CALOR Açaí Amigo', preco: 0, desc: 'Granola, Salada de Frutas, Leite em Pó.', image: 'img/acai-calor.png', complexOptions: true, tamanhos: { '330ml': 22.00, '440ml': 23.00, '550ml': 25.00 } },
+    { id: 201, cat: 'acai', nome: 'UNIÃO Açaí Amigo', preco: 0, desc: 'Creme Ninho, Mousse Morango, Creme Avelã.', image: 'img/acai-uniao.png', complexOptions: true, tamanhos: { '330ml': 22.00, '440ml': 23.00, '550ml': 25.00 } },
+    { id: 202, cat: 'acai', nome: 'COMPANHIA Açaí Amigo', preco: 0, desc: 'Creme Avelã, Creme Ninho, Gotas Chocolate.', image: 'img/acai-companhia.png', complexOptions: true, tamanhos: { '330ml': 22.00, '440ml': 23.00, '550ml': 25.00 } },
+    { id: 203, cat: 'acai', nome: 'ABRAÇO Açaí Amigo', preco: 0, desc: 'Banana, Leite em Pó, Leite Condensado.', image: 'img/acai-abraco.png', complexOptions: true, tamanhos: { '330ml': 18.00, '440ml': 20.00, '550ml': 22.00 } },
+    { id: 204, cat: 'acai', nome: 'ALEGRIA Açaí Amigo', preco: 0, desc: 'Leite em Pó e Creme Avelã.', image: 'img/acai-alegria.png', complexOptions: true, tamanhos: { '330ml': 22.00, '440ml': 23.00, '550ml': 25.00 } },
+    { id: 205, cat: 'acai', nome: 'Açaí AMOR 480ml', preco: 26.00, desc: 'Frutas da Época, Ninho, Condensado.', image: 'img/acai-amor.png' },
+    { id: 206, cat: 'acai', nome: 'Açaí AVENTURA 450ml', preco: 32.00, desc: 'Bombom, Ninho, Picolé Premium.', image: 'img/acai-aventura.png' },
+    { id: 207, cat: 'acai', nome: 'Açaí DIVERSÃO 250ml', preco: 15.00, desc: 'Ninho, Banana e Disqueti.', image: 'img/acai-diversao.png' },
 
-    // MILKSHAKES COMPLEXOS (with complexOptions=true)
-    { id: 300, cat: 'shakes', nome: 'AMIGO IMAGINÁRIO', preco: 0, desc: 'Escolha até 2 Sabores do Self-Service + Cobertura.', complexOptions: true, selfServiceFlavors: true, tamanhos: { '330ml': 18.00, '440ml': 19.00, '550ml': 21.00 } },
-    { id: 301, cat: 'shakes', nome: 'Shake Trufado AFETO', preco: 0, desc: 'Sorvete Café, Creme Avelã, Café Solúvel.', complexOptions: true, tamanhos: { '330ml': 21.00, '440ml': 23.00 } },
-    { id: 302, cat: 'shakes', nome: 'Shake Trufado FESTA', preco: 0, desc: 'Sorvete Ninho, Geleia Morango, Leite em Pó.', complexOptions: true, tamanhos: { '330ml': 21.00, '440ml': 23.00 } },
-    { id: 303, cat: 'shakes', nome: 'Shake Trufado RECREIO', preco: 0, desc: 'Sorvete Ninho, Leite em Pó, Creme Avelã.', complexOptions: true, tamanhos: { '330m': 21.00, '440ml': 23.00 } },
-    { id: 304, cat: 'shakes', nome: 'Shake Trufado ENERGIA', preco: 0, desc: 'Kinderovo, Ovomaltine, Creme Avelã, Ninho.', complexOptions: true, tamanhos: { '330ml': 21.00, '440ml': 23.00 } },
+    // MILKSHAKES
+    { id: 300, cat: 'shakes', nome: 'AMIGO IMAGINÁRIO', preco: 0, desc: 'Escolha até 2 Sabores do Self-Service + Cobertura.', image: 'img/shake-imaginario.png', complexOptions: true, selfServiceFlavors: true, tamanhos: { '330ml': 18.00, '440ml': 19.00, '550ml': 21.00 } },
+    { id: 301, cat: 'shakes', nome: 'Shake Trufado AFETO', preco: 0, desc: 'Sorvete Café, Creme Avelã, Café Solúvel.', image: 'img/shake-afeto.png', complexOptions: true, tamanhos: { '330ml': 21.00, '440ml': 23.00 } },
+    { id: 302, cat: 'shakes', nome: 'Shake Trufado FESTA', preco: 0, desc: 'Sorvete Ninho, Geleia Morango, Leite em Pó.', image: 'img/shake-festa.png', complexOptions: true, tamanhos: { '330ml': 21.00, '440ml': 23.00 } },
+    { id: 303, cat: 'shakes', nome: 'Shake Trufado RECREIO', preco: 0, desc: 'Sorvete Ninho, Leite em Pó, Creme Avelã.', image: 'img/shake-recreio.png', complexOptions: true, tamanhos: { '330ml': 21.00, '440ml': 23.00 } },
+    { id: 304, cat: 'shakes', nome: 'Shake Trufado ENERGIA', preco: 0, desc: 'Kinderovo, Ovomaltine, Creme Avelã, Ninho.', image: 'img/shake-energia.png', complexOptions: true, tamanhos: { '330ml': 21.00, '440ml': 23.00 } },
+
+    // TAÇAS
+    { id: 400, cat: 'tacas', nome: 'Aconchego', preco: 25.00, desc: 'Sabor acolhedor com a qualidade Amigo.', image: 'img/taca-aconchego.png' },
+    { id: 305, cat: 'tacas', nome: 'Taça Encontro 320ml', preco: 25.00, desc: 'Pistache e Ninho com Chantilly.', image: 'img/taca-encontro.png' },
+    { id: 306, cat: 'tacas', nome: 'Taça Carinho 400ml', preco: 21.00, desc: 'Ninho e Morango com Geleia.', image: 'img/taca-carinho.png' },
 
     // OUTROS
-    { id: 305, cat: 'shakes', nome: 'Taça Encontro 320ml', preco: 25.00, desc: 'Pistache e Ninho com Chantilly.' },
-    { id: 306, cat: 'shakes', nome: 'Taça Carinho 400ml', preco: 21.00, desc: 'Ninho e Morango com Geleia.' },
-    { id: 307, cat: 'shakes', nome: 'Água / Água com Gás', preco: 3.00, desc: '' },
-    { id: 308, cat: 'shakes', nome: 'Coca-Cola Lata', preco: 6.00, desc: '' },
+    { id: 500, cat: 'outros', nome: 'Cascão', preco: 1.00, desc: 'Crocante e fresquinho.', image: 'img/cascao.png' },
+    { id: 501, cat: 'outros', nome: 'Cestinha', preco: 1.00, desc: 'Ideal para o seu sorvete.', image: 'img/cestinha.png' },
+    { id: 307, cat: 'outros', nome: 'Água Mineral 500ml', preco: 3.00, desc: 'Sem gás', image: 'img/agua-mineral.png' },
+    { id: 308, cat: 'outros', nome: 'Água com Gás 500ml', preco: 4.00, desc: 'Refrescante', image: 'img/agua-com-gas.png' },
+    { id: 309, cat: 'outros', nome: 'Coca-Cola Lata', preco: 6.00, desc: '350ml', image: 'img/coca-lata.png' }
 ];
 
 const selfServiceSabores = ["Açaí Puro", "Açaí Trufado", "Açaí Zero", "Creme de cupuaçu", "Açaí com Pistache", "Açaí com Ninho", "Chocolate", "Chocolate Belga", "Kit Kat", "Maltino", "Super Black", "Abacaxi", "Banana flambada", "Amendoim", "Coco", "Frutas do Bosque", "Café Holandês", "Chocolate Branco", "Frutas Tropicais", "Limão Galego", "Creme Maracujá", "Mousse de Maracuja", "Doce de leite", "Morango", "Flocos", "Italiano", "Morango Natural", "Kinder Ovo", "Pistache", "Leite condensado", "Torta de limão", "Ninho", "Ninho com Avelã", "Ninho Trufado", "jabuticaba", "Danoninho", "Blue Ice", "Chiclete", "Chocomenta"];
 
+// AQUI: Adicionei as rotas das imagens para os adicionais
 const adicionaisList = [
-    { nome: 'Banana', preco: 3.00 }, { nome: 'Biz', preco: 3.00 }, { nome: 'Biscoito Oreo', preco: 3.00 }, { nome: 'Cobertura Chocoball', preco: 3.00 }, { nome: 'Creme de Ninho', preco: 3.00 }, { nome: 'Disquete', preco: 3.00 }, { nome: 'Granola', preco: 3.00 }, { nome: 'Jujuba', preco: 3.00 }, { nome: 'Leite Condensado', preco: 3.00 }, { nome: 'Leite em Pó', preco: 3.00 }, { nome: 'Morango', preco: 3.00 }, { nome: 'Paçoca', preco: 3.00 }, { nome: 'Mousse de Morango', preco: 3.00 },
-    { nome: 'Calda de Chocolate', preco: 4.00 }, { nome: 'Geleia de Morango', preco: 4.00 }, { nome: 'Geleia de Maracujá', preco: 4.00 }, { nome: 'Salada de Frutas', preco: 4.00 }, { nome: 'Chantilly', preco: 4.00 }, { nome: 'Cereja', preco: 4.00 }, { nome: 'Kiwi', preco: 4.00 },
-    { nome: 'Creme de Avelã', preco: 5.00 }
+    { nome: 'Banana', preco: 3.00, image: 'img/banana.png' }, 
+    { nome: 'Biz', preco: 3.00, image: 'img/bis.png' }, 
+    { nome: 'Biscoito Oreo', preco: 3.00, image: 'img/oreo.png' }, 
+    { nome: 'Cobertura Chocoball', preco: 3.00, image: 'img/chocoball.png' }, 
+    { nome: 'Creme de Ninho', preco: 3.00, image: 'img/creme-ninho.png' }, 
+    { nome: 'Disquete', preco: 3.00, image: 'img/disquete.png' }, 
+    { nome: 'Granola', preco: 3.00, image: 'img/granola.png' }, 
+    { nome: 'Jujuba', preco: 3.00, image: 'img/jujuba.png' }, 
+    { nome: 'Leite Condensado', preco: 3.00, image: 'img/leite-condensado.png' }, 
+    { nome: 'Leite em Pó', preco: 3.00, image: 'img/leite-po.png' }, 
+    { nome: 'Morango', preco: 3.00, image: 'img/morango.png' }, 
+    { nome: 'Paçoca', preco: 3.00, image: 'img/pacoca.png' }, 
+    { nome: 'Mousse de Morango', preco: 3.00, image: 'img/mousse-morango.png' },
+    { nome: 'Mousse de Maracujá', preco: 3.00, image: 'img/mousse-maracuja.png' },
+    { nome: 'Calda de Chocolate', preco: 4.00, image: 'img/calda-chocolate.png' }, 
+    { nome: 'Geleia de Morango', preco: 4.00, image: 'img/geleia-morango.png' }, 
+    { nome: 'Geleia de Maracujá', preco: 4.00, image: 'img/geleia-maracuja.png' }, 
+    { nome: 'Salada de Frutas', preco: 4.00, image: 'img/salada-frutas.png' }, 
+    { nome: 'Chantilly', preco: 4.00, image: 'img/chantilly.png' }, 
+    { nome: 'Cereja', preco: 4.00, image: 'img/cereja.png' }, 
+    { nome: 'Kiwi', preco: 4.00, image: 'img/kiwi.png' },
+    { nome: 'Creme de Avelã', preco: 5.00, image: 'img/creme-avela.png' }
 ];
 
 let cart = [];
-let currentItemWithOptions = null; // Armazena o item que está sendo configurado no modal
+let currentItemWithOptions = null;
 
-function showPage(pageId) {
-    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-    document.getElementById(pageId).classList.add('active');
-    
-    const cartCircular = document.getElementById('cart-fixed-circular');
-    if (pageId === 'cardapio-page') {
-        cartCircular.classList.remove('hidden');
-        filterMenu('potes');
-    } else {
-        cartCircular.classList.add('hidden');
+function showPage(pageId, categoryToLoad = 'potes') {
+    const pages = document.querySelectorAll('.page');
+    pages.forEach(p => p.classList.remove('active'));
+
+    const targetPage = document.getElementById(pageId);
+    if (targetPage) {
+        targetPage.classList.add('active');
     }
+
+    const cartBtn = document.getElementById('cart-fixed-circular');
     
+    if (pageId === 'cardapio-page') {
+        filterMenu(categoryToLoad);
+        if (cartBtn) cartBtn.style.display = 'flex';
+    } else {
+        if (cartBtn) cartBtn.style.display = 'none';
+    }
     window.scrollTo(0, 0);
 }
 
 function filterMenu(category) {
     const listContainer = document.getElementById('product-list');
+    if (!listContainer) return;
     listContainer.innerHTML = '';
 
-    database.filter(p => p.cat === category).forEach(p => {
-        let priceDisplay = p.complexOptions ? `A partir de R$ ${Math.min(...Object.values(p.tamanhos)).toFixed(2)}` : `R$ ${p.preco.toFixed(2)}`;
-        
-        // Verifica se é um produto simples ou complexo
-        let clickAction = p.complexOptions ? `openOptionsModal(${p.id})` : `addToCart(${p.id})`;
+    const tabs = document.querySelectorAll('.category-tabs button');
+    tabs.forEach(btn => {
+        if (btn.getAttribute('onclick') && btn.getAttribute('onclick').includes(`'${category}'`)) {
+            btn.style.backgroundColor = '#587e69';
+        } else {
+            btn.style.backgroundColor = '#ed3237';
+        }
+    });
 
-        listContainer.innerHTML += `
-            <div class="product-item">
-                <div class="product-info">
-                    <h4>${p.nome}</h4>
-                    <p>${p.desc}</p>
+    const products = database.filter(item => item.cat === category);
+    products.forEach(p => {
+        let precoTexto = p.complexOptions ? 
+            `A partir de R$ ${Math.min(...Object.values(p.tamanhos)).toFixed(2)}` : 
+            `R$ ${p.preco.toFixed(2)}`;
+        
+        const div = document.createElement('div');
+        div.className = 'product-item';
+        
+        div.innerHTML = `
+            <div class="product-content-wrapper" style="display: flex; align-items: center; width: 100%; gap: 15px;">
+                ${p.image ? `<img src="${p.image}" alt="${p.nome}" style="width: 70px; height: 70px; object-fit: contain; border-radius: 8px; background: #fff;">` : ''}
+                
+                <div class="product-info" style="flex: 1;">
+                    <h4 style="margin: 0; font-size: 16px;">${p.nome}</h4>
+                    <p style="margin: 3px 0; font-size: 12px; color: #666;">${p.desc}</p>
+                    <span class="product-price" style="font-weight: bold; color: #ed3237;">${precoTexto}</span>
                 </div>
-                <div style="display:flex; align-items:center;">
-                    <span class="product-price">${priceDisplay}</span>
-                    <button class="btn-add" onclick="${clickAction}">+</button>
-                </div>
+
+                <button class="btn-add" style="background: #28a745; color: white; border: none; border-radius: 50%; width: 35px; height: 35px; font-size: 20px; cursor: pointer; display: flex; align-items: center; justify-content: center;">+</button>
             </div>
         `;
+        
+        div.onclick = () => openOptionsModal(p.id);
+        listContainer.appendChild(div);
     });
 }
-
-// LÓGICA DE PRODUTOS COMPLEXOS (MODAL DE OPÇÕES)
 
 function openOptionsModal(id) {
     const prod = database.find(p => p.id === id);
-    currentItemWithOptions = prod; // Define o item atual para configuração
-    
-    document.getElementById('product-options-modal').classList.remove('hidden');
-    document.getElementById('opt-product-name').innerText = `Opções do ${prod.nome}`;
-    
+    if (!prod) return; 
+
+    currentItemWithOptions = prod;
+    const modal = document.getElementById('product-options-modal');
     const detailsArea = document.getElementById('product-details-area');
-    detailsArea.innerHTML = ''; // Limpa as opções anteriores
-
-    // 1. TAMANHOS (Obrigatório)
-    let tamHTML = `<h4>1. Escolha o Tamanho (Obrigatório)</h4><select id="opt-tam-select" class="opt-tam-select">`;
-    tamHTML += `<option value="">Selecione o tamanho</option>`;
-    for (const [tam, preco] of Object.entries(prod.tamanhos)) {
-        tamHTML += `<option value="${tam}">${tam} - R$ ${preco.toFixed(2)}</option>`;
-    }
-    tamHTML += `</select>`;
-    detailsArea.innerHTML += tamHTML;
-
-    // 2. SABORES SELF-SERVICE (Se aplicável)
-    if (prod.selfServiceFlavors) {
-        let flavorHTML = `<h4>2. Escolha os Sabores (Self-Service)</h4>
-            <p style="font-size:0.8rem; color:#666; margin-top:-10px; margin-bottom:10px;">Você pode escolher até 2 sabores para o Milk Shake Amigo Imaginário.</p>
-            <input type="text" id="opt-flavor-input-1" class="opt-flavor-input" placeholder="Sabor 1" list="opt-flavor-list">
-            <input type="text" id="opt-flavor-input-2" class="opt-flavor-input" placeholder="Sabor 2 (Opcional)" list="opt-flavor-list">
-            
-            <datalist id="opt-flavor-list">
-                ${selfServiceSabores.map(sabor => `<option value="${sabor}">`).join('')}
-            </datalist>
-        `;
-        detailsArea.innerHTML += flavorHTML;
-    }
-
-    // 3. ADICIONAIS (Opcional, com preço somado)
-    // Se for Milk Shake, adiciona Chantilly. Se for Açaí, adiciona os adicionaisList
-    let addsToRender = prod.cat === 'shakes' ? [{ nome: 'Adicional de Chantilly', preco: 4.00 }] : adicionaisList;
     
-    if (addsToRender.length > 0) {
-        let addOnsHTML = `<h4>${prod.cat === 'shakes' ? '3. Adicionais' : '3. Escolha seus Adicionais (Opcional)'}</h4>
-            <div id="opt-adds-area" class="options-area">`;
-        
-        addsToRender.forEach((add, index) => {
-            addOnsHTML += `
-                <div class="add-on-option">
-                    <span>${add.nome} (+ R$ ${add.preco.toFixed(2)})</span>
-                    <input type="checkbox" class="opt-add-on-check" data-nome="${add.nome}" data-preco="${add.preco}">
-                </div>`;
-        });
-        addOnsHTML += `</div>`;
-        detailsArea.innerHTML += addOnsHTML;
+    if (!modal || !detailsArea) return;
+
+    let modalHTML = `
+        <div style="text-align:center;">
+            ${prod.image ? `<img src="${prod.image}" alt="${prod.nome}" style="width:100%; max-height:220px; object-fit:contain; border-radius:10px; margin-bottom:15px; background:#fdf6e3;">` : ''}
+            <h3>${prod.nome}</h3>
+            <p style="font-size:14px; color:#666; margin-bottom:10px;">${prod.desc}</p>
+        </div>
+        <hr style="border:0; border-top:1px solid #eee; margin:15px 0;">
+    `;
+
+    if (prod.complexOptions) {
+        modalHTML += `<h4>Escolha o Tamanho:</h4><select id="opt-tam-select" class="opt-select" style="width:100%; padding:10px; margin-bottom:15px; border-radius:5px;">`;
+        for (const [tam, preco] of Object.entries(prod.tamanhos)) {
+            modalHTML += `<option value="${tam}">${tam} - R$ ${preco.toFixed(2)}</option>`;
+        }
+        modalHTML += `</select>`;
+    } else {
+        modalHTML += `<p><strong>Preço: R$ ${prod.preco.toFixed(2)}</strong></p><input type="hidden" id="opt-tam-select" value="Unico">`;
     }
+
+    if (prod.selfServiceFlavors) {
+        modalHTML += `
+            <h4 style="margin-top:15px;">Escolha até 2 Sabores:</h4>
+            <input type="text" id="opt-flavor-input-1" class="opt-input" style="width:100%; padding:8px; margin-bottom:5px; border:1px solid #ccc; border-radius:5px;" placeholder="Primeiro Sabor" list="opt-flavor-list">
+            <input type="text" id="opt-flavor-input-2" class="opt-input" style="width:100%; padding:8px; border:1px solid #ccc; border-radius:5px;" placeholder="Segundo Sabor (Opcional)" list="opt-flavor-list">
+            <datalist id="opt-flavor-list">${selfServiceSabores.map(s => `<option value="${s}">`).join('')}</datalist>
+        `;
+    }
+
+    // AQUI: Lógica atualizada para Adicionais com Miniaturas
+    if (prod.cat === 'acai' || prod.cat === 'shakes') {
+        modalHTML += `<h4 style="margin-top:15px; margin-bottom: 10px;">Adicionais:</h4><div class="adds-grid" style="max-height:200px; overflow-y:auto; border:1px solid #eee; padding:5px; border-radius:8px; background:#fff;">`;
+        
+        let listToUse = prod.cat === 'shakes' ? adicionaisList.filter(a => a.nome === 'Chantilly') : adicionaisList;
+
+        listToUse.forEach(add => {
+            modalHTML += `
+                <label style="display:flex; align-items:center; justify-content:space-between; padding: 10px; border-bottom: 1px solid #eee; cursor:pointer;">
+                    <div style="display: flex; align-items: center; gap: 12px; flex: 1;">
+                        ${add.image ? `<img src="${add.image}" alt="${add.nome}" style="width: 50px; height: 50px; object-fit: contain; border-radius: 6px; background: #f9f9f9; flex-shrink: 0;">` : ''}
+                        <div style="flex: 1;">
+                            <span style="font-size:14px; font-weight: 500; color: #333;">${add.nome}</span>
+                            <br>
+                            <span style="font-size:13px; font-weight: bold; color: #ed3237;">R$ ${add.preco.toFixed(2)}</span>
+                        </div>
+                    </div>
+                    <input type="checkbox" class="opt-add-on-check" data-nome="${add.nome}" data-preco="${add.preco}" style="width: 18px; height: 18px; cursor: pointer; margin-left: 10px;">
+                </label>
+            `;
+        });
+        modalHTML += `</div>`;
+    }
+
+    modalHTML += `
+        <h4 style="margin-top:15px;">Observações:</h4>
+        <textarea id="opt-obs" style="width:100%; height:60px; border-radius:5px; border:1px solid #ccc; padding:8px; font-family:inherit;" placeholder="Ex: Sem granola, caprichar na calda..."></textarea>
+    `;
+
+    detailsArea.innerHTML = modalHTML;
+    modal.classList.remove('hidden');
 }
 
-function closeOptionsModal() {
-    document.getElementById('product-options-modal').classList.add('hidden');
+function closeOptionsModal() { 
+    const modal = document.getElementById('product-options-modal');
+    if (modal) modal.classList.add('hidden'); 
     currentItemWithOptions = null;
 }
 
-// ADICIONAR PRODUTO COMPLEXO AO CARRINHO
 function addProductWithOptionsToCart() {
-    if (!currentItemWithOptions) return;
-
-    // 1. Pega o Tamanho Escolhido e o Preço Base
+    if(!currentItemWithOptions) return;
+    
     const tamSelect = document.getElementById('opt-tam-select');
-    const tamanho = tamSelect.value;
-    if (!tamanho) return alert("Você precisa escolher o tamanho!");
+    const tamanho = tamSelect ? tamSelect.value : "Unico";
+    const obs = document.getElementById('opt-obs') ? document.getElementById('opt-obs').value : "";
     
-    const precoBase = currentItemWithOptions.tamanhos[tamanho];
+    let precoBase = currentItemWithOptions.complexOptions ? currentItemWithOptions.tamanhos[tamanho] : currentItemWithOptions.preco;
+    let totalAdds = 0;
+    let addsEscolhidos = [];
     
-    // 2. Pega os Adicionais Escolhidos e Soma o Preço
-    let totalAdicionaisPreco = 0;
-    let adicionaisEscolhidos = [];
-    const checks = document.querySelectorAll('.opt-add-on-check:checked');
-    checks.forEach(check => {
-        totalAdicionaisPreco += parseFloat(check.getAttribute('data-preco'));
-        adicionaisEscolhidos.push(check.getAttribute('data-nome'));
+    document.querySelectorAll('.opt-add-on-check:checked').forEach(c => {
+        totalAdds += parseFloat(c.dataset.preco);
+        addsEscolhidos.push(c.dataset.nome);
     });
 
-    // 3. Pega os Sabores Escolhidos (Se aplicável)
-    let saboresEscolhidos = [];
-    if (currentItemWithOptions.selfServiceFlavors) {
-        const sab1 = document.getElementById('opt-flavor-input-1').value;
-        const sab2 = document.getElementById('opt-flavor-input-2').value;
-        if (sab1) saboresEscolhidos.push(sab1);
-        if (sab2) saboresEscolhidos.push(sab2);
-    }
+    let sabores = [];
+    const f1 = document.getElementById('opt-flavor-input-1');
+    const f2 = document.getElementById('opt-flavor-input-2');
+    if (f1 && f1.value) sabores.push(f1.value);
+    if (f2 && f2.value) sabores.push(f2.value);
 
-    // 4. Monta o Item Final para o Carrinho
-    const totalItemPreco = precoBase + totalAdicionaisPreco;
-    
-    let nomeFinal = `${currentItemWithOptions.nome} (${tamanho})`;
-    let descFinal = `${currentItemWithOptions.desc}`;
-    if (saboresEscolhidos.length > 0) descFinal += ` Sabores: ${saboresEscolhidos.join(', ')}.`;
-    if (adicionaisEscolhidos.length > 0) descFinal += ` Adicionais: ${adicionaisEscolhidos.join(', ')}.`;
+    cart.push({
+        id: Date.now(),
+        nomeFormatado: `${currentItemWithOptions.nome} ${tamanho !== 'Unico' ? '('+tamanho+')' : ''}`,
+        preco: precoBase + totalAdds,
+        detalhes: `${sabores.length ? 'Sabores: '+sabores.join(', ')+'. ' : ''}${addsEscolhidos.length ? 'Adds: '+addsEscolhidos.join(', ')+'. ' : ''}${obs ? 'Obs: '+obs : ''}`
+    });
 
-    // Adiciona ao carrinho com o preço total calculado
-    const cartId = Date.now(); // Cria um ID único baseado na data
-    cart.push({ ...currentItemWithOptions, id: cartId, nome: nomeFinal, preco: totalItemPreco, desc: descFinal });
-    
     updateCartCount();
     closeOptionsModal();
-    alert(`${nomeFinal} adicionado ao pedido!`);
 }
 
-
-// LÓGICA DO CARRINHO (SIMPLES E REMOVER)
-
-function addToCart(id) {
-    const prod = database.find(p => p.id === id);
-    const cartId = Date.now(); // Cria um ID único
-    cart.push({...prod, id: cartId});
-    updateCartCount();
-    alert(`${prod.nome} adicionado ao pedido!`);
+function updateCartCount() { 
+    const countEl = document.getElementById('cart-count');
+    if (countEl) countEl.innerText = cart.length; 
 }
 
-function updateCartCount() {
-    document.getElementById('cart-count').innerText = cart.length;
+function openCartModal() { 
+    if (cart.length === 0) return alert("Seu carrinho está vazio!");
+    const cartModal = document.getElementById('cart-modal');
+    if (cartModal) {
+        cartModal.classList.remove('hidden'); 
+        renderCartModal(); 
+    }
 }
 
-function openCartModal() {
-    document.getElementById('cart-modal').classList.remove('hidden');
-    renderCartModal();
+function closeCartModal() { 
+    const cartModal = document.getElementById('cart-modal');
+    if (cartModal) cartModal.classList.add('hidden'); 
 }
 
-function closeCartModal() {
-    document.getElementById('cart-modal').classList.add('hidden');
-}
-
-// Renderiza o carrinho com o ícone de LIXEIRA para remover
 function renderCartModal() {
     const itemsDiv = document.getElementById('cart-items');
+    if (!itemsDiv) return;
     itemsDiv.innerHTML = '';
-    let total = 0;
+    let subtotal = 0;
 
     cart.forEach(item => {
         itemsDiv.innerHTML += `
-            <div class="cart-item-row">
-                <div class="cart-item-info">
-                    <span>${item.nome}</span>
-                    <p style="font-size:0.8rem; color:#666; margin:0;">${item.complexOptions ? item.desc : ''}</p>
+            <div style="border-bottom:1px solid #eee; padding:10px 0; display:flex; justify-content:space-between; align-items:center;">
+                <div style="flex:1;">
+                    <strong>${item.nomeFormatado}</strong>
+                    <p style="font-size:12px; color:#666; margin:0;">${item.detalhes}</p>
+                    <span style="color:#587e69; font-weight:bold;">R$ ${item.preco.toFixed(2)}</span>
                 </div>
-                <div style="display:flex; align-items:center;">
-                    <strong style="margin-right:15px; color:#ed3237;">R$ ${item.preco.toFixed(2)}</strong>
-                    <i class="fas fa-trash cart-item-remove" onclick="removeProductFromCart(${item.id})"></i>
-                </div>
-            </div>
-        `;
-        total += item.preco;
+                <i class="fas fa-trash" onclick="removeItem(${item.id})" style="color:#ed3237; cursor:pointer; padding:10px;"></i>
+            </div>`;
+        subtotal += item.preco;
     });
 
-    // Taxa de Entrega
-    const taxaValue = parseFloat(document.getElementById('cust-bairro').value) || 0;
-    
-    itemsDiv.innerHTML += `<hr><p style="text-align:right">Subtotal: R$ ${total.toFixed(2)}</p>`;
-    if(taxaValue > 0){
-        itemsDiv.innerHTML += `<p style="text-align:right">Taxa Entrega: R$ ${taxaValue.toFixed(2)}</p>`;
+    const bairroSelect = document.getElementById('cust-bairro');
+    const taxaValue = bairroSelect ? parseFloat(bairroSelect.value) : 0;
+    const totalFinal = subtotal + taxaValue;
+
+    itemsDiv.innerHTML += `
+        <div style="margin-top:15px; text-align:right; background:#f9f9f9; padding:10px; border-radius:8px;">
+            <p style="margin:2px 0;">Subtotal: R$ ${subtotal.toFixed(2)}</p>
+            <p style="margin:2px 0;">Taxa Entrega: R$ ${taxaValue.toFixed(2)}</p>
+            <h3 style="color:#ed3237; margin:5px 0;">TOTAL: R$ ${totalFinal.toFixed(2)}</h3>
+        </div>`;
+
+    const btnSend = document.querySelector('.btn-send');
+    const minMsg = document.getElementById('min-order-msg');
+    if (btnSend) {
+        if (subtotal < 20) {
+            if (minMsg) minMsg.innerHTML = `<p style="color:red; font-size:12px; font-weight:bold; text-align:center; margin-bottom:10px;">* Mínimo de R$ 20,00 para entrega.</p>`;
+            btnSend.disabled = true;
+            btnSend.style.opacity = "0.5";
+            btnSend.style.cursor = "not-allowed";
+        } else {
+            if (minMsg) minMsg.innerHTML = "";
+            btnSend.disabled = false;
+            btnSend.style.opacity = "1";
+            btnSend.style.cursor = "pointer";
+        }
     }
-    itemsDiv.innerHTML += `<h4 style="text-align:right; color:#ed3237; font-size:1.5rem">TOTAL: R$ ${(total + taxaValue).toFixed(2)}</h4>`;
 }
 
-// LÓGICA DE REMOVER ITEM DO CARRINHO
-function removeProductFromCart(cartId) {
-    // Filtra o carrinho para remover o item com o ID único
-    cart = cart.filter(item => item.id !== cartId);
-    
-    // Se o carrinho ficar vazio, fecha o modal
-    if(cart.length === 0){
-        closeCartModal();
-    } else {
-        renderCartModal(); // Re-renderiza o modal para atualizar a lista e o total
-    }
+function removeItem(id) {
+    cart = cart.filter(i => i.id !== id);
     updateCartCount();
+    if(cart.length === 0) closeCartModal();
+    else renderCartModal();
 }
 
-// FORMATAR E ENVIAR WHATSAPP (A MELHORIA QUE VOCÊ PEDIU)
+function toggleTroco() {
+    const pagtoSelect = document.getElementById('cust-payment');
+    const trocoCont = document.getElementById('troco-container');
+    if (pagtoSelect && trocoCont) {
+        trocoCont.style.display = (pagtoSelect.value === 'Dinheiro') ? 'block' : 'none';
+    }
+}
+
 function sendWhatsApp() {
     const nome = document.getElementById('cust-name').value;
     const endereco = document.getElementById('cust-address').value;
     const bairroSelect = document.getElementById('cust-bairro');
-    const bairro = bairroSelect.selectedOptions[0].text;
+    
+    if(!nome || !endereco || !bairroSelect || bairroSelect.value === "0") {
+        alert("Por favor, preencha o Nome, Endereço e selecione o Bairro.");
+        return;
+    }
+
+    const bairroText = bairroSelect.options[bairroSelect.selectedIndex].text;
     const taxa = parseFloat(bairroSelect.value);
     const pagto = document.getElementById('cust-payment').value;
-    
-    if(!nome || !endereco || taxa === 0 || cart.length === 0) return alert("Preencha Nome, Endereço e selecione o Bairro de Salinas para o pedido!");
+    const troco = document.getElementById('cust-troco').value;
 
     let subtotal = 0;
-    // Resumir itens para o Zap
-    let summaryCart = {};
-    cart.forEach(item => {
-        // Usa o nome final (com tamanho/adicionais) para o resumo
-        if (!summaryCart[item.nome]) {
-            summaryCart[item.nome] = {...item, quantity: 0};
-        }
-        summaryCart[item.nome].quantity += 1;
-        subtotal += item.preco;
+    let msg = `*🍦 NOVO PEDIDO - AMIGO SALINAS*\n\n`;
+    msg += `*Cliente:* ${nome}\n`;
+    msg += `*Endereço:* ${endereco}\n`;
+    msg += `*Bairro:* ${bairroText}\n`;
+    msg += `--------------------------\n`;
+    cart.forEach(i => {
+        msg += `• *${i.nomeFormatado}*\n  R$ ${i.preco.toFixed(2)}\n  _${i.detalhes}_\n\n`;
+        subtotal += i.preco;
     });
+    msg += `--------------------------\n`;
+    msg += `*Subtotal:* R$ ${subtotal.toFixed(2)}\n`;
+    msg += `*Taxa de Entrega:* R$ ${taxa.toFixed(2)}\n`;
+    msg += `*TOTAL:* R$ ${(subtotal + taxa).toFixed(2)}\n\n`;
+    msg += `*Pagamento:* ${pagto}`;
+    if (pagto === 'Dinheiro' && troco) msg += ` (Troco para R$ ${troco})`;
 
-    let totalGeral = subtotal + taxa;
-
-    // A MENSAGEM FORMATADA
-    let mensagem = `*PEDIDO SORVETE AMIGO SALINAS*\n`;
-    mensagem += `*Cliente:* ${nome}\n`;
-    mensagem += `*Endereço:* ${endereco}\n`;
-    mensagem += `*Bairro:* ${bairro}\n`;
-    mensagem += `--------------------------\n`;
-    
-    // Lista de itens resumida (ex: 2x CALOR Açaí (440ml)... )
-    Object.values(summaryCart).forEach(item => {
-        mensagem += `• ${item.quantity}x ${item.nome}`;
-        // Se tiver complexOptions (adicionais), adiciona na mensagem do zap
-        if(item.complexOptions){
-            mensagem += ` - (${item.desc})`;
-        }
-        mensagem += ` - (R$ ${item.preco.toFixed(2)})\n`;
-    });
-    
-    mensagem += `--------------------------\n`;
-    mensagem += `*TOTAL:* R$ ${totalGeral.toFixed(2)}\n`;
-    mensagem += `--------------------------\n`;
-    mensagem += `*Pagamento:* ${pagto}\n`;
-
-    const url = `https://wa.me/5538988353543?text=${encodeURIComponent(mensagem)}`;
-    window.open(url, '_blank');
+    window.open(`https://wa.me/5538988353543?text=${encodeURIComponent(msg)}`, '_blank');
 }
+
+window.onload = function() {
+    showPage('home');
+    updateCartCount();
+
+    const bairroSelect = document.getElementById('cust-bairro');
+    if (bairroSelect) {
+        bairroSelect.addEventListener('change', () => {
+            const cartModal = document.getElementById('cart-modal');
+            if (cartModal && !cartModal.classList.contains('hidden')) {
+                renderCartModal();
+            }
+        });
+    }
+};
