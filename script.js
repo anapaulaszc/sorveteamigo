@@ -48,36 +48,36 @@ const database = [
     { id: 120, cat: 'picoles', nome: 'Picolé Pistache Supremo', preco: 15.00, desc: 'Picolé sabor pistache com calda e pedaços de pistache.', image: 'img/picole-pistache.png' },
 
     // AÇAÍS
-    { id: 200, cat: 'acai', nome: 'CALOR Açaí Amigo', preco: 0, desc: 'Granola, Salada de Frutas, Leite em Pó.', image: 'img/acai-calor.png', complexOptions: true, tamanhos: { '330ml': 22.00, '440ml': 23.00, '550ml': 25.00 } },
-    { id: 201, cat: 'acai', nome: 'UNIÃO Açaí Amigo', preco: 0, desc: 'Creme Ninho, Mousse Morango, Creme Avelã.', image: 'img/acai-uniao.png', complexOptions: true, tamanhos: { '330ml': 22.00, '440ml': 23.00, '550ml': 25.00 } },
-    { id: 202, cat: 'acai', nome: 'COMPANHIA Açaí Amigo', preco: 0, desc: 'Creme Avelã, Creme Ninho, Gotas Chocolate.', image: 'img/acai-companhia.png', complexOptions: true, tamanhos: { '330ml': 22.00, '440ml': 23.00, '550ml': 25.00 } },
-    { id: 203, cat: 'acai', nome: 'ABRAÇO Açaí Amigo', preco: 0, desc: 'Banana, Leite em Pó, Leite Condensado.', image: 'img/acai-abraco.png', complexOptions: true, tamanhos: { '330ml': 18.00, '440ml': 20.00, '550ml': 22.00 } },
-    { id: 204, cat: 'acai', nome: 'ALEGRIA Açaí Amigo', preco: 0, desc: 'Leite em Pó e Creme Avelã.', image: 'img/acai-alegria.png', complexOptions: true, tamanhos: { '330ml': 22.00, '440ml': 23.00, '550ml': 25.00 } },
-    { id: 205, cat: 'acai', nome: 'Açaí AMOR 480ml', preco: 26.00, desc: 'Frutas da Época, Ninho, Condensado.', image: 'img/acai-amor.png' },
-    { id: 206, cat: 'acai', nome: 'Açaí AVENTURA 450ml', preco: 32.00, desc: 'Bombom, Ninho, Picolé Premium.', image: 'img/acai-aventura.png' },
-    { id: 207, cat: 'acai', nome: 'Açaí DIVERSÃO 250ml', preco: 15.00, desc: 'Ninho, Banana e Disqueti.', image: 'img/acai-diversao.png' },
+    { id: 200, cat: 'acai', nome: 'Açaí Calor ', preco: 0, desc: 'Açaí amigo com camadas de Granola, Salada de Frutas, Leite em Pó.', image: 'img/acai-calor.png', complexOptions: true, tamanhos: { '330ml': 22.00, '440ml': 23.00, '550ml': 25.00 } },
+    { id: 201, cat: 'acai', nome: 'Açaí União', preco: 0, desc: 'Açaí amigo com camadas de Creme Ninho, Mousse Morango, Creme Avelã.', image: 'img/acai-uniao.png', complexOptions: true, tamanhos: { '330ml': 22.00, '440ml': 23.00, '550ml': 25.00 } },
+    { id: 202, cat: 'acai', nome: 'Açaí Companhia', preco: 0, desc: 'Açaí amigo com camadas de Creme Avelã, Creme Ninho, Gotas Chocolate.', image: 'img/acai-companhia.png', complexOptions: true, tamanhos: { '330ml': 22.00, '440ml': 23.00, '550ml': 25.00 } },
+    { id: 203, cat: 'acai', nome: 'Açaí Abraço ( tradicional) ', preco: 0, desc: 'Açaí amigo com camadas de Banana, Leite em Pó, Leite Condensado.', image: 'img/acai-abraco.png', complexOptions: true, tamanhos: { '330ml': 18.00, '440ml': 20.00, '550ml': 22.00 } },
+    { id: 204, cat: 'acai', nome: 'Açaí Alegria', preco: 0, desc: 'Açaí amigo com camadas de Leite em Pó e Creme Avelã.', image: 'img/acai-alegria.png', complexOptions: true, tamanhos: { '330ml': 22.00, '440ml': 23.00, '550ml': 25.00 } },
+    { id: 205, cat: 'acai', nome: 'Açaí Amor 480ml', preco: 26.00, desc: 'Açaí amigo com pedaços de Frutas da época, Leite em pó e leite condensado.', image: 'img/acai-amor.png' },
+    { id: 206, cat: 'acai', nome: 'Açaí Aventura 450ml', preco: 32.00, desc: 'Açaí amigo com pedaços de Bombom, leite em pó, e um Picolé Premium.', image: 'img/acai-aventura.png' },
+    { id: 207, cat: 'acai', nome: 'Açaí Diversão 250ml', preco: 15.00, desc: 'Açaí amigo com camadas de Leite em pó, Banana e Disqueti.', image: 'img/acai-diversao.png' },
 
     // MILKSHAKES
-    { id: 300, cat: 'shakes', nome: 'AMIGO IMAGINÁRIO', preco: 0, desc: 'Escolha até 2 Sabores do Self-Service + Cobertura.', image: 'img/shake-imaginario.png', complexOptions: true, selfServiceFlavors: true, tamanhos: { '330ml': 18.00, '440ml': 19.00, '550ml': 21.00 } },
-    { id: 301, cat: 'shakes', nome: 'Shake Trufado AFETO', preco: 0, desc: 'Sorvete Café, Creme Avelã, Café Solúvel.', image: 'img/shake-afeto.png', complexOptions: true, tamanhos: { '330ml': 21.00, '440ml': 23.00 } },
-    { id: 302, cat: 'shakes', nome: 'Shake Trufado FESTA', preco: 0, desc: 'Sorvete Ninho, Geleia Morango, Leite em Pó.', image: 'img/shake-festa.png', complexOptions: true, tamanhos: { '330ml': 21.00, '440ml': 23.00 } },
-    { id: 303, cat: 'shakes', nome: 'Shake Trufado RECREIO', preco: 0, desc: 'Sorvete Ninho, Leite em Pó, Creme Avelã.', image: 'img/shake-recreio.png', complexOptions: true, tamanhos: { '330ml': 21.00, '440ml': 23.00 } },
-    { id: 304, cat: 'shakes', nome: 'Shake Trufado ENERGIA', preco: 0, desc: 'Kinderovo, Ovomaltine, Creme Avelã, Ninho.', image: 'img/shake-energia.png', complexOptions: true, tamanhos: { '330ml': 21.00, '440ml': 23.00 } },
+    { id: 300, cat: 'shakes', nome: 'Milk Shake Amigo', preco: 0, desc: 'Escolha até 2 Sabores do Self-Service + Cobertura.', image: 'img/shake-imaginario.png', complexOptions: true, selfServiceFlavors: true, tamanhos: { '330ml': 18.00, '440ml': 19.00, '550ml': 21.00 } },
+    { id: 301, cat: 'shakes', nome: 'Shake Afeto', preco: 0, desc: 'Shakede sorvete Café com Creme Avelã e Café Solúvel.', image: 'img/shake-afeto.png', complexOptions: true, tamanhos: { '330ml': 21.00, '440ml': 23.00 } },
+    { id: 302, cat: 'shakes', nome: 'Shake Festa', preco: 0, desc: 'Shake de sorvete Ninho com Geleia Morango e Leite em Pó.', image: 'img/shake-festa.png', complexOptions: true, tamanhos: { '330ml': 21.00, '440ml': 23.00 } },
+    { id: 303, cat: 'shakes', nome: 'Shake Recreio', preco: 0, desc: 'Shake de sorvete Ninho com Leite em Pó e Creme Avelã.', image: 'img/shake-recreio.png', complexOptions: true, tamanhos: { '330ml': 21.00, '440ml': 23.00 } },
+    { id: 304, cat: 'shakes', nome: 'Shake Energia', preco: 0, desc: 'Shake de sorvete Kinderovo com flocos de Ovomaltine, Creme Avelã e Leite em pó.', image: 'img/shake-energia.png', complexOptions: true, tamanhos: { '330ml': 21.00, '440ml': 23.00 } },
 
     // TAÇAS
-    { id: 400, cat: 'tacas', nome: 'Aconchego', preco: 25.00, desc: 'Sabor acolhedor com a qualidade Amigo.', image: 'img/taca-aconchego.png' },
-    { id: 305, cat: 'tacas', nome: 'Taça Encontro 320ml', preco: 25.00, desc: 'Pistache e Ninho com Chantilly.', image: 'img/taca-encontro.png' },
-    { id: 306, cat: 'tacas', nome: 'Taça Carinho 400ml', preco: 21.00, desc: 'Ninho e Morango com Geleia.', image: 'img/taca-carinho.png' },
+    { id: 400, cat: 'tacas', nome: 'Aconchego', preco: 25.00, desc: 'irresistível bolinho quente de chocolate com recheio cremoso, sorvete de creme, pedaços de fruta da época, canudo tub hall e cobertura de chocolate.', image: 'img/taca-aconchego.png' },
+    { id: 305, cat: 'tacas', nome: 'Taça Encontro 320ml', preco: 25.00, desc: 'Sorvete de Pistache e Ninho, acompanhado com mescla de pistache, amendoim granulado e chantilly.', image: 'img/taca-encontro.png' },
+    { id: 306, cat: 'tacas', nome: 'Taça Carinho 400ml', preco: 21.00, desc: 'Sorvete de Ninho e Morango, acompanhado de geleia de morango e fruta da época.', image: 'img/taca-carinho.png' },
 
     // OUTROS
-    { id: 500, cat: 'outros', nome: 'Cascão', preco: 1.00, desc: 'Crocante e fresquinho.', image: 'img/cascao.png' },
-    { id: 501, cat: 'outros', nome: 'Cestinha', preco: 1.00, desc: 'Ideal para o seu sorvete.', image: 'img/cestinha.png' },
-    { id: 307, cat: 'outros', nome: 'Água Mineral 500ml', preco: 3.00, desc: 'Sem gás', image: 'img/agua-mineral.png' },
-    { id: 308, cat: 'outros', nome: 'Água com Gás 500ml', preco: 4.00, desc: 'Refrescante', image: 'img/agua-com-gas.png' },
-    { id: 309, cat: 'outros', nome: 'Coca-Cola Lata', preco: 6.00, desc: '350ml', image: 'img/coca-lata.png' }
+    { id: 500, cat: 'outros', nome: 'Cascão', preco: 1.00, desc: 'Crocante.', image: 'img/cascao.png' },
+    { id: 501, cat: 'outros', nome: 'Cestinha', preco: 1.00, desc: 'Crocante.', image: 'img/cestinha.png' },
+    { id: 307, cat: 'outros', nome: 'Água Mineral 500ml', preco: 3.00, desc: 'Água Mineral 500ml.', image: 'img/agua-mineral.png' },
+    { id: 308, cat: 'outros', nome: 'Água com Gás 500ml', preco: 4.00, desc: 'Água com Gás 500ml.', image: 'img/agua-com-gas.png' },
+    { id: 309, cat: 'outros', nome: 'Coca-Cola Lata', preco: 6.00, desc: 'Coca 350ml.', image: 'img/coca-lata.png' }
 ];
 
-const selfServiceSabores = ["Açaí Puro", "Açaí Trufado", "Açaí Zero", "Creme de cupuaçu", "Açaí com Pistache", "Açaí com Ninho", "Chocolate", "Chocolate Belga", "Kit Kat", "Maltino", "Super Black", "Abacaxi", "Banana flambada", "Amendoim", "Coco", "Frutas do Bosque", "Café Holandês", "Chocolate Branco", "Frutas Tropicais", "Limão Galego", "Creme Maracujá", "Mousse de Maracuja", "Doce de leite", "Morango", "Flocos", "Italiano", "Morango Natural", "Kinder Ovo", "Pistache", "Leite condensado", "Torta de limão", "Ninho", "Ninho com Avelã", "Ninho Trufado", "jabuticaba", "Danoninho", "Blue Ice", "Chiclete", "Chocomenta"];
+const selfServiceSabores = ["Açaí Puro", "Açaí Trufado", "Creme de cupuaçu", "Açaí com Pistache", "Açaí com Ninho", "Chocolate", "Chocolate Belga", "Kit Kat", "Maltino", "Super Black", "Abacaxi", "Banana flambada", "Amendoim", "Coco", "Frutas do Bosque", "Café Holandês", "Chocolate Branco", "Frutas Tropicais", "Limão Galego", "Maracujá", "Mousse de Maracuja", "Doce de leite", "Morango", "Flocos Italiano", "Morango Natural", "Kinder Ovo", "Pistache", "Leite condensado", "Torta de limão", "Ninho", "Ninho com Avelã", "Ninho Trufado", "Jabuticaba", "Danoninho", "Blue Ice", "Chiclete", "Chocomenta"];
 
 // AQUI: Adicionei as rotas das imagens para os adicionais
 const adicionaisList = [
