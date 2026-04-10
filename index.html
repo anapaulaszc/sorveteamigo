@@ -20,7 +20,7 @@
                 <img src="img/logo-header.png" alt="Sorvete Amigo Salinas">
             </div>
             <nav class="nav-links nav-right">
-                <a href="javascript:void(0)" onclick="showPage('cardapio-page')">SABORES</a>
+                <li><a href="javascript:void(0)" onclick="showPage('horarios-page')">HORÁRIOS</a></li>
                 <a href="javascript:void(0)" onclick="showPage('nosso-espaco')">NOSSO ESPAÇO</a>
             </nav>
         </div>
@@ -47,6 +47,7 @@
             </div>
         </section>
 
+
         <section class="nossas-delicias-home">
             <div class="titulo-area">
                 <img src="img/titulo-nossas-delicias.png" alt="Nossas Delícias" class="img-titulo-grande">
@@ -68,6 +69,50 @@
                 </div>
             </div>
         </section>
+    </main>
+
+    <main id="horarios-page" class="page hidden">
+    <section style="padding: 40px 20px; text-align: center;">
+        
+        <div class="banner-container" style="width: 90%; max-width: 800px; height: 180px; margin: 0 auto 20px auto; overflow: hidden; border-radius: 15px; position: relative; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+            <img src="img/banner1.png" class="slide active" style="width: 100%; height: 100%; object-fit: cover; position: absolute; display: none;">
+            <img src="img/banner2.png" class="slide" style="width: 100%; height: 100%; object-fit: cover; position: absolute; display: none;">
+            <img src="img/banner3.png" class="slide" style="width: 100%; height: 100%; object-fit: cover; position: absolute; display: none;">
+            
+            <div id="banner-dots" style="position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px; z-index: 10;">
+                <span class="dot active" onclick="jumpToSlide(0)" style="width: 10px; height: 10px; background: white; border-radius: 50%; cursor: pointer;"></span>
+                <span class="dot" onclick="jumpToSlide(1)" style="width: 10px; height: 10px; background: rgba(255,255,255,0.5); border-radius: 50%; cursor: pointer;"></span>
+                <span class="dot" onclick="jumpToSlide(2)" style="width: 10px; height: 10px; background: rgba(255,255,255,0.5); border-radius: 50%; cursor: pointer;"></span>
+            </div>
+        </div>
+
+        <h2 style="color: #ed3237; margin-bottom: 25px; font-size: 28px; font-weight: bold;">HORÁRIO DE ATENDIMENTO</h2>
+        
+        <div style="max-width: 500px; margin: 0 auto; background: #ffffff; padding: 30px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+            
+            <div style="display: flex; justify-content: space-between; margin-bottom: 15px; border-bottom: 1px solid #f0f0f0; padding-bottom: 5px;">
+                <span style="color: #333; font-weight: bold;">Segunda</span>
+                <span style="color: #333; font-weight: bold;">8:00 - 22:00</span>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; margin-bottom: 15px; border-bottom: 1px solid #f0f0f0; padding-bottom: 5px;">
+                <span style="color: #333; font-weight: bold;">Sexta a Domingo</span>
+                <span style="color: #333; font-weight: bold;">12:00 - 22:00</span>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+                <span style="color: #333; font-weight: bold;">Feriados</span>
+                <span style="color: #333; font-weight: bold;">11:00 - 22:00</span>
+            </div>
+
+            <div id="status-loja-box" style="font-weight: bold; padding: 15px; border-radius: 10px; font-size: 18px; text-align: center;">
+                </div>
+        </div>
+
+        <button onclick="showPage('home')" style="margin-top: 30px; padding: 15px 40px; background: #ed3237; color: white; border: none; border-radius: 30px; cursor: pointer; font-weight: bold; font-size: 16px;">
+            Voltar ao Início
+        </button>
+    </section>
     </main>
 
     <main id="quem-somos" class="page">
@@ -95,7 +140,7 @@
                 </div>
                 <div class="foto-card">
                     <img src="img/loja-2.jpg" alt="Loja Sorvete Amigo Salinas 2">
-                    <p>Qualidade Amigo</p>
+                    <p>Confortável para você!</p>
                 </div>
             </div>
             <div style="text-align: center; margin-top: 30px;">

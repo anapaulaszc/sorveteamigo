@@ -55,7 +55,8 @@ const database = [
     { id: 204, cat: 'acai', nome: 'Açaí Alegria', preco: 0, desc: 'Açaí amigo com camadas de Leite em Pó e Creme Avelã.', image: 'img/acai-alegria.png', complexOptions: true, tamanhos: { '330ml': 22.00, '440ml': 23.00, '550ml': 25.00 } },
     { id: 205, cat: 'acai', nome: 'Açaí Amor 480ml', preco: 26.00, desc: 'Açaí amigo com pedaços de Frutas da época, Leite em pó e leite condensado.', image: 'img/acai-amor.png' },
     { id: 206, cat: 'acai', nome: 'Açaí Aventura 450ml', preco: 32.00, desc: 'Açaí amigo com pedaços de Bombom, leite em pó, e um Picolé Premium.', image: 'img/acai-aventura.png' },
-    { id: 207, cat: 'acai', nome: 'Açaí Diversão 250ml', preco: 15.00, desc: 'Açaí amigo com camadas de Leite em pó, Banana e Disqueti.', image: 'img/acai-diversao.png' },
+    { id: 207, cat: 'acai', nome: 'Açaí 750ml', preco: 28.00, desc: 'Açaí amigo com camadas de Banana, Leite em Pó, Leite Condensado.', image: 'img/acai750.png' },
+    { id: 208, cat: 'acai', nome: 'Açaí 1000ml', preco: 38.00, desc: 'Açaí amigo com camadas de Banana, Leite em Pó, Leite Condensado.', image: 'img/acai1000.png' },
 
     // MILKSHAKES
     { id: 300, cat: 'shakes', nome: 'Milk Shake Amigo', preco: 0, desc: 'Escolha até 2 Sabores do Self-Service + Cobertura.', image: 'img/shake-imaginario.png', complexOptions: true, selfServiceFlavors: true, tamanhos: { '330ml': 18.00, '440ml': 19.00, '550ml': 21.00 } },
@@ -108,6 +109,7 @@ const adicionaisList = [
 let cart = [];
 let currentItemWithOptions = null;
 
+
 function showPage(pageId, categoryToLoad = 'potes') {
     const pages = document.querySelectorAll('.page');
     pages.forEach(p => p.classList.remove('active'));
@@ -119,20 +121,30 @@ function showPage(pageId, categoryToLoad = 'potes') {
 
     const cartBtn = document.getElementById('cart-fixed-circular');
     
+    // ESTA É A PARTE NOVA:
     if (pageId === 'cardapio-page') {
         filterMenu(categoryToLoad);
         if (cartBtn) cartBtn.style.display = 'flex';
-    } else {
+    } 
+    else if (pageId === 'horarios-page') {
+        verificarStatusLoja(); // Atualiza se está aberto ou fechado
+        rodarBanner();         // Dá o "play" nas imagens
+        if (cartBtn) cartBtn.style.display = 'none';
+    } 
+    else {
         if (cartBtn) cartBtn.style.display = 'none';
     }
+    
     window.scrollTo(0, 0);
 }
+
 
 function filterMenu(category) {
     const listContainer = document.getElementById('product-list');
     if (!listContainer) return;
     listContainer.innerHTML = '';
 
+    // Lógica das Abas (Troca de cor do botão da categoria)
     const tabs = document.querySelectorAll('.category-tabs button');
     tabs.forEach(btn => {
         if (btn.getAttribute('onclick') && btn.getAttribute('onclick').includes(`'${category}'`)) {
@@ -142,8 +154,11 @@ function filterMenu(category) {
         }
     });
 
+    // Filtra os produtos da categoria
     const products = database.filter(item => item.cat === category);
+    
     products.forEach(p => {
+        // Cálculo de preço (A partir de... ou preço fixo)
         let precoTexto = p.complexOptions ? 
             `A partir de R$ ${Math.min(...Object.values(p.tamanhos)).toFixed(2)}` : 
             `R$ ${p.preco.toFixed(2)}`;
@@ -151,6 +166,7 @@ function filterMenu(category) {
         const div = document.createElement('div');
         div.className = 'product-item';
         
+        // Aqui está a mágica: Adicionei o comando de abrir o modal no BOTÃO também!
         div.innerHTML = `
             <div class="product-content-wrapper" style="display: flex; align-items: center; width: 100%; gap: 15px;">
                 ${p.image ? `<img src="${p.image}" alt="${p.nome}" style="width: 70px; height: 70px; object-fit: contain; border-radius: 8px; background: #fff;">` : ''}
@@ -161,10 +177,15 @@ function filterMenu(category) {
                     <span class="product-price" style="font-weight: bold; color: #ed3237;">${precoTexto}</span>
                 </div>
 
-                <button class="btn-add" style="background: #28a745; color: white; border: none; border-radius: 50%; width: 35px; height: 35px; font-size: 20px; cursor: pointer; display: flex; align-items: center; justify-content: center;">+</button>
+                <button class="btn-add" 
+                        onclick="openOptionsModal(${p.id})" 
+                        style="background: #28a745; color: white; border: none; border-radius: 50%; width: 35px; height: 35px; font-size: 20px; cursor: pointer; display: flex; align-items: center; justify-content: center;">
+                    +
+                </button>
             </div>
         `;
         
+        // Mantém o clique na div inteira como garantia
         div.onclick = () => openOptionsModal(p.id);
         listContainer.appendChild(div);
     });
@@ -255,36 +276,70 @@ function closeOptionsModal() {
 }
 
 function addProductWithOptionsToCart() {
-    if(!currentItemWithOptions) return;
-    
+    // 1. Corrigido: Agora usa a variável correta que você definiu no openOptionsModal
+    if (!currentItemWithOptions) {
+        alert("Erro: Nenhum produto selecionado.");
+        return;
+    }
+
+    const p = currentItemWithOptions;
+
+    // 2. Captura os elementos do DOM
     const tamSelect = document.getElementById('opt-tam-select');
-    const tamanho = tamSelect ? tamSelect.value : "Unico";
-    const obs = document.getElementById('opt-obs') ? document.getElementById('opt-obs').value : "";
+    const obsField = document.getElementById('opt-obs');
+    const s1 = document.getElementById('opt-flavor-input-1')?.value || "";
+    const s2 = document.getElementById('opt-flavor-input-2')?.value || "";
+
+    // 3. Define Preço e Tamanho
+    let precoFinal = 0;
+    let tamanhoTexto = "";
+
+    if (p.complexOptions) {
+        tamanhoTexto = tamSelect.value;
+        precoFinal = p.tamanhos[tamanhoTexto];
+    } else {
+        tamanhoTexto = "Único";
+        precoFinal = p.preco;
+    }
+
+    // 4. Lógica de Adicionais (Soma os preços dos marcados)
+    let adicionaisNomes = [];
+    let valorAdicionais = 0;
+    const checks = document.querySelectorAll('.opt-add-on-check:checked');
     
-    let precoBase = currentItemWithOptions.complexOptions ? currentItemWithOptions.tamanhos[tamanho] : currentItemWithOptions.preco;
-    let totalAdds = 0;
-    let addsEscolhidos = [];
-    
-    document.querySelectorAll('.opt-add-on-check:checked').forEach(c => {
-        totalAdds += parseFloat(c.dataset.preco);
-        addsEscolhidos.push(c.dataset.nome);
+    checks.forEach(c => {
+        adicionaisNomes.push(c.getAttribute('data-nome'));
+        valorAdicionais += parseFloat(c.getAttribute('data-preco'));
     });
 
-    let sabores = [];
-    const f1 = document.getElementById('opt-flavor-input-1');
-    const f2 = document.getElementById('opt-flavor-input-2');
-    if (f1 && f1.value) sabores.push(f1.value);
-    if (f2 && f2.value) sabores.push(f2.value);
+    // 5. Formatação dos detalhes para o WhatsApp e Carrinho
+    let detalhesArray = [];
+    if (tamanhoTexto !== "Único") detalhesArray.push(`Tam: ${tamanhoTexto}`);
+    if (s1 || s2) detalhesArray.push(`Sabores: ${[s1, s2].filter(x => x).join(' e ')}`);
+    if (adicionaisNomes.length > 0) detalhesArray.push(`Adds: ${adicionaisNomes.join(', ')}`);
+    if (obsField && obsField.value) detalhesArray.push(`Obs: ${obsField.value}`);
 
-    cart.push({
-        id: Date.now(),
-        nomeFormatado: `${currentItemWithOptions.nome} ${tamanho !== 'Unico' ? '('+tamanho+')' : ''}`,
-        preco: precoBase + totalAdds,
-        detalhes: `${sabores.length ? 'Sabores: '+sabores.join(', ')+'. ' : ''}${addsEscolhidos.length ? 'Adds: '+addsEscolhidos.join(', ')+'. ' : ''}${obs ? 'Obs: '+obs : ''}`
-    });
+    // 6. Monta o objeto final esperado pelo seu renderCartModal
+    const novoItem = {
+        id: Date.now(), // Gera um ID único para cada item (evita excluir dois iguais)
+        nomeOriginal: p.nome,
+        nomeFormatado: p.nome,
+        detalhes: detalhesArray.join(' | '),
+        preco: precoFinal + valorAdicionais,
+        quantidade: 1
+    };
 
-    updateCartCount();
+    // 7. Adiciona ao carrinho e atualiza tudo
+    cart.push(novoItem);
+    
+    // Atualiza o contador do ícone flutuante
+    updateCartCount(); 
+    
+    // Fecha o modal
     closeOptionsModal();
+    
+    // Feedback visual
+    alert("Adicionado ao carrinho!");
 }
 
 function updateCartCount() { 
@@ -421,9 +476,9 @@ window.onload = function() {
 function buscarProduto() {
     const termo = document.getElementById('input-busca').value.toLowerCase();
     const listContainer = document.getElementById('product-list');
+    if (!listContainer) return;
     listContainer.innerHTML = '';
 
-    // Busca em todo o banco de dados, independente da categoria
     const resultados = database.filter(p => 
         p.nome.toLowerCase().includes(termo) || 
         p.desc.toLowerCase().includes(termo)
@@ -434,7 +489,6 @@ function buscarProduto() {
         return;
     }
 
-    // Renderiza os resultados (reutilizando a lógica do filterMenu)
     resultados.forEach(p => {
         let precoTexto = p.complexOptions ? 
             `A partir de R$ ${Math.min(...Object.values(p.tamanhos)).toFixed(2)}` : 
@@ -450,7 +504,7 @@ function buscarProduto() {
                     <p style="margin: 3px 0; font-size: 12px; color: #666;">${p.desc}</p>
                     <span class="product-price" style="font-weight: bold; color: #ed3237;">${precoTexto}</span>
                 </div>
-                <button class="btn-add" style="background: #28a745; color: white; border: none; border-radius: 50%; width: 35px; height: 35px; font-size: 20px; cursor: pointer;">+</button>
+                <button class="btn-add" onclick="openOptionsModal(${p.id})" style="background: #28a745; color: white; border: none; border-radius: 50%; width: 35px; height: 35px; font-size: 20px; cursor: pointer;">+</button>
             </div>
         `;
         div.onclick = () => openOptionsModal(p.id);
@@ -472,41 +526,79 @@ function toggleAdicionais() {
     }
 }
 
-// FUNÇÃO PARA A BUSCA FUNCIONAR
-function buscarProduto() {
-    const termo = document.getElementById('input-busca').value.toLowerCase();
-    const listContainer = document.getElementById('product-list');
-    listContainer.innerHTML = '';
 
-    const resultados = database.filter(p => 
-        p.nome.toLowerCase().includes(termo) || 
-        p.desc.toLowerCase().includes(termo)
-    );
+function verificarStatusLoja() {
+    const agora = new Date();
+    const hora = agora.getHours();
+    const statusDiv = document.getElementById('status-loja-box');
+    if (!statusDiv) return;
 
-    if (resultados.length === 0) {
-        listContainer.innerHTML = '<p style="text-align:center; color:#666; margin-top:20px;">Nenhum produto encontrado...</p>';
-        return;
+    // Considerando aberto das 13h às 23h
+    if (hora >= 13 && hora < 23) {
+        statusDiv.innerHTML = "● ABERTO AGORA";
+        statusDiv.style.color = "#28a745";
+        statusDiv.style.background = "#e8f5e9";
+        statusDiv.style.border = "1px solid #28a745";
+    } else {
+        statusDiv.innerHTML = "○ FECHADO NO MOMENTO";
+        statusDiv.style.color = "#ed3237";
+        statusDiv.style.background = "#ffebee";
+        statusDiv.style.border = "1px solid #ed3237";
     }
+}
 
-    resultados.forEach(p => {
-        let precoTexto = p.complexOptions ? 
-            `A partir de R$ ${Math.min(...Object.values(p.tamanhos)).toFixed(2)}` : 
-            `R$ ${p.preco.toFixed(2)}`;
-        
-        const div = document.createElement('div');
-        div.className = 'product-item';
-        div.innerHTML = `
-            <div class="product-content-wrapper" style="display: flex; align-items: center; width: 100%; gap: 15px;">
-                ${p.image ? `<img src="${p.image}" alt="${p.nome}" style="width: 70px; height: 70px; object-fit: contain; border-radius: 8px; background: #fff;">` : ''}
-                <div class="product-info" style="flex: 1;">
-                    <h4 style="margin: 0; font-size: 16px;">${p.nome}</h4>
-                    <p style="margin: 3px 0; font-size: 12px; color: #666;">${p.desc}</p>
-                    <span class="product-price" style="font-weight: bold; color: #ed3237;">${precoTexto}</span>
-                </div>
-                <button class="btn-add" style="background: #28a745; color: white; border: none; border-radius: 50%; width: 35px; height: 35px; font-size: 20px; cursor: pointer;">+</button>
-            </div>
-        `;
-        div.onclick = () => openOptionsModal(p.id);
-        listContainer.appendChild(div);
+function verificarStatusLoja() {
+    const agora = new Date();
+    const hora = agora.getHours();
+    const statusDiv = document.getElementById('status-loja-box');
+    
+    if (!statusDiv) return;
+
+    // Regra: Aberto das 13h às 23h
+    if (hora >= 13 && hora < 23) {
+        statusDiv.innerHTML = "● ABERTO AGORA";
+        statusDiv.style.color = "#28a745";
+        statusDiv.style.background = "#e8f5e9";
+        statusDiv.style.border = "1px solid #28a745";
+    } else {
+        statusDiv.innerHTML = "○ FECHADO NO MOMENTO";
+        statusDiv.style.color = "#ed3237";
+        statusDiv.style.background = "#ffebee";
+        statusDiv.style.border = "1px solid #ed3237";
+    }
+}
+
+// LÓGICA DO BANNER
+let currentSlide = 0;
+let bannerTimer = null;
+
+function rodarBanner() {
+    const slides = document.querySelectorAll('.slide');
+    const dots = document.querySelectorAll('.dot');
+    if(slides.length === 0) return;
+    
+    if(bannerTimer) clearTimeout(bannerTimer);
+    
+    // Esconde tudo
+    slides.forEach(s => s.style.display = 'none');
+    dots.forEach(d => {
+        d.style.background = 'rgba(255,255,255,0.5)';
+        d.style.transform = 'scale(1)';
     });
+    
+    // Mostra o atual e destaca a bolinha
+    slides[currentSlide].style.display = 'block';
+    if(dots[currentSlide]) {
+        dots[currentSlide].style.background = '#fff'; // Bolinha ativa fica branca
+        dots[currentSlide].style.transform = 'scale(1.3)'; // E um pouco maior
+    }
+    
+    currentSlide = (currentSlide + 1) % slides.length;
+    bannerTimer = setTimeout(rodarBanner, 3500); 
+}
+
+// Função para clicar na bolinha e ir direto para a imagem
+function jumpToSlide(index) {
+    currentSlide = index;
+    rodarBanner();
 }
