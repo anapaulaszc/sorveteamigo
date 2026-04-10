@@ -23,7 +23,8 @@ const database = [
     { id: 19, cat: 'potes', nome: 'Pote Chocolate Zero 240ml', preco: 15.00, desc: 'Sorvete sabor chocolate com recheio de trufa de chocolate sem adição de açúcar.', image: 'img/choc-zero.png' },
 
     // PICOLÉS
-    { id: 121, cat: 'picoles', nome: 'Açaí Amigo', preco: 2.50, desc: 'O queridinho da galera.', image: 'img/acai-70ml.png' },
+    { id: 121, cat: 'picoles', nome: 'Açaí Amigo', preco: 2.50, desc: 'O queridinho da galera, perfeito para uma dose extra de energia.', image: 'img/acai-70ml.png' },
+    { id: 122, cat: 'picoles', nome: 'Caixa de Açaí Amigo - 12unid.', preco: 25.00, desc: 'Caixa com 12 açaízinhos para refrescar e dar energia.', image: 'img/caixa70ml.png' },
     { id: 100, cat: 'picoles', nome: 'Picolé Limão', preco: 5.00, desc: 'Picolé sabor limão.', image: 'img/picole-limao.png' },
     { id: 101, cat: 'picoles', nome: 'Picolé Uva', preco: 5.00, desc: 'Picolé sabor uva.', image: 'img/picole-uva.png' },
     { id: 102, cat: 'picoles', nome: 'Picolé Napolitano', preco: 5.00, desc: 'Picolé sabor de leite condensado e morango com cobertura de chocolate ao leite.', image: 'img/picole-napolitano.png' },
