@@ -5,7 +5,7 @@ const database = [
     // POTES
     { id: 1, cat: 'potes', nome: 'Pote Trufatto 1L', preco: 35.00, desc: 'Sorvete de ninho amigo, mesclado com trufa de chocolate.', image: 'img/pote-trufatto.png' },
     { id: 2, cat: 'potes', nome: 'Pote Chocolate Belga 1L', preco: 35.00, desc: 'Sorvete nobre de chocolate belga, mesclado com creme leitissimo.', image: 'img/pote-belga.png' },
-    { id: 4, cat: 'potes', nome: 'Pote Ninho com Avelã 1,5L', preco: 36.00, desc: 'Sorvete de ninhom e chocolate avelã', image: 'img/pote-ninho-avela.png' },
+    { id: 4, cat: 'potes', nome: 'Pote Ninho com Avelã 1,5L', preco: 36.00, desc: 'Sorvete de ninho e chocolate avelã', image: 'img/pote-ninho-avela.png' },
     { id: 6, cat: 'potes', nome: 'Pote Leite Condensado 1,5L', preco: 27.00, desc: 'Sorvete sabor leite condensado com morango.', image: 'img/pote-leite-condensado.png' },
     { id: 7, cat: 'potes', nome: 'Pote Napolitano 1,8L', preco: 33.00, desc: 'Sorvete sabor chocolate, creme e morango.', image: 'img/pote-napolitano.png' },
     { id: 8, cat: 'potes', nome: 'Pote Ninho 1L', preco: 22.00, desc: 'Sorvete de ninho.', image: 'img/pote-ninho-1l.png' },
