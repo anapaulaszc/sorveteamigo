@@ -499,7 +499,8 @@ function sendWhatsApp() {
 
     // 3. Endereço e Bairro (com a taxa ao lado)
     msg += `*Endereço:* ${endereco}\n`;
-    msg += `*Bairro:* ${bairroText} (Taxa R$ ${taxa.toFixed(2)})\n`;
+
+    msg += `*Bairro:* ${bairroText}\n`;
     msg += `--------------------------\n\n`;
 
     // 4. Fechamento (Total e Pagamento)
