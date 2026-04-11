@@ -487,7 +487,7 @@ function sendWhatsApp() {
     // 1. Cabeçalho e Cliente
     let msg = `🍦*PEDIDO - SORVETE AMIGO SALINAS*\n\n`;
     msg += `*Cliente:* ${nome}\n`;
-    msg += `-------------------------------------\n\n`;
+    msg += `----------------------------\n\n`;
     
     // 2. Itens do Pedido (usando o hífen "-" como você pediu)
     cart.forEach(i => {
