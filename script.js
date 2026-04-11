@@ -266,9 +266,32 @@ function openOptionsModal(id) {
         <textarea id="opt-obs" style="width:100%; height:60px; border-radius:5px; border:1px solid #ccc; padding:8px; font-family:inherit;" placeholder="Ex: Sem granola, caprichar na calda..."></textarea>
     `;
 
+    modalHTML += `
+    <h4 style="margin-top:15px;">Quantidade:</h4>
+    <div style="display: flex; align-items: center; gap: 20px; margin-bottom: 20px;">
+        <button onclick="changeQty(-1)" type="button" style="width: 40px; height: 40px; border-radius: 50%; border: 1px solid #ccc; background: #eee; font-size: 20px; cursor: pointer;">-</button>
+        <span id="prod-qty" style="font-size: 20px; font-weight: bold;">1</span>
+        <button onclick="changeQty(1)" type="button" style="width: 40px; height: 40px; border-radius: 50%; border: 1px solid #ccc; background: #eee; font-size: 20px; cursor: pointer;">+</button>
+    </div>
+`;
+
     detailsArea.innerHTML = modalHTML;
     modal.classList.remove('hidden');
 }
+
+let currentQty = 1; // Variável global para controlar a quantidade no modal
+
+// Função que aumenta ou diminui o número na tela
+function changeQty(delta) {
+    currentQty += delta;
+    if (currentQty < 1) currentQty = 1; // Não deixa ser menos que 1
+    const qtyEl = document.getElementById('prod-qty');
+    if (qtyEl) qtyEl.innerText = currentQty;
+}
+
+// IMPORTANTE: Resetar a quantidade para 1 sempre que abrir o modal
+// Adicione esta linha no INÍCIO da sua função openOptionsModal(id):
+// currentQty = 1;
 
 function closeOptionsModal() { 
     const modal = document.getElementById('product-options-modal');
@@ -277,7 +300,7 @@ function closeOptionsModal() {
 }
 
 function addProductWithOptionsToCart() {
-    // 1. Corrigido: Agora usa a variável correta que você definiu no openOptionsModal
+    // 1. Verificação de segurança
     if (!currentItemWithOptions) {
         alert("Erro: Nenhum produto selecionado.");
         return;
@@ -303,7 +326,7 @@ function addProductWithOptionsToCart() {
         precoFinal = p.preco;
     }
 
-    // 4. Lógica de Adicionais (Soma os preços dos marcados)
+    // 4. Lógica de Adicionais
     let adicionaisNomes = [];
     let valorAdicionais = 0;
     const checks = document.querySelectorAll('.opt-add-on-check:checked');
@@ -313,34 +336,54 @@ function addProductWithOptionsToCart() {
         valorAdicionais += parseFloat(c.getAttribute('data-preco'));
     });
 
-    // 5. Formatação dos detalhes para o WhatsApp e Carrinho
+    // 5. Formatação dos detalhes
     let detalhesArray = [];
     if (tamanhoTexto !== "Único") detalhesArray.push(`Tam: ${tamanhoTexto}`);
     if (s1 || s2) detalhesArray.push(`Sabores: ${[s1, s2].filter(x => x).join(' e ')}`);
     if (adicionaisNomes.length > 0) detalhesArray.push(`Adds: ${adicionaisNomes.join(', ')}`);
     if (obsField && obsField.value) detalhesArray.push(`Obs: ${obsField.value}`);
 
-    // 6. Monta o objeto final esperado pelo seu renderCartModal
+    // 6. Monta o objeto do item
     const novoItem = {
-        id: Date.now(), // Gera um ID único para cada item (evita excluir dois iguais)
+        id: Date.now(),
         nomeOriginal: p.nome,
         nomeFormatado: p.nome,
         detalhes: detalhesArray.join(' | '),
-        preco: precoFinal + valorAdicionais,
-        quantidade: 1
+        preco: (precoFinal + valorAdicionais) * currentQty,
+        quantidade: currentQty
     };
 
-    // 7. Adiciona ao carrinho e atualiza tudo
+    // 7. Adiciona ao carrinho e fecha o modal
     cart.push(novoItem);
-    
-    // Atualiza o contador do ícone flutuante
     updateCartCount(); 
-    
-    // Fecha o modal
     closeOptionsModal();
-    
-    // Feedback visual
-    alert("Adicionado ao carrinho!");
+
+    // --- 8. MENSAGEM VISUAL (AGORA NO LUGAR CERTO) ---
+    const toast = document.createElement('div');
+    toast.innerHTML = `✅ ${currentQty}x ${p.nome} adicionado!`;
+    toast.style.cssText = `
+        position: fixed;
+        bottom: 100px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #28a745;
+        color: white;
+        padding: 12px 25px;
+        border-radius: 30px;
+        font-weight: bold;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        z-index: 10000;
+        transition: opacity 0.5s;
+        text-align: center;
+        white-space: nowrap;
+    `;
+    document.body.appendChild(toast);
+
+    // Sumir depois de 2 segundos
+    setTimeout(() => {
+        toast.style.opacity = '0';
+        setTimeout(() => toast.remove(), 500);
+    }, 2000);
 }
 
 function updateCartCount() { 
@@ -369,17 +412,17 @@ function renderCartModal() {
     let subtotal = 0;
 
     cart.forEach(item => {
-        itemsDiv.innerHTML += `
-            <div style="border-bottom:1px solid #eee; padding:10px 0; display:flex; justify-content:space-between; align-items:center;">
-                <div style="flex:1;">
-                    <strong>${item.nomeFormatado}</strong>
-                    <p style="font-size:12px; color:#666; margin:0;">${item.detalhes}</p>
-                    <span style="color:#587e69; font-weight:bold;">R$ ${item.preco.toFixed(2)}</span>
-                </div>
-                <i class="fas fa-trash" onclick="removeItem(${item.id})" style="color:#ed3237; cursor:pointer; padding:10px;"></i>
-            </div>`;
-        subtotal += item.preco;
-    });
+    itemsDiv.innerHTML += `
+        <div style="border-bottom:1px solid #eee; padding:10px 0; display:flex; justify-content:space-between; align-items:center;">
+            <div style="flex:1;">
+                <strong>${item.quantidade}x ${item.nomeFormatado}</strong>
+                <p style="font-size:12px; color:#666; margin:0;">${item.detalhes}</p>
+                <span style="color:#587e69; font-weight:bold;">R$ ${item.preco.toFixed(2)}</span>
+            </div>
+            <i class="fas fa-trash" onclick="removeItem(${item.id})" style="color:#ed3237; cursor:pointer; padding:10px;"></i>
+        </div>`;
+    subtotal += item.preco;
+});
 
     const bairroSelect = document.getElementById('cust-bairro');
     const taxaValue = bairroSelect ? parseFloat(bairroSelect.value) : 0;
@@ -445,10 +488,13 @@ function sendWhatsApp() {
     msg += `*Endereço:* ${endereco}\n`;
     msg += `*Bairro:* ${bairroText}\n`;
     msg += `--------------------------\n`;
+    
     cart.forEach(i => {
-        msg += `• *${i.nomeFormatado}*\n  R$ ${i.preco.toFixed(2)}\n  _${i.detalhes}_\n\n`;
+        // MUDANÇA AQUI: Adicionado ${i.quantidade}x antes do nome
+        msg += `• *${i.quantidade}x ${i.nomeFormatado}*\n  R$ ${i.preco.toFixed(2)}\n  _${i.detalhes}_\n\n`;
         subtotal += i.preco;
     });
+    
     msg += `--------------------------\n`;
     msg += `*Subtotal:* R$ ${subtotal.toFixed(2)}\n`;
     msg += `*Taxa de Entrega:* R$ ${taxa.toFixed(2)}\n`;
