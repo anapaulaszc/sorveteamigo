@@ -483,24 +483,32 @@ function sendWhatsApp() {
     const troco = document.getElementById('cust-troco').value;
 
     let subtotal = 0;
+    
+    // 1. Cabeçalho e Nome do Cliente
     let msg = `*🍦 NOVO PEDIDO - AMIGO SALINAS*\n\n`;
-    msg += `*Cliente:* ${nome}\n`;
-    msg += `*Endereço:* ${endereco}\n`;
-    msg += `*Bairro:* ${bairroText}\n`;
+    msg += `*Cliente:* ${nome}\n\n`;
     msg += `--------------------------\n`;
     
+    // 2. Itens do Carrinho
     cart.forEach(i => {
-        // MUDANÇA AQUI: Adicionado ${i.quantidade}x antes do nome
-        msg += `• *${i.quantidade}x ${i.nomeFormatado}*\n  R$ ${i.preco.toFixed(2)}\n  _${i.detalhes}_\n\n`;
+        msg += `• *${i.quantidade}x ${i.nomeFormatado}*\n  _${i.detalhes}_\n\n`;
         subtotal += i.preco;
     });
     
     msg += `--------------------------\n`;
-    msg += `*Subtotal:* R$ ${subtotal.toFixed(2)}\n`;
-    msg += `*Taxa de Entrega:* R$ ${taxa.toFixed(2)}\n`;
+
+    // 3. Endereço e Bairro (com a taxa ao lado)
+    msg += `*Endereço:* ${endereco}\n`;
+    msg += `*Bairro:* ${bairroText} (Taxa R$ ${taxa.toFixed(2)})\n`;
+    msg += `--------------------------\n\n`;
+
+    // 4. Fechamento (Total e Pagamento)
     msg += `*TOTAL:* R$ ${(subtotal + taxa).toFixed(2)}\n\n`;
     msg += `*Pagamento:* ${pagto}`;
-    if (pagto === 'Dinheiro' && troco) msg += ` (Troco para R$ ${troco})`;
+    
+    if (pagto === 'Dinheiro' && troco) {
+        msg += ` (Troco para R$ ${troco})`;
+    }
 
     window.open(`https://wa.me/5538988353543?text=${encodeURIComponent(msg)}`, '_blank');
 }
