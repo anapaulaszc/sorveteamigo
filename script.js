@@ -438,7 +438,7 @@ function renderCartModal() {
     const btnSend = document.querySelector('.btn-send');
     const minMsg = document.getElementById('min-order-msg');
     if (btnSend) {
-        if (subtotal < 20) {
+        if (subtotal < 25) {
             if (minMsg) minMsg.innerHTML = `<p style="color:red; font-size:12px; font-weight:bold; text-align:center; margin-bottom:10px;">* Mínimo de R$ 20,00 para entrega.</p>`;
             btnSend.disabled = true;
             btnSend.style.opacity = "0.5";
