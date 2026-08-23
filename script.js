@@ -438,8 +438,8 @@ function renderCartModal() {
     const btnSend = document.querySelector('.btn-send');
     const minMsg = document.getElementById('min-order-msg');
     if (btnSend) {
-        if (subtotal < 25) {
-            if (minMsg) minMsg.innerHTML = `<p style="color:red; font-size:12px; font-weight:bold; text-align:center; margin-bottom:10px;">* Mínimo de R$ 25,00 para entrega.</p>`;
+        if (subtotal < 22) {
+            if (minMsg) minMsg.innerHTML = `<p style="color:red; font-size:12px; font-weight:bold; text-align:center; margin-bottom:10px;">* Mínimo de R$ 22,00 para entrega.</p>`;
             btnSend.disabled = true;
             btnSend.style.opacity = "0.5";
             btnSend.style.cursor = "not-allowed";
