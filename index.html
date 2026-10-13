@@ -7,6 +7,38 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Ajustes de layout para campos do Checkout */
+        .checkout-fields .field-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            margin-bottom: 12px;
+            width: 100%;
+        }
+        .checkout-fields label {
+            font-weight: 600;
+            font-size: 14px;
+            color: #333;
+            margin-top: 5px;
+        }
+        .checkout-fields input[type="text"],
+        .checkout-fields input[type="number"],
+        .checkout-fields select {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 14px;
+            box-sizing: border-box;
+            outline: none;
+            font-family: inherit;
+        }
+        .checkout-fields input:focus,
+        .checkout-fields select:focus {
+            border-color: #ed3237;
+        }
+    </style>
 </head>
 <body>
 
@@ -47,7 +79,6 @@
             </div>
         </section>
 
-
         <section class="nossas-delicias-home">
             <div class="titulo-area">
                 <img src="img/titulo-nossas-delicias.png" alt="Nossas Delícias" class="img-titulo-grande">
@@ -72,47 +103,44 @@
     </main>
 
     <main id="horarios-page" class="page hidden">
-    <section style="padding: 40px 20px; text-align: center;">
-        
-        <div class="banner-container" style="width: 90%; max-width: 800px; height: 180px; margin: 0 auto 20px auto; overflow: hidden; border-radius: 15px; position: relative; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-            <img src="img/banner1.png" class="slide active" style="width: 100%; height: 100%; object-fit: cover; position: absolute; display: none;">
-            <img src="img/banner2.png" class="slide" style="width: 100%; height: 100%; object-fit: cover; position: absolute; display: none;">
-            <img src="img/banner3.png" class="slide" style="width: 100%; height: 100%; object-fit: cover; position: absolute; display: none;">
-            
-            <div id="banner-dots" style="position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px; z-index: 10;">
-                <span class="dot active" onclick="jumpToSlide(0)" style="width: 10px; height: 10px; background: white; border-radius: 50%; cursor: pointer;"></span>
-                <span class="dot" onclick="jumpToSlide(1)" style="width: 10px; height: 10px; background: rgba(255,255,255,0.5); border-radius: 50%; cursor: pointer;"></span>
-                <span class="dot" onclick="jumpToSlide(2)" style="width: 10px; height: 10px; background: rgba(255,255,255,0.5); border-radius: 50%; cursor: pointer;"></span>
-            </div>
-        </div>
-
-        <h2 style="color: #ed3237; margin-bottom: 25px; font-size: 28px; font-weight: bold;">HORÁRIO DE ATENDIMENTO</h2>
-        
-        <div style="max-width: 500px; margin: 0 auto; background: #ffffff; padding: 30px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-            
-            <div style="display: flex; justify-content: space-between; margin-bottom: 15px; border-bottom: 1px solid #f0f0f0; padding-bottom: 5px;">
-                <span style="color: #333; font-weight: bold;">Segunda</span>
-                <span style="color: #333; font-weight: bold;">8:00 - 22:00</span>
-            </div>
-
-            <div style="display: flex; justify-content: space-between; margin-bottom: 15px; border-bottom: 1px solid #f0f0f0; padding-bottom: 5px;">
-                <span style="color: #333; font-weight: bold;">Sexta a Domingo</span>
-                <span style="color: #333; font-weight: bold;">12:00 - 22:00</span>
-            </div>
-
-            <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
-                <span style="color: #333; font-weight: bold;">Feriados</span>
-                <span style="color: #333; font-weight: bold;">11:00 - 22:00</span>
-            </div>
-
-            <div id="status-loja-box" style="font-weight: bold; padding: 15px; border-radius: 10px; font-size: 18px; text-align: center;">
+        <section style="padding: 40px 20px; text-align: center;">
+            <div class="banner-container" style="width: 90%; max-width: 800px; height: 180px; margin: 0 auto 20px auto; overflow: hidden; border-radius: 15px; position: relative; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                <img src="img/banner1.png" class="slide active" style="width: 100%; height: 100%; object-fit: cover; position: absolute; display: none;">
+                <img src="img/banner2.png" class="slide" style="width: 100%; height: 100%; object-fit: cover; position: absolute; display: none;">
+                <img src="img/banner3.png" class="slide" style="width: 100%; height: 100%; object-fit: cover; position: absolute; display: none;">
+                
+                <div id="banner-dots" style="position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px; z-index: 10;">
+                    <span class="dot active" onclick="jumpToSlide(0)" style="width: 10px; height: 10px; background: white; border-radius: 50%; cursor: pointer;"></span>
+                    <span class="dot" onclick="jumpToSlide(1)" style="width: 10px; height: 10px; background: rgba(255,255,255,0.5); border-radius: 50%; cursor: pointer;"></span>
+                    <span class="dot" onclick="jumpToSlide(2)" style="width: 10px; height: 10px; background: rgba(255,255,255,0.5); border-radius: 50%; cursor: pointer;"></span>
                 </div>
-        </div>
+            </div>
 
-        <button onclick="showPage('home')" style="margin-top: 30px; padding: 15px 40px; background: #ed3237; color: white; border: none; border-radius: 30px; cursor: pointer; font-weight: bold; font-size: 16px;">
-            Voltar ao Início
-        </button>
-    </section>
+            <h2 style="color: #ed3237; margin-bottom: 25px; font-size: 28px; font-weight: bold;">HORÁRIO DE ATENDIMENTO</h2>
+            
+            <div style="max-width: 500px; margin: 0 auto; background: #ffffff; padding: 30px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 15px; border-bottom: 1px solid #f0f0f0; padding-bottom: 5px;">
+                    <span style="color: #333; font-weight: bold;">Segunda</span>
+                    <span style="color: #333; font-weight: bold;">8:00 - 22:00</span>
+                </div>
+
+                <div style="display: flex; justify-content: space-between; margin-bottom: 15px; border-bottom: 1px solid #f0f0f0; padding-bottom: 5px;">
+                    <span style="color: #333; font-weight: bold;">Sexta a Domingo</span>
+                    <span style="color: #333; font-weight: bold;">12:00 - 22:00</span>
+                </div>
+
+                <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+                    <span style="color: #333; font-weight: bold;">Feriados</span>
+                    <span style="color: #333; font-weight: bold;">11:00 - 22:00</span>
+                </div>
+
+                <div id="status-loja-box" style="font-weight: bold; padding: 15px; border-radius: 10px; font-size: 18px; text-align: center;"></div>
+            </div>
+
+            <button onclick="showPage('home')" style="margin-top: 30px; padding: 15px 40px; background: #ed3237; color: white; border: none; border-radius: 30px; cursor: pointer; font-weight: bold; font-size: 16px;">
+                Voltar ao Início
+            </button>
+        </section>
     </main>
 
     <main id="quem-somos" class="page">
@@ -120,7 +148,7 @@
             <div class="history-container">
                 <div class="history-text">
                     <p>Seja bem vindo, amigo! Já conhece nossa história?</p>
-                    <p>Nascemos em a Araçuaí, no Vale do Jequitinhonha, a partir de um único sonho: Semear e cultivar experiências de amizade. Agora estamos há mais de 25 anos refrescando a vida dos nossos amigos!</p>
+                    <p>Nascemos em Araçuaí, no Vale do Jequitinhonha, a partir de um único sonho: Semear e cultivar experiências de amizade. Agora estamos há mais de 25 anos refrescando a vida dos nossos amigos!</p>
                     <p>Conheça nossos produtos a seguir, mas não deixe de se “achegar um bucadim” aqui no nosso espaço amigo!</p>
                 </div>
                 <div class="history-illustration">
@@ -156,22 +184,25 @@
             <h2 class="section-title" style="text-align: center; margin-top: 20px;">CARDÁPIO</h2>
 
             <div class="search-container" style="text-align: center; margin: 20px 0;">
-            <div style="position: relative; display: inline-block; width: 80%; max-width: 400px;">
-            <input type="text" id="input-busca" placeholder="O que você procura?" onkeyup="buscarProduto()" style="width: 100%; padding: 12px 40px 12px 15px; border-radius: 25px; border: 1px solid #ccc; outline: none;">
-           <i class="fas fa-search" style="position: absolute; right: 15px; top: 13px; color: #ed3237;"></i>
-          </div>
-        </div>
+                <div style="position: relative; display: inline-block; width: 80%; max-width: 400px;">
+                    <input type="text" id="input-busca" placeholder="O que você procura?" onkeyup="buscarProduto()" style="width: 100%; padding: 12px 40px 12px 15px; border-radius: 25px; border: 1px solid #ccc; outline: none;">
+                    <i class="fas fa-search" style="position: absolute; right: 15px; top: 13px; color: #ed3237;"></i>
+                </div>
+            </div>
 
+            <!-- BOTÕES DE CATEGORIA NO CARDÁPIO -->
             <div class="category-tabs">
                 <button onclick="filterMenu('potes')">POTES</button>
                 <button onclick="filterMenu('picoles')">PICOLÉS</button>
                 <button onclick="filterMenu('acai')">AÇAÍS</button>
                 <button onclick="filterMenu('shakes')">MILKSHAKES</button>
                 <button onclick="filterMenu('tacas')">TAÇAS</button>
+                <button onclick="filterMenu('selfservice')">SELF-SERVICE</button>
+                <button onclick="filterMenu('coberturas')">COBERTURAS</button>
                 <button onclick="filterMenu('outros')">OUTROS</button>
             </div>
-            <div id="product-list" class="product-list-container">
-                </div>
+
+            <div id="product-list" class="product-list-container"></div>
         </section>
     </main>
 
@@ -200,99 +231,166 @@
         <i class="fas fa-shopping-cart"></i>
     </div>
 
+    <!-- MODAL DO CARRINHO DE COMPRAS / CHECKOUT -->
     <div id="cart-modal" class="modal hidden">
-        <div class="modal-content modal-cart">
-            <h3>Seu Pedido</h3>
+        <div class="modal-content modal-cart" style="max-width: 500px; width: 92%; max-height: 90vh; overflow-y: auto; padding: 20px;">
+            <h3 style="color: #ed3237; text-align: center; margin-bottom: 15px;">Seu Pedido</h3>
+            
             <div id="cart-items"></div>
-            <hr>
-            <div class="form-group checkout-fields">
-                <label>Nome:</label>
-                <input type="text" id="cust-name" placeholder="Seu nome">
+            
+            <hr style="margin: 15px 0; border: 0; border-top: 1px solid #eee;">
+            
+            <div class="checkout-fields" style="display: flex; flex-direction: column; gap: 10px;">
+                <div class="field-group">
+                    <label>Nome do Cliente:</label>
+                    <input type="text" id="cust-name" placeholder="Digite o seu nome">
+                </div>
+
+                <div class="field-group">
+                    <label>Tipo de Pedido:</label>
+                    <select id="cust-delivery-type" onchange="toggleDeliveryType()">
+                        <option value="Entrega">Entrega em Domicílio</option>
+                        <option value="Retirada">Retirar no Estabelecimento</option>
+                    </select>
+                </div>
                 
-                <label>Bairro Salinas (Taxa):</label>
-                <select id="cust-bairro" onchange="renderCartModal()">
-                    <option value="0">Selecione o Bairro</option>
-                    <option value="3">Alto Casa Blanca (Taxa R$ 3,00)</option>
-                    <option value="3">Alto Paraíso (Taxa R$ 3,00)</option>
-                    <option value="3">Alto São João (Taxa R$ 3,00)</option>
-                    <option value="3">Alvorada (Taxa R$ 3,00)</option>
-                    <option value="4">Aroeiras (Taxa R$ 4,00)</option>
-                    <option value="4">Belvedere (Taxa R$ 4,00)</option>
-                    <option value="3">Betel (Taxa R$ 3,00)</option>
-                    <option value="4">Betel 2 (Taxa R$ 4,00)</option>
-                    <option value="3">Boa Vista (Taxa R$ 3,00)</option>
-                    <option value="4">Boulevard (Taxa R$ 4,00)</option>
-                    <option value="3">Casa Blanca (Taxa R$ 3,00)</option>
-                    <option value="3">Centro (Taxa R$ 3,00)</option>
-                    <option value="7">Chácara Bananal (Taxa R$ 7,00)</option>
-                    <option value="3">Cidade Jardim (Taxa R$ 3,00)</option>
-                    <option value="7">Cidade Nova (Taxa R$ 7,00)</option>
-                    <option value="3">Cândido Village (Taxa R$ 3,00)</option>
-                    <option value="3">Esplanada (Taxa R$ 3,00)</option>
-                    <option value="3">Floresta (Taxa R$ 3,00)</option>
-                    <option value="3">Frutal (Taxa R$ 3,00)</option>
-                    <option value="5">Ifmng (Taxa R$ 5,00)</option>
-                    <option value="3">Industrial (Taxa R$ 3,00)</option>
-                    <option value="3">Maracanã (Taxa R$ 3,00)</option>
-                    <option value="3">Muritiba (Taxa R$ 3,00)</option>
-                    <option value="3">Mário Guedes (Taxa R$ 3,00)</option>
-                    <option value="3">Nova Esperança (Taxa R$ 3,00)</option>
-                    <option value="3">Nova Panorama (Taxa R$ 3,00)</option>
-                    <option value="3">Panorama (Taxa R$ 3,00)</option>
-                    <option value="3">Parque Industrial (Taxa R$ 3,00)</option>
-                    <option value="4">Primavera (Taxa R$ 4,00)</option>
-                    <option value="3">Progresso (Taxa R$ 3,00)</option>
-                    <option value="3">Prolongamento Santo Antônio (Taxa R$ 3,00)</option>
-                    <option value="7">Próximo Ao Piscinão (Taxa R$ 7,00)</option>
-                    <option value="7">Próximo Ao Posto Jenipapo (Taxa R$ 7,00)</option>
-                    <option value="7">Próximo Ao Posto Tamburil (Taxa R$ 7,00)</option>
-                    <option value="7">Próximo a APAC (Taxa R$ 7,00)</option>
-                    <option value="3">Raquel (Taxa R$ 3,00)</option>
-                    <option value="3">Sagrada Familia (Taxa R$ 3,00)</option>
-                    <option value="3">Santa Felicidade (Taxa R$ 3,00)</option>
-                    <option value="3">Santa Marta (Taxa R$ 3,00)</option>
-                    <option value="3">Santa Mônica (Taxa R$ 3,00)</option>
-                    <option value="3">Santo Antônio (Taxa R$ 3,00)</option>
-                    <option value="3">Santo Expedito (Taxa R$ 3,00)</option>
-                    <option value="3">Silvio Santiago (Taxa R$ 3,00)</option>
-                    <option value="3">São Fidélis (Taxa R$ 3,00)</option>
-                    <option value="4">São Fidélis 2 (Taxa R$ 4,00)</option>
-                    <option value="3">São Geraldo (Taxa R$ 3,00)</option>
-                    <option value="3">São José (Taxa R$ 3,00)</option>
-                    <option value="3">São Miguel (Taxa R$ 3,00)</option>
-                    <option value="3">São Pedro (Taxa R$ 3,00)</option>
-                    <option value="3">Vale Do Sol (Taxa R$ 3,00)</option>
-                    <option value="3">Vila Aparecida (Taxa R$ 3,00)</option>
-                    <option value="3">Vila Canaã (Taxa R$ 3,00)</option>
-                    <option value="3">Vila De Santa Cruz (Taxa R$ 3,00)</option>
-                    <option value="3">Vila Januária (Taxa R$ 3,00)</option>
-                    <option value="3">Vila Santa Marta (Taxa R$ 3,00)</option>
-                    <option value="3">Vila Sobradinho (Taxa R$ 3,00)</option>
-                    <option value="3">Vista Alegre (Taxa R$ 3,00)</option>
-                </select>
+                <!-- CAMPOS DE ENDEREÇO E BAIRRO PARA ENTREGA -->
+                <div id="delivery-address-fields" style="display: flex; flex-direction: column; gap: 10px; width: 100%;">
+                    <div class="field-group">
+                        <label>Bairro Salinas (Taxa):</label>
+                        <select id="cust-bairro" onchange="renderCartModal()">
+                            <option value="0">Selecione o Bairro</option>
+                            <option value="3">Alto Casa Blanca (Taxa R$ 3,00)</option>
+                            <option value="3">Alto Paraíso (Taxa R$ 3,00)</option>
+                            <option value="3">Alto São João (Taxa R$ 3,00)</option>
+                            <option value="3">Alvorada (Taxa R$ 3,00)</option>
+                            <option value="4">Aroeiras (Taxa R$ 4,00)</option>
+                            <option value="4">Belvedere (Taxa R$ 4,00)</option>
+                            <option value="3">Betel (Taxa R$ 3,00)</option>
+                            <option value="4">Betel 2 (Taxa R$ 4,00)</option>
+                            <option value="3">Boa Vista (Taxa R$ 3,00)</option>
+                            <option value="4">Boulevard (Taxa R$ 4,00)</option>
+                            <option value="3">Casa Blanca (Taxa R$ 3,00)</option>
+                            <option value="3">Centro (Taxa R$ 3,00)</option>
+                            <option value="7">Chácara Bananal (Taxa R$ 7,00)</option>
+                            <option value="3">Cidade Jardim (Taxa R$ 3,00)</option>
+                            <option value="7">Cidade Nova (Taxa R$ 7,00)</option>
+                            <option value="3">Cândido Village (Taxa R$ 3,00)</option>
+                            <option value="3">Esplanada (Taxa R$ 3,00)</option>
+                            <option value="3">Floresta (Taxa R$ 3,00)</option>
+                            <option value="3">Frutal (Taxa R$ 3,00)</option>
+                            <option value="5">Ifmng (Taxa R$ 5,00)</option>
+                            <option value="3">Industrial (Taxa R$ 3,00)</option>
+                            <option value="3">Maracanã (Taxa R$ 3,00)</option>
+                            <option value="3">Muritiba (Taxa R$ 3,00)</option>
+                            <option value="3">Mário Guedes (Taxa R$ 3,00)</option>
+                            <option value="3">Nova Esperança (Taxa R$ 3,00)</option>
+                            <option value="3">Nova Panorama (Taxa R$ 3,00)</option>
+                            <option value="3">Panorama (Taxa R$ 3,00)</option>
+                            <option value="3">Parque Industrial (Taxa R$ 3,00)</option>
+                            <option value="4">Primavera (Taxa R$ 4,00)</option>
+                            <option value="3">Progresso (Taxa R$ 3,00)</option>
+                            <option value="3">Prolongamento Santo Antônio (Taxa R$ 3,00)</option>
+                            <option value="7">Próximo Ao Piscinão (Taxa R$ 7,00)</option>
+                            <option value="7">Próximo Ao Posto Jenipapo (Taxa R$ 7,00)</option>
+                            <option value="7">Próximo Ao Posto Tamburil (Taxa R$ 7,00)</option>
+                            <option value="7">Próximo a APAC (Taxa R$ 7,00)</option>
+                            <option value="3">Raquel (Taxa R$ 3,00)</option>
+                            <option value="3">Sagrada Familia (Taxa R$ 3,00)</option>
+                            <option value="3">Santa Felicidade (Taxa R$ 3,00)</option>
+                            <option value="3">Santa Marta (Taxa R$ 3,00)</option>
+                            <option value="3">Santa Mônica (Taxa R$ 3,00)</option>
+                            <option value="3">Santo Antônio (Taxa R$ 3,00)</option>
+                            <option value="3">Santo Expedito (Taxa R$ 3,00)</option>
+                            <option value="3">Silvio Santiago (Taxa R$ 3,00)</option>
+                            <option value="3">São Fidélis (Taxa R$ 3,00)</option>
+                            <option value="4">São Fidélis 2 (Taxa R$ 4,00)</option>
+                            <option value="3">São Geraldo (Taxa R$ 3,00)</option>
+                            <option value="3">São José (Taxa R$ 3,00)</option>
+                            <option value="3">São Miguel (Taxa R$ 3,00)</option>
+                            <option value="3">São Pedro (Taxa R$ 3,00)</option>
+                            <option value="3">Vale Do Sol (Taxa R$ 3,00)</option>
+                            <option value="3">Vila Aparecida (Taxa R$ 3,00)</option>
+                            <option value="3">Vila Canaã (Taxa R$ 3,00)</option>
+                            <option value="3">Vila De Santa Cruz (Taxa R$ 3,00)</option>
+                            <option value="3">Vila Januária (Taxa R$ 3,00)</option>
+                            <option value="3">Vila Santa Marta (Taxa R$ 3,00)</option>
+                            <option value="3">Vila Sobradinho (Taxa R$ 3,00)</option>
+                            <option value="3">Vista Alegre (Taxa R$ 3,00)</option>
+                        </select>
+                    </div>
 
-                <label>Endereço Completo:</label>
-                <input type="text" id="cust-address" placeholder="Rua, número, ref.">
+                    <div class="field-group">
+                        <label>Endereço Completo:</label>
+                        <input type="text" id="cust-address" placeholder="Rua e número">
+                    </div>
 
-                <label>Forma de Pagamento:</label>
-                <select id="cust-payment" onchange="toggleTroco()">
-                    <option value="Pix">Pix</option>
-                    <option value="Cartão">Cartão (Débito/Crédito)</option>
-                    <option value="Dinheiro">Dinheiro</option>
-                </select>
+                    <div class="field-group">
+                        <label>Ponto de Referência:</label>
+                        <input type="text" id="cust-ref" placeholder="Ex: Próximo à praça / ao lado do mercado">
+                    </div>
+                </div>
 
-                <div id="troco-container" style="display: none;">
-                    <label>Troco para quanto?</label>
-                    <input type="number" id="cust-troco" placeholder="Ex: 50">
+                <div class="field-group">
+                    <label>Observações do Pedido:</label>
+                    <input type="text" id="cust-obs" placeholder="Ex: Bater no portão">
+                </div>
+
+                <div class="field-group">
+                    <label>Forma de Pagamento:</label>
+                    <select id="cust-payment" onchange="togglePaymentFields()">
+                        <option value="Pix">Pix</option>
+                        <option value="Cartão">Cartão (Débito/Crédito)</option>
+                        <option value="Dinheiro">Dinheiro</option>
+                        <option value="DuasFormas">Duas Formas de Pagamento</option>
+                    </select>
+                </div>
+
+                <!-- DINHEIRO: SELEÇÃO DE TROCO -->
+                <div id="troco-container" style="display: none; margin-top: 5px; background: #f9f9f9; padding: 12px; border-radius: 8px; border: 1px solid #ddd;">
+                    <label>Situação do Troco:</label>
+                    <select id="cust-troco-opcao" onchange="toggleTrocoInput()" style="margin-bottom: 8px;">
+                        <option value="ja_trocado">Já está trocado (sem necessidade de troco)</option>
+                        <option value="precisa_troco">Precisa de troco</option>
+                    </select>
+                    <div id="troco-input-box" style="display: none;">
+                        <label>Troco para quanto?</label>
+                        <input type="number" id="cust-troco" placeholder="Ex: 50">
+                    </div>
+                </div>
+
+                <!-- PAGAMENTO MISTO: DUAS FORMAS DE PAGAMENTO -->
+                <div id="multi-payment-container" style="display: none; margin-top: 5px; background: #f9f9f9; padding: 12px; border-radius: 8px; border: 1px solid #ddd;">
+                    <p style="font-size: 14px; font-weight: bold; margin-bottom: 8px; color: #ed3237;">Informe as 2 Formas de Pagamento e Valores:</p>
+                    
+                    <div style="display: flex; gap: 8px; margin-bottom: 8px;">
+                        <select id="multi-pay-1" style="flex: 1;">
+                            <option value="Pix">Pix</option>
+                            <option value="Dinheiro">Dinheiro</option>
+                            <option value="Cartão">Cartão</option>
+                        </select>
+                        <input type="number" id="multi-val-1" placeholder="Valor (R$)" style="flex: 1;">
+                    </div>
+
+                    <div style="display: flex; gap: 8px;">
+                        <select id="multi-pay-2" style="flex: 1;">
+                            <option value="Dinheiro">Dinheiro</option>
+                            <option value="Pix">Pix</option>
+                            <option value="Cartão">Cartão</option>
+                        </select>
+                        <input type="number" id="multi-val-2" placeholder="Valor (R$)" style="flex: 1;">
+                    </div>
                 </div>
             </div>
             
             <div id="min-order-msg"></div> 
-            <button class="btn-send" onclick="sendWhatsApp()">Finalizar e Enviar via WhatsApp</button>
-            <button class="btn-close" onclick="closeCartModal()">Continuar Comprando</button>
+            
+            <button class="btn-send" onclick="sendWhatsApp()" style="margin-top: 15px; width: 100%;">Finalizar e Enviar via WhatsApp</button>
+            <button class="btn-close" onclick="closeCartModal()" style="margin-top: 8px; width: 100%;">Continuar Comprando</button>
         </div>
     </div>
 
+    <!-- MODAL DE OPÇÕES E SELF-SERVICE -->
     <div id="product-options-modal" class="modal hidden">
         <div class="modal-content options-modal">
             <div id="product-details-area"></div>

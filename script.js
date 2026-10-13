@@ -1,5 +1,5 @@
 // ==========================================
-// 1. BANCO DE DADOS INTEGRAL
+// 1. BANCO DE DADOS INTEGRAL (ATUALIZADO)
 // ==========================================
 const database = [
     // POTES
@@ -16,8 +16,7 @@ const database = [
     { id: 13, cat: 'potes', nome: 'Pote Açaí Puro 1,5L', preco: 50.00, desc: 'Açaí puro, sem corantes.', image: 'img/pote-acai-puro.png' },
     { id: 14, cat: 'potes', nome: 'Pote Açaí com Cupuaçu 1L', preco: 35.00, desc: 'Açaí mescladocom creme de cupuaçu.', image: 'img/pote-acai-cupuacu.png' },
     { id: 15, cat: 'potes', nome: 'Açaí Puro 240ml', preco: 12.00, desc: 'Açaí puro, sem corantes.', image: 'img/pote-acai-240.png' },
-    { id: 20, cat: 'potes', nome: 'Pote de Chocolate Branco 240ml', preco: 10.00, desc: 'Sorvete de chocolate branco com calda de chocolate', image: 'img/pote-branco-240.png'},
-    { id: 16, cat: 'potes', nome: 'Pote Napolitano 500ml', preco: 19.00, desc: 'Sorvete sabor chocolate, creme e morango.', image: 'img/pote-napolitano-500.png' },
+    { id: 20, cat: 'potes', nome: 'Pote de Chocolate Branco 240ml', preco: 12.00, desc: 'Sorvete de chocolate branco com calda de chocolate', image: 'img/pote-branco-240.png'},
     { id: 17, cat: 'potes', nome: 'Pote Açaí Zero 240ml', preco: 15.00, desc: 'Açaí puro sem adição de açúcar.', image: 'img/pote-acai-zero.png' },
     { id: 18, cat: 'potes', nome: 'Pote Morango Zero 240ml', preco: 15.00, desc: 'Sorvete sabor de morango com recheio de morango sem adição de açúcar.', image: 'img/morango-zero.png' },
     { id: 19, cat: 'potes', nome: 'Pote Chocolate Zero 240ml', preco: 15.00, desc: 'Sorvete sabor chocolate com recheio de trufa de chocolate sem adição de açúcar.', image: 'img/choc-zero.png' },
@@ -36,7 +35,7 @@ const database = [
     { id: 108, cat: 'picoles', nome: 'Picolé Ninho', preco: 6.00, desc: 'Picolé de leite.', image: 'img/picole-ninho.png' },
     { id: 109, cat: 'picoles', nome: 'Picolé Coco', preco: 6.00, desc: 'Picolé sabor coco.', image: 'img/picole-coco.png' },
     { id: 110, cat: 'picoles', nome: 'Picolé Graviola', preco: 6.00, desc: 'Picolé sabor graviola.', image: 'img/picole-graviola.png' },
-    { id: 121, cat: 'picoles', nome: 'Picolé Morango Silvestre', preco: 6.00, desc: 'Picolé sabor morango silvestre.', image: 'img/picole-morango-sil.png' },
+    { id: 123, cat: 'picoles', nome: 'Picolé Morango Silvestre', preco: 6.00, desc: 'Picolé sabor morango silvestre.', image: 'img/picole-morango-sil.png' },
     { id: 111, cat: 'picoles', nome: 'Picolé Açaí com Ninho', preco: 7.00, desc: 'Picolé de açaí com recheio de ninho amigo.', image: 'img/picole-acai-ninho.png' },
     { id: 112, cat: 'picoles', nome: 'Picolé Morango Zero Açúcar', preco: 7.00, desc: 'Picolé sabor morango com recheio de morangosem adição de açúcar.', image: 'img/picole-morango-zero.png' },
     { id: 113, cat: 'picoles', nome: 'Picolé Pinta Língua', preco: 4.50, desc: 'Picolé sabor tutti frutti.', image: 'img/picole-pinta-lingua.png' },
@@ -47,6 +46,9 @@ const database = [
     { id: 117, cat: 'picoles', nome: 'Paleta Ninho com Ovomaltine', preco: 12.00, desc: 'Paleta sabor ninho com recheio de ovomaltine.', image: 'img/paleta-ninho.png' },
     { id: 118, cat: 'picoles', nome: 'Paleta Croquito', preco: 12.00, desc: 'Picolé de caramelo com cobertura de chocolate ao leite e flocos crocantes.', image: 'img/paleta-croquito.png' },
     { id: 120, cat: 'picoles', nome: 'Picolé Pistache Supremo', preco: 15.00, desc: 'Picolé sabor pistache com calda e pedaços de pistache.', image: 'img/picole-pistache.png' },
+    { id: 124, cat: 'picoles', nome: 'Picolé BomBom de Amendoim', preco: 9.00, desc: 'picolé sabor doce de leite com cobertura de amendoim e calda de chocolate branco com amendoim em pedaços.', image: 'img/picole-bom-amendoim.png' },
+    { id: 125, cat: 'picoles', nome: 'Picolé Unicórnio', preco: 7.00, desc: 'picolé de blue ice e chicetes com cobertura de chocolate branco e granulado colorido', image: 'img/picole-unicornio.png' },
+    { id: 126, cat: 'picoles', nome: 'Picolé Jabuticaba', preco: 5.00, desc: 'picolé sabor jabuticaba', image: 'img/picole-jabuticaba.png' },
 
     // AÇAÍS
     { id: 200, cat: 'acai', nome: 'Açaí Calor ', preco: 0, desc: 'Açaí amigo com camadas de Granola, Salada de Frutas, Leite em Pó.', image: 'img/acai-calor.png', complexOptions: true, tamanhos: { '330ml': 22.00, '440ml': 23.00, '550ml': 25.00 } },
@@ -68,7 +70,6 @@ const database = [
 
     // TAÇAS
     { id: 400, cat: 'tacas', nome: 'Aconchego', preco: 25.00, desc: 'irresistível bolinho quente de chocolate com recheio cremoso, sorvete de creme, pedaços de fruta da época, canudo tub hall e cobertura de chocolate.', image: 'img/taca-aconchego.png' },
-    { id: 305, cat: 'tacas', nome: 'Taça Encontro 320ml', preco: 25.00, desc: 'Sorvete de Pistache e Ninho, acompanhado com mescla de pistache, amendoim granulado e chantilly.', image: 'img/taca-encontro.png' },
     { id: 306, cat: 'tacas', nome: 'Taça Carinho 400ml', preco: 21.00, desc: 'Sorvete de Ninho e Morango, acompanhado de geleia de morango e fruta da época.', image: 'img/taca-carinho.png' },
 
     // OUTROS
@@ -76,41 +77,96 @@ const database = [
     { id: 501, cat: 'outros', nome: 'Cestinha', preco: 1.00, desc: 'Crocante.', image: 'img/cestinha.png' },
     { id: 307, cat: 'outros', nome: 'Água Mineral 500ml', preco: 3.00, desc: 'Água Mineral 500ml.', image: 'img/agua-mineral.png' },
     { id: 308, cat: 'outros', nome: 'Água com Gás 500ml', preco: 4.00, desc: 'Água com Gás 500ml.', image: 'img/agua-com-gas.png' },
-    { id: 309, cat: 'outros', nome: 'Coca-Cola Lata', preco: 6.00, desc: 'Coca 350ml.', image: 'img/coca-lata.png' }
+    { id: 309, cat: 'outros', nome: 'Coca-Cola Lata', preco: 7.00, desc: 'Coca 350ml.', image: 'img/coca-lata.png' },
+    { id: 310, cat: 'outros', nome: 'Coca-Cola Lata Zero', preco: 7.00, desc: 'coca zero açúcar 350ml.', image: 'img/coca-zero-lata.png' },
+
+    // COBERTURAS (PRODUTO ÚNICO)
+    { id: 600, cat: 'coberturas', nome: 'Coberturas & Caldas', preco: 2.00, desc: 'Escolha o sabor desejado e o valor (a partir de R$ 2,00 em números inteiros).', image: 'img/cobertura-morango.png', isCoberturaUnica: true },
+
+    // SELF-SERVICE
+    { id: 700, cat: 'selfservice', nome: 'Self-Service Monte o Seu', preco: 0, desc: 'Self-service a R$ 74,90/kg. Monte por valor fixo (mínimo R$ 15,00) ou quantidade de bolas.', image: 'img/selfservice-banner.png', isSelfService: true }
 ];
 
-const selfServiceSabores = ["Açaí Puro", "Açaí Trufado", "Creme de cupuaçu", "Açaí com Pistache", "Açaí com Ninho", "Chocolate", "Chocolate Belga", "Kit Kat", "Maltino", "Super Black", "Abacaxi", "Banana flambada", "Amendoim", "Coco", "Frutas do Bosque", "Café Holandês", "Chocolate Branco", "Frutas Tropicais", "Limão Galego", "Maracujá", "Mousse de Maracuja", "Doce de leite", "Morango", "Flocos Italiano", "Morango Natural", "Kinder Ovo", "Pistache", "Leite condensado", "Torta de limão", "Ninho", "Ninho com Avelã", "Ninho Trufado", "Jabuticaba", "Danoninho", "Blue Ice", "Chiclete", "Chocomenta"];
+// SABORES DO SELF-SERVICE (ORDEM ALFABÉTICA)
+const selfServiceSabores = [
+    "abacaxi", "amendoim", "açaí", "açaí c/ ninho", "açaí trufado", "açaí zero",
+    "banana famblada", "blue ice", "cafe holandes", "chicletes", "chocolate",
+    "chocolate belga", "chocolate c/ cafe", "chocolate branco", "chocomenta",
+    "coco", "coco c/ avela zero", "creme", "creme de cupuaçu", "danoninho",
+    "doce de leite", "ferreiro rocher zero", "flocos italiano", "frutas do bosque",
+    "frutas tropicais", "jabuticaba", "kinder ovo", "kitkat", "limão galego",
+    "maltine", "maracuja", "morango milk", "morango natural", "morango zero",
+    "mousse de maracuja", "ninho", "ninho c/ frutas silvestres", "ninho c/ nutella",
+    "ninho c/ tangerina e pimenta", "ninho trufado", "ninho trufado zero",
+    "oreo", "pistache", "queijo c/ goiabada", "super black", "tapioca",
+    "torta de limão", "unicornio"
+];
 
-// AQUI: Adicionei as rotas das imagens para os adicionais
+// COMPLEMENTOS DO SELF-SERVICE DIVIDIDOS EM 3 GRUPOS E EM ORDEM ALFABÉTICA
+const selfServiceComplementosDivisao = {
+    coberturas: [
+        "abacaxi", "blue ice", "caramelo", "chicletes", "chocolate",
+        "leite condensado", "limão", "maraculá", "morango", "uva"
+    ],
+    caldas: [
+        "calda de chocolate quente",
+        "calda de chocolate branco"
+    ],
+    cremesEOutros: [
+        "canudinho wafe", "cereja", "chocoball", "creme de avelã",
+        "creme de bombom", "disquete", "flocos de arroz", "geleia de maracujá",
+        "geleia de morango", "gotas de chocolate", "granola", "granulado chocolate",
+        "granulado colorido", "jujuba", "leite em pó", "raspas de chocolate"
+    ]
+};
+
+// OPCIONAIS DE COBERTURA/CALDA DO PRODUTO ÚNICO
+const listaOpcoesCoberturaUnica = [
+    "abacaxi", "blue ice", "caramelo", "chicletes", "chocolate",
+    "leite condensado", "limão", "maraculá", "morango", "uva",
+    "calda de chocolate quente"
+];
+
+// ADICIONAIS GERAIS PARA AÇAÍS E MILKSHAKES
 const adicionaisList = [
-    { nome: 'Banana', preco: 3.00, image: 'img/banana.png' }, 
-    { nome: 'Biz', preco: 3.00, image: 'img/bis.png' }, 
-    { nome: 'Biscoito Oreo', preco: 3.00, image: 'img/oreo.png' }, 
-    { nome: 'Cobertura Chocoball', preco: 3.00, image: 'img/chocoball.png' }, 
-    { nome: 'Creme de Ninho', preco: 3.00, image: 'img/creme-ninho.png' }, 
-    { nome: 'Disquete', preco: 3.00, image: 'img/disquete.png' }, 
-    { nome: 'Granola', preco: 3.00, image: 'img/granola.png' }, 
-    { nome: 'Jujuba', preco: 3.00, image: 'img/jujuba.png' }, 
-    { nome: 'Leite Condensado', preco: 3.00, image: 'img/leite-condensado.png' }, 
-    { nome: 'Leite em Pó', preco: 3.00, image: 'img/leite-po.png' }, 
-    { nome: 'Morango', preco: 3.00, image: 'img/morango.png' }, 
-    { nome: 'Paçoca', preco: 3.00, image: 'img/pacoca.png' }, 
-    { nome: 'Mousse de Morango', preco: 3.00, image: 'img/mousse-morango.png' },
-    { nome: 'Mousse de Maracujá', preco: 3.00, image: 'img/mousse-maracuja.png' },
-    { nome: 'Calda de Chocolate', preco: 4.00, image: 'img/calda-chocolate.png' }, 
-    { nome: 'Geleia de Morango', preco: 4.00, image: 'img/geleia-morango.png' }, 
-    { nome: 'Geleia de Maracujá', preco: 4.00, image: 'img/geleia-maracuja.png' }, 
-    { nome: 'Salada de Frutas', preco: 4.00, image: 'img/salada-frutas.png' }, 
-    { nome: 'Chantilly', preco: 4.00, image: 'img/chantilly.png' }, 
-    { nome: 'Cereja', preco: 4.00, image: 'img/cereja.png' }, 
+    { nome: 'Amendoim', preco: 3.00, image: 'img/amendoim.png' },
+    { nome: 'Banana', preco: 3.00, image: 'img/banana.png' },
+    { nome: 'Biz', preco: 3.00, image: 'img/bis.png' },
+    { nome: 'Biscoito Oreo', preco: 3.00, image: 'img/oreo.png' },
+    { nome: 'Calda de Chocolate', preco: 4.00, image: 'img/calda-chocolate.png' },
+    { nome: 'Calda de Chocolate Branco', preco: 4.00, image: 'img/calda-choc-branco.png' },
+    { nome: 'Cereja', preco: 4.00, image: 'img/cereja.png' },
+    { nome: 'Chantilly', preco: 4.00, image: 'img/chantilly.png' },
+    { nome: 'Chocoball', preco: 3.00, image: 'img/chocoball.png' },
+    { nome: 'Creme de Avelã', preco: 5.00, image: 'img/creme-avela.png' },
+    { nome: 'Creme de Bombom', preco: 4.00, image: 'img/creme-bombom.png' },
+    { nome: 'Creme de Ninho', preco: 3.00, image: 'img/creme-ninho.png' },
+    { nome: 'Disquete', preco: 3.00, image: 'img/disquete.png' },
+    { nome: 'Geleia de Maracujá', preco: 4.00, image: 'img/geleia-maracuja.png' },
+    { nome: 'Geleia de Morango', preco: 4.00, image: 'img/geleia-morango.png' },
+    { nome: 'Gotas de Chocolate', preco: 3.50, image: 'img/gotas-chocolate.png' },
+    { nome: 'Granola', preco: 3.00, image: 'img/granola.png' },
+    { nome: 'Granulado Colorido', preco: 2.00, image: 'img/granulado-colorido.png' },
+    { nome: 'Granulado Normal', preco: 2.00, image: 'img/granulado.png' },
+    { nome: 'Jujuba', preco: 3.00, image: 'img/jujuba.png' },
     { nome: 'Kiwi', preco: 4.00, image: 'img/kiwi.png' },
-    { nome: 'Creme de Avelã', preco: 5.00, image: 'img/creme-avela.png' }
+    { nome: 'Leite Condensado', preco: 3.00, image: 'img/leite-condensado.png' },
+    { nome: 'Leite em Pó', preco: 3.00, image: 'img/leite-po.png' },
+    { nome: 'Morango', preco: 3.00, image: 'img/morango.png' },
+    { nome: 'Mousse de Maracujá', preco: 3.00, image: 'img/mousse-maracuja.png' },
+    { nome: 'Mousse de Morango', preco: 3.00, image: 'img/mousse-morango.png' },
+    { nome: 'Paçoca', preco: 3.00, image: 'img/pacoca.png' },
+    { nome: 'Salada de Frutas', preco: 4.00, image: 'img/salada-frutas.png' },
+    { nome: 'Tub Waffe', preco: 3.00, image: 'img/tub-waffe.png' }
 ];
 
+// VARIÁVEIS GLOBAIS DE ESTADO
 let cart = [];
 let currentItemWithOptions = null;
+let currentQty = 1;
+let bolasSelfServiceState = {};
 
-
+// NAVEGAÇÃO ENTRE PÁGINAS DO SITE
 function showPage(pageId, categoryToLoad = 'potes') {
     const pages = document.querySelectorAll('.page');
     pages.forEach(p => p.classList.remove('active'));
@@ -122,14 +178,13 @@ function showPage(pageId, categoryToLoad = 'potes') {
 
     const cartBtn = document.getElementById('cart-fixed-circular');
     
-    // ESTA É A PARTE NOVA:
     if (pageId === 'cardapio-page') {
         filterMenu(categoryToLoad);
         if (cartBtn) cartBtn.style.display = 'flex';
     } 
     else if (pageId === 'horarios-page') {
-        verificarStatusLoja(); // Atualiza se está aberto ou fechado
-        rodarBanner();         // Dá o "play" nas imagens
+        verificarStatusLoja();
+        rodarBanner();
         if (cartBtn) cartBtn.style.display = 'none';
     } 
     else {
@@ -139,13 +194,12 @@ function showPage(pageId, categoryToLoad = 'potes') {
     window.scrollTo(0, 0);
 }
 
-
+// FILTRAGEM DE CATEGORIAS NO CARDÁPIO
 function filterMenu(category) {
     const listContainer = document.getElementById('product-list');
     if (!listContainer) return;
     listContainer.innerHTML = '';
 
-    // Lógica das Abas (Troca de cor do botão da categoria)
     const tabs = document.querySelectorAll('.category-tabs button');
     tabs.forEach(btn => {
         if (btn.getAttribute('onclick') && btn.getAttribute('onclick').includes(`'${category}'`)) {
@@ -155,19 +209,23 @@ function filterMenu(category) {
         }
     });
 
-    // Filtra os produtos da categoria
     const products = database.filter(item => item.cat === category);
     
     products.forEach(p => {
-        // Cálculo de preço (A partir de... ou preço fixo)
-        let precoTexto = p.complexOptions ? 
-            `A partir de R$ ${Math.min(...Object.values(p.tamanhos)).toFixed(2)}` : 
-            `R$ ${p.preco.toFixed(2)}`;
+        let precoTexto = "";
+        if (p.isSelfService) {
+            precoTexto = "Self-Service (R$ 74,90/kg)";
+        } else if (p.isCoberturaUnica) {
+            precoTexto = "A partir de R$ 2,00";
+        } else if (p.complexOptions) {
+            precoTexto = `A partir de R$ ${Math.min(...Object.values(p.tamanhos)).toFixed(2)}`;
+        } else {
+            precoTexto = `R$ ${p.preco.toFixed(2)}`;
+        }
         
         const div = document.createElement('div');
         div.className = 'product-item';
         
-        // Aqui está a mágica: Adicionei o comando de abrir o modal no BOTÃO também!
         div.innerHTML = `
             <div class="product-content-wrapper" style="display: flex; align-items: center; width: 100%; gap: 15px;">
                 ${p.image ? `<img src="${p.image}" alt="${p.nome}" style="width: 70px; height: 70px; object-fit: contain; border-radius: 8px; background: #fff;">` : ''}
@@ -179,128 +237,287 @@ function filterMenu(category) {
                 </div>
 
                 <button class="btn-add" 
-                        onclick="openOptionsModal(${p.id})" 
+                        onclick="openOptionsModal(${p.id}); event.stopPropagation();" 
                         style="background: #28a745; color: white; border: none; border-radius: 50%; width: 35px; height: 35px; font-size: 20px; cursor: pointer; display: flex; align-items: center; justify-content: center;">
                     +
                 </button>
             </div>
         `;
         
-        // Mantém o clique na div inteira como garantia
         div.onclick = () => openOptionsModal(p.id);
         listContainer.appendChild(div);
     });
 }
 
+// ==========================================
+// 2. MODAL DE SELEÇÃO E OPÇÕES DO PRODUTO
+// ==========================================
 function openOptionsModal(id) {
     const prod = database.find(p => p.id === id);
-    if (!prod) return; 
+    if (!prod) return;
 
     currentItemWithOptions = prod;
+    currentQty = 1;
+
     const modal = document.getElementById('product-options-modal');
     const detailsArea = document.getElementById('product-details-area');
-    
     if (!modal || !detailsArea) return;
 
     let modalHTML = `
         <div style="text-align:center;">
-            ${prod.image ? `<img src="${prod.image}" alt="${prod.nome}" style="width:100%; max-height:220px; object-fit:contain; border-radius:10px; margin-bottom:15px; background:#fdf6e3;">` : ''}
+            ${prod.image ? `<img src="${prod.image}" alt="${prod.nome}" style="width:100%; max-height:180px; object-fit:contain; border-radius:10px; margin-bottom:12px; background:#fdf6e3;">` : ''}
             <h3>${prod.nome}</h3>
-            <p style="font-size:14px; color:#666; margin-bottom:10px;">${prod.desc}</p>
+            <p style="font-size:13px; color:#666; margin-bottom:10px;">${prod.desc}</p>
         </div>
-        <hr style="border:0; border-top:1px solid #eee; margin:15px 0;">
+        <hr style="border:0; border-top:1px solid #eee; margin:12px 0;">
     `;
 
-    if (prod.complexOptions) {
-        modalHTML += `<h4>Escolha o Tamanho:</h4><select id="opt-tam-select" class="opt-select" style="width:100%; padding:10px; margin-bottom:15px; border-radius:5px;">`;
-        for (const [tam, preco] of Object.entries(prod.tamanhos)) {
-            modalHTML += `<option value="${tam}">${tam} - R$ ${preco.toFixed(2)}</option>`;
-        }
-        modalHTML += `</select>`;
-    } else {
-        modalHTML += `<p><strong>Preço: R$ ${prod.preco.toFixed(2)}</strong></p><input type="hidden" id="opt-tam-select" value="Unico">`;
-    }
-
-    if (prod.selfServiceFlavors) {
+    // --- MODO COBERTURAS & CALDAS (PRODUTO ÚNICO DE COBERTURA) ---
+    if (prod.isCoberturaUnica) {
         modalHTML += `
-            <h4 style="margin-top:15px;">Escolha até 2 Sabores:</h4>
-            <input type="text" id="opt-flavor-input-1" class="opt-input" style="width:100%; padding:8px; margin-bottom:5px; border:1px solid #ccc; border-radius:5px;" placeholder="Primeiro Sabor" list="opt-flavor-list">
-            <input type="text" id="opt-flavor-input-2" class="opt-input" style="width:100%; padding:8px; border:1px solid #ccc; border-radius:5px;" placeholder="Segundo Sabor (Opcional)" list="opt-flavor-list">
-            <datalist id="opt-flavor-list">${selfServiceSabores.map(s => `<option value="${s}">`).join('')}</datalist>
-        `;
-    }
-
-    // AQUI: Lógica atualizada para Adicionais com Miniaturas
-    if (prod.cat === 'acai' || prod.cat === 'shakes') {
-        modalHTML += `
-            <div class="accordion-header" onclick="toggleAdicionais()" style="display: flex; justify-content: space-between; align-items: center; padding: 12px; background: #f9f9f9; border-radius: 8px; cursor: pointer; margin-top: 15px; border: 1px solid #eee; font-weight: bold;">
-                <span>Acrescentar Adicionais?</span>
-                <i id="icon-angle" class="fas fa-plus"></i>
+            <div style="margin-bottom:12px;">
+                <label style="font-weight:bold; display:block; margin-bottom:5px;">Escolha o Sabor da Cobertura / Calda:</label>
+                <select id="cob-sabor-select" style="width:100%; padding:10px; border-radius:6px; border:1px solid #ccc; font-size:14px;">
+                    ${listaOpcoesCoberturaUnica.map(c => `<option value="${c}">${c}</option>`).join('')}
+                </select>
             </div>
-            
-            <div id="container-adicionais" style="display: none; max-height:200px; overflow-y:auto; border:1px solid #eee; padding:5px; border-radius:0 0 8px 8px; background:#fff; border-top:none;">
+            <div style="margin-bottom:12px;">
+                <label style="font-weight:bold; display:block; margin-bottom:5px;">Digite o valor em R$ (Mínimo R$ 2,00):</label>
+                <input type="number" id="cob-valor-input" min="2" step="1" value="2" onchange="validarValorCobertura(this)" style="width:100%; padding:10px; border:1px solid #ccc; border-radius:6px; font-size:16px;">
+            </div>
+            <h4 style="margin-top:12px; font-size:14px;">Observações:</h4>
+            <textarea id="opt-obs" style="width:100%; height:55px; border-radius:6px; border:1px solid #ccc; padding:8px; font-family:inherit; font-size:13px;" placeholder="Ex: Caprichar na calda..."></textarea>
         `;
-        
-        let listToUse = prod.cat === 'shakes' ? adicionaisList.filter(a => a.nome === 'Chantilly') : adicionaisList;
+    }
+    // --- MODO SELF-SERVICE (R$ 74,90/kg) ---
+    else if (prod.isSelfService) {
+        modalHTML += `
+            <div style="background:#fff3cd; border:1px solid #ffeeba; color:#856404; padding:10px; border-radius:8px; font-size:13px; margin-bottom:12px;">
+                🍦 <strong>Self-Service - R$ 74,90/kg</strong><br>
+                Monte por Valor Fixo (mínimo R$ 15,00 em inteiros) ou por quantidade de bolas.
+            </div>
 
-        listToUse.forEach(add => {
-            modalHTML += `
-                <label style="display:flex; align-items:center; justify-content:space-between; padding: 10px; border-bottom: 1px solid #eee; cursor:pointer;">
-                    <div style="display: flex; align-items: center; gap: 12px; flex: 1;">
-                        ${add.image ? `<img src="${add.image}" alt="${add.nome}" style="width: 50px; height: 50px; object-fit: contain; border-radius: 6px; background: #f9f9f9; flex-shrink: 0;">` : ''}
-                        <div style="flex: 1;">
-                            <span style="font-size:14px; font-weight: 500; color: #333;">${add.nome}</span>
-                            <br>
-                            <span style="font-size:13px; font-weight: bold; color: #ed3237;">R$ ${add.preco.toFixed(2)}</span>
+            <div style="margin-bottom:12px;">
+                <label style="font-weight:bold; display:block; margin-bottom:6px;">Tipo de Escolha:</label>
+                <select id="self-tipo-escolha" onchange="toggleModoSelfServiceUI()" style="width:100%; padding:10px; border-radius:6px; border:1px solid #ccc; font-weight:bold;">
+                    <option value="valor">Valor Específico em R$ (mínimo R$ 15,00)</option>
+                    <option value="bolas">Quantidade de Bolas por Sabor</option>
+                </select>
+            </div>
+
+            <!-- PAINEL 1: VALOR FIXO -->
+            <div id="painel-self-valor" style="display:block;">
+                <label style="font-weight:bold; display:block; margin-bottom:5px;">Digite o valor em R$ (Inteiros, mín. R$ 15):</label>
+                <input type="number" id="self-valor-input" min="15" step="1" value="15" onchange="validarValorSelf(this)" style="width:100%; padding:10px; border:1px solid #ccc; border-radius:6px; font-size:16px; margin-bottom:12px;">
+                
+                <label style="font-weight:bold; display:block; margin-bottom:5px;">Escolha os Sabores Desejados:</label>
+                <div style="max-height:150px; overflow-y:auto; border:1px solid #eee; padding:8px; border-radius:6px; background:#fafafa;">
+                    ${selfServiceSabores.map(s => `
+                        <label style="display:block; padding:4px 0; font-size:13px; cursor:pointer;">
+                            <input type="checkbox" class="self-sabor-check" value="${s}" style="margin-right:8px;"> ${s}
+                        </label>
+                    `).join('')}
+                </div>
+            </div>
+
+            <!-- PAINEL 2: SELEÇÃO DE BOLAS -->
+            <div id="painel-self-bolas" style="display:none;">
+                <label style="font-weight:bold; display:block; margin-bottom:6px;">Quantidade de bolas por sabor:</label>
+                <div style="max-height:160px; overflow-y:auto; border:1px solid #eee; padding:8px; border-radius:6px; background:#fafafa;">
+                    ${selfServiceSabores.map((s, idx) => `
+                        <div style="display:flex; justify-content:space-between; align-items:center; padding:5px 0; border-bottom:1px solid #f0f0f0;">
+                            <span style="font-size:13px;">${s}</span>
+                            <div style="display:flex; align-items:center; gap:8px;">
+                                <button type="button" onclick="alterarBolaCount(${idx}, -1)" style="width:26px; height:26px; border-radius:50%; border:1px solid #ccc; background:#eee; font-weight:bold; cursor:pointer;">-</button>
+                                <span id="bola-count-${idx}" style="font-weight:bold; font-size:13px; min-width:18px; text-align:center;">0</span>
+                                <button type="button" onclick="alterarBolaCount(${idx}, 1)" style="width:26px; height:26px; border-radius:50%; border:1px solid #ccc; background:#eee; font-weight:bold; cursor:pointer;">+</button>
+                            </div>
                         </div>
-                    </div>
-                    <input type="checkbox" class="opt-add-on-check" data-nome="${add.nome}" data-preco="${add.preco}" style="width: 18px; height: 18px; cursor: pointer; margin-left: 10px;">
-                </label>
+                    `).join('')}
+                </div>
+            </div>
+
+            <!-- COMPLEMENTOS DIVIDIDOS EM 3 GRUPOS EM ORDEM ALFABÉTICA -->
+            <div style="margin-top:12px;">
+                <div class="accordion-header" onclick="toggleAdicionais()" style="display:flex; justify-content:space-between; align-items:center; padding:10px; background:#f9f9f9; border-radius:6px; cursor:pointer; border:1px solid #eee; font-weight:bold; font-size:14px;">
+                    <span>Complementos do Self-Service</span>
+                    <i id="icon-angle" class="fas fa-plus"></i>
+                </div>
+                <div id="container-adicionais" style="display:none; max-height:200px; overflow-y:auto; border:1px solid #eee; padding:10px; border-radius:0 0 6px 6px; background:#fff; border-top:none;">
+                    
+                    <h5 style="margin:4px 0; color:#ed3237; font-size:13px; border-bottom:1px solid #eee; padding-bottom:3px;">Coberturas:</h5>
+                    ${selfServiceComplementosDivisao.coberturas.map(c => `
+                        <label style="display:block; padding:3px 0; font-size:13px; cursor:pointer;">
+                            <input type="checkbox" class="opt-self-add-check" value="${c}" style="margin-right:6px;"> ${c}
+                        </label>
+                    `).join('')}
+
+                    <h5 style="margin:10px 0 4px 0; color:#ed3237; font-size:13px; border-bottom:1px solid #eee; padding-bottom:3px;">Caldas:</h5>
+                    ${selfServiceComplementosDivisao.caldas.map(c => `
+                        <label style="display:block; padding:3px 0; font-size:13px; cursor:pointer;">
+                            <input type="checkbox" class="opt-self-add-check" value="${c}" style="margin-right:6px;"> ${c}
+                        </label>
+                    `).join('')}
+
+                    <h5 style="margin:10px 0 4px 0; color:#ed3237; font-size:13px; border-bottom:1px solid #eee; padding-bottom:3px;">Cremes, Granulados e Outros:</h5>
+                    ${selfServiceComplementosDivisao.cremesEOutros.map(c => `
+                        <label style="display:block; padding:3px 0; font-size:13px; cursor:pointer;">
+                            <input type="checkbox" class="opt-self-add-check" value="${c}" style="margin-right:6px;"> ${c}
+                        </label>
+                    `).join('')}
+                </div>
+            </div>
+
+            <h4 style="margin-top:12px; font-size:14px;">Observações do Self-Service:</h4>
+            <textarea id="opt-self-obs" style="width:100%; height:55px; border-radius:6px; border:1px solid #ccc; padding:8px; font-family:inherit; font-size:13px;" placeholder="Ex: Bater no portão / caprichar no creme de avelã..."></textarea>
+        `;
+    }
+    // --- DEMAIS PRODUTOS NORMAIS ---
+    else {
+        if (prod.complexOptions) {
+            modalHTML += `<h4>Escolha o Tamanho:</h4><select id="opt-tam-select" class="opt-select" style="width:100%; padding:10px; margin-bottom:12px; border-radius:6px;">`;
+            for (const [tam, preco] of Object.entries(prod.tamanhos)) {
+                modalHTML += `<option value="${tam}">${tam} - R$ ${preco.toFixed(2)}</option>`;
+            }
+            modalHTML += `</select>`;
+        } else {
+            modalHTML += `<p><strong>Preço: R$ ${prod.preco.toFixed(2)}</strong></p><input type="hidden" id="opt-tam-select" value="Unico">`;
+        }
+
+        if (prod.selfServiceFlavors) {
+            modalHTML += `
+                <h4 style="margin-top:12px; font-size:14px;">Escolha até 2 Sabores:</h4>
+                <input type="text" id="opt-flavor-input-1" class="opt-input" style="width:100%; padding:8px; margin-bottom:5px; border:1px solid #ccc; border-radius:6px; font-size:13px;" placeholder="Primeiro Sabor" list="opt-flavor-list">
+                <input type="text" id="opt-flavor-input-2" class="opt-input" style="width:100%; padding:8px; border:1px solid #ccc; border-radius:6px; font-size:13px;" placeholder="Segundo Sabor (Opcional)" list="opt-flavor-list">
+                <datalist id="opt-flavor-list">${selfServiceSabores.map(s => `<option value="${s}">`).join('')}</datalist>
             `;
-        });
-        modalHTML += `</div>`;
+        }
+
+        if (prod.cat === 'acai' || prod.cat === 'shakes') {
+            modalHTML += `
+                <div class="accordion-header" onclick="toggleAdicionais()" style="display:flex; justify-content:space-between; align-items:center; padding:10px; background:#f9f9f9; border-radius:6px; cursor:pointer; margin-top:12px; border:1px solid #eee; font-weight:bold; font-size:14px;">
+                    <span>Acrescentar Adicionais?</span>
+                    <i id="icon-angle" class="fas fa-plus"></i>
+                </div>
+                <div id="container-adicionais" style="display:none; max-height:180px; overflow-y:auto; border:1px solid #eee; padding:5px; border-radius:0 0 6px 6px; background:#fff; border-top:none;">
+            `;
+            
+            let listToUse = prod.cat === 'shakes' ? adicionaisList.filter(a => a.nome === 'Chantilly') : adicionaisList;
+
+            listToUse.forEach(add => {
+                modalHTML += `
+                    <label style="display:flex; align-items:center; justify-content:space-between; padding:8px; border-bottom:1px solid #eee; cursor:pointer;">
+                        <div style="display:flex; align-items:center; gap:10px; flex:1;">
+                            ${add.image ? `<img src="${add.image}" alt="${add.nome}" style="width:35px; height:35px; object-fit:contain; border-radius:6px; background:#f9f9f9;">` : ''}
+                            <div>
+                                <span style="font-size:13px; font-weight:500;">${add.nome}</span><br>
+                                <span style="font-size:12px; font-weight:bold; color:#ed3237;">R$ ${add.preco.toFixed(2)}</span>
+                            </div>
+                        </div>
+                        <input type="checkbox" class="opt-add-on-check" data-nome="${add.nome}" data-preco="${add.preco}" style="width:18px; height:18px; cursor:pointer;">
+                    </label>
+                `;
+            });
+            modalHTML += `</div>`;
+        }
+
+        modalHTML += `
+            <h4 style="margin-top:12px; font-size:14px;">Observações:</h4>
+            <textarea id="opt-obs" style="width:100%; height:55px; border-radius:6px; border:1px solid #ccc; padding:8px; font-family:inherit; font-size:13px;" placeholder="Ex: Bater no portão..."></textarea>
+        `;
     }
 
     modalHTML += `
-        <h4 style="margin-top:15px;">Observações:</h4>
-        <textarea id="opt-obs" style="width:100%; height:60px; border-radius:5px; border:1px solid #ccc; padding:8px; font-family:inherit;" placeholder="Ex: Sem granola, caprichar na calda..."></textarea>
+        <h4 style="margin-top:12px; font-size:14px;">Quantidade:</h4>
+        <div style="display:flex; align-items:center; gap:15px; margin-bottom:15px;">
+            <button onclick="changeQty(-1)" type="button" style="width:36px; height:36px; border-radius:50%; border:1px solid #ccc; background:#eee; font-size:18px; font-weight:bold; cursor:pointer;">-</button>
+            <span id="prod-qty" style="font-size:18px; font-weight:bold;">1</span>
+            <button onclick="changeQty(1)" type="button" style="width:36px; height:36px; border-radius:50%; border:1px solid #ccc; background:#eee; font-size:18px; font-weight:bold; cursor:pointer;">+</button>
+        </div>
     `;
 
-    modalHTML += `
-    <h4 style="margin-top:15px;">Quantidade:</h4>
-    <div style="display: flex; align-items: center; gap: 20px; margin-bottom: 20px;">
-        <button onclick="changeQty(-1)" type="button" style="width: 40px; height: 40px; border-radius: 50%; border: 1px solid #ccc; background: #eee; font-size: 20px; cursor: pointer;">-</button>
-        <span id="prod-qty" style="font-size: 20px; font-weight: bold;">1</span>
-        <button onclick="changeQty(1)" type="button" style="width: 40px; height: 40px; border-radius: 50%; border: 1px solid #ccc; background: #eee; font-size: 20px; cursor: pointer;">+</button>
-    </div>
-`;
+    bolasSelfServiceState = {};
+    selfServiceSabores.forEach((_, idx) => bolasSelfServiceState[idx] = 0);
 
     detailsArea.innerHTML = modalHTML;
     modal.classList.remove('hidden');
 }
 
-let currentQty = 1; // Variável global para controlar a quantidade no modal
+function validarValorCobertura(input) {
+    let val = Math.floor(parseFloat(input.value));
+    if (isNaN(val) || val < 2) {
+        alert("O valor mínimo para cobertura/calda é R$ 2,00.");
+        input.value = 2;
+    } else {
+        input.value = val;
+    }
+}
 
-// Função que aumenta ou diminui o número na tela
+function validarValorSelf(input) {
+    let val = Math.floor(parseFloat(input.value));
+    if (isNaN(val) || val < 15) {
+        alert("O valor do Self-Service precisa ser um número inteiro de no mínimo R$ 15,00.");
+        input.value = 15;
+    } else {
+        input.value = val;
+    }
+}
+
+function toggleModoSelfServiceUI() {
+    const tipo = document.getElementById('self-tipo-escolha').value;
+    const pValor = document.getElementById('painel-self-valor');
+    const pBolas = document.getElementById('painel-self-bolas');
+
+    if (tipo === 'valor') {
+        pValor.style.display = 'block';
+        pBolas.style.display = 'none';
+    } else {
+        pValor.style.display = 'none';
+        pBolas.style.display = 'block';
+    }
+}
+
+function alterarBolaCount(idx, delta) {
+    let atual = bolasSelfServiceState[idx] || 0;
+    atual += delta;
+    if (atual < 0) atual = 0;
+    bolasSelfServiceState[idx] = atual;
+
+    const el = document.getElementById(`bola-count-${idx}`);
+    if (el) el.innerText = atual;
+}
+
 function changeQty(delta) {
     currentQty += delta;
-    if (currentQty < 1) currentQty = 1; // Não deixa ser menos que 1
+    if (currentQty < 1) currentQty = 1;
     const qtyEl = document.getElementById('prod-qty');
     if (qtyEl) qtyEl.innerText = currentQty;
 }
 
-// IMPORTANTE: Resetar a quantidade para 1 sempre que abrir o modal
-// Adicione esta linha no INÍCIO da sua função openOptionsModal(id):
-// currentQty = 1;
+function toggleAdicionais() {
+    const container = document.getElementById('container-adicionais');
+    const icon = document.getElementById('icon-angle');
+    if (container) {
+        if (container.style.display === 'none' || container.style.display === '') {
+            container.style.display = 'block';
+            if (icon) icon.className = 'fas fa-minus';
+        } else {
+            container.style.display = 'none';
+            if (icon) icon.className = 'fas fa-plus';
+        }
+    }
+}
 
-function closeOptionsModal() { 
+function closeOptionsModal() {
     const modal = document.getElementById('product-options-modal');
-    if (modal) modal.classList.add('hidden'); 
+    if (modal) modal.classList.add('hidden');
     currentItemWithOptions = null;
 }
 
+// ==========================================
+// 3. ADIÇÃO DE ITENS AO CARRINHO E REGRAS
+// ==========================================
 function addProductWithOptionsToCart() {
-    // 1. Verificação de segurança
     if (!currentItemWithOptions) {
         alert("Erro: Nenhum produto selecionado.");
         return;
@@ -308,137 +525,241 @@ function addProductWithOptionsToCart() {
 
     const p = currentItemWithOptions;
 
-    // 2. Captura os elementos do DOM
-    const tamSelect = document.getElementById('opt-tam-select');
-    const obsField = document.getElementById('opt-obs');
-    const s1 = document.getElementById('opt-flavor-input-1')?.value || "";
-    const s2 = document.getElementById('opt-flavor-input-2')?.value || "";
+    // LÓGICA COBERTURA ÚNICA
+    if (p.isCoberturaUnica) {
+        const sabor = document.getElementById('cob-sabor-select').value;
+        const valInput = document.getElementById('cob-valor-input');
+        let valorCalculado = Math.floor(parseFloat(valInput.value));
+        if (isNaN(valorCalculado) || valorCalculado < 2) valorCalculado = 2;
 
-    // 3. Define Preço e Tamanho
-    let precoFinal = 0;
-    let tamanhoTexto = "";
+        const obsField = document.getElementById('opt-obs');
+        let detalhesStr = `Sabor: ${sabor}`;
+        if (obsField && obsField.value) detalhesStr += ` | Obs: ${obsField.value}`;
 
-    if (p.complexOptions) {
-        tamanhoTexto = tamSelect.value;
-        precoFinal = p.tamanhos[tamanhoTexto];
-    } else {
-        tamanhoTexto = "Único";
-        precoFinal = p.preco;
+        cart.push({
+            id: Date.now(),
+            nomeFormatado: `Cobertura - ${sabor}`,
+            detalhes: detalhesStr,
+            preco: valorCalculado * currentQty,
+            quantidade: currentQty,
+            isSelfServicePeso: false
+        });
+    }
+    // LÓGICA SELF-SERVICE
+    else if (p.isSelfService) {
+        const tipoChoice = document.getElementById('self-tipo-escolha').value;
+        const selfObs = document.getElementById('opt-self-obs')?.value || "";
+
+        let complementosList = [];
+        document.querySelectorAll('.opt-self-add-check:checked').forEach(c => complementosList.push(c.value));
+
+        if (tipoChoice === 'valor') {
+            const valInput = document.getElementById('self-valor-input');
+            let valorCalculado = Math.floor(parseFloat(valInput.value));
+
+            if (isNaN(valorCalculado) || valorCalculado < 15) {
+                alert("Por favor, informe um valor inteiro de no mínimo R$ 15,00!");
+                return;
+            }
+
+            let saboresList = [];
+            document.querySelectorAll('.self-sabor-check:checked').forEach(c => saboresList.push(c.value));
+
+            if (saboresList.length === 0) {
+                alert("Por favor, selecione ao menos 1 sabor de sorvete!");
+                return;
+            }
+
+            let detalhesStr = `Modo: Valor Fixo (R$ ${valorCalculado.toFixed(2)}) | Sabores: ${saboresList.join(', ')}`;
+            if (complementosList.length > 0) detalhesStr += ` | Comps: ${complementosList.join(', ')}`;
+            if (selfObs) detalhesStr += ` | Obs: ${selfObs}`;
+
+            cart.push({
+                id: Date.now(),
+                nomeFormatado: 'Self-Service Por Valor',
+                detalhes: detalhesStr,
+                preco: valorCalculado * currentQty,
+                quantidade: currentQty,
+                isSelfServicePeso: true
+            });
+        } 
+        else { // MODO BOLAS
+            let bolasResumo = [];
+            let totalBolas = 0;
+
+            selfServiceSabores.forEach((sabor, idx) => {
+                let qtd = bolasSelfServiceState[idx] || 0;
+                if (qtd > 0) {
+                    bolasResumo.push(`${qtd}x ${sabor}`);
+                    totalBolas += qtd;
+                }
+            });
+
+            if (totalBolas === 0) {
+                alert("Por favor, escolha a quantidade de bolas de ao menos 1 sabor!");
+                return;
+            }
+
+            let detalhesStr = `Modo: Bolas (${totalBolas} bolas) | Sabores: ${bolasResumo.join(', ')}`;
+            if (complementosList.length > 0) detalhesStr += ` | Comps: ${complementosList.join(', ')}`;
+            if (selfObs) detalhesStr += ` | Obs: ${selfObs}`;
+
+            cart.push({
+                id: Date.now(),
+                nomeFormatado: 'Self-Service Por Bolas',
+                detalhes: detalhesStr,
+                preco: 0,
+                quantidade: currentQty,
+                isSelfServicePeso: true
+            });
+        }
+    } 
+    // DEMAIS PRODUTOS NORMAIS
+    else {
+        const tamSelect = document.getElementById('opt-tam-select');
+        const obsField = document.getElementById('opt-obs');
+        const s1 = document.getElementById('opt-flavor-input-1')?.value || "";
+        const s2 = document.getElementById('opt-flavor-input-2')?.value || "";
+
+        let precoFinal = 0;
+        let tamanhoTexto = "";
+
+        if (p.complexOptions && tamSelect) {
+            tamanhoTexto = tamSelect.value;
+            precoFinal = p.tamanhos[tamanhoTexto];
+        } else {
+            tamanhoTexto = "Único";
+            precoFinal = p.preco;
+        }
+
+        let adicionaisNomes = [];
+        let valorAdicionais = 0;
+        document.querySelectorAll('.opt-add-on-check:checked').forEach(c => {
+            adicionaisNomes.push(c.getAttribute('data-nome'));
+            valorAdicionais += parseFloat(c.getAttribute('data-preco'));
+        });
+
+        let detalhesArray = [];
+        if (tamanhoTexto !== "Único") detalhesArray.push(`Tam: ${tamanhoTexto}`);
+        if (s1 || s2) detalhesArray.push(`Sabores: ${[s1, s2].filter(x => x).join(' e ')}`);
+        if (adicionaisNomes.length > 0) detalhesArray.push(`Adds: ${adicionaisNomes.join(', ')}`);
+        if (obsField && obsField.value) detalhesArray.push(`Obs: ${obsField.value}`);
+
+        cart.push({
+            id: Date.now(),
+            nomeFormatado: p.nome,
+            detalhes: detalhesArray.join(' | '),
+            preco: (precoFinal + valorAdicionais) * currentQty,
+            quantidade: currentQty,
+            isSelfServicePeso: false
+        });
     }
 
-    // 4. Lógica de Adicionais
-    let adicionaisNomes = [];
-    let valorAdicionais = 0;
-    const checks = document.querySelectorAll('.opt-add-on-check:checked');
-    
-    checks.forEach(c => {
-        adicionaisNomes.push(c.getAttribute('data-nome'));
-        valorAdicionais += parseFloat(c.getAttribute('data-preco'));
-    });
-
-    // 5. Formatação dos detalhes
-    let detalhesArray = [];
-    if (tamanhoTexto !== "Único") detalhesArray.push(`Tam: ${tamanhoTexto}`);
-    if (s1 || s2) detalhesArray.push(`Sabores: ${[s1, s2].filter(x => x).join(' e ')}`);
-    if (adicionaisNomes.length > 0) detalhesArray.push(`Adds: ${adicionaisNomes.join(', ')}`);
-    if (obsField && obsField.value) detalhesArray.push(`Obs: ${obsField.value}`);
-
-    // 6. Monta o objeto do item
-    const novoItem = {
-        id: Date.now(),
-        nomeOriginal: p.nome,
-        nomeFormatado: p.nome,
-        detalhes: detalhesArray.join(' | '),
-        preco: (precoFinal + valorAdicionais) * currentQty,
-        quantidade: currentQty
-    };
-
-    // 7. Adiciona ao carrinho e fecha o modal
-    cart.push(novoItem);
-    updateCartCount(); 
+    updateCartCount();
     closeOptionsModal();
 
-    // --- 8. MENSAGEM VISUAL (AGORA NO LUGAR CERTO) ---
     const toast = document.createElement('div');
-    toast.innerHTML = `✅ ${currentQty}x ${p.nome} adicionado!`;
-    toast.style.cssText = `
-        position: fixed;
-        bottom: 100px;
-        left: 50%;
-        transform: translateX(-50%);
-        background: #28a745;
-        color: white;
-        padding: 12px 25px;
-        border-radius: 30px;
-        font-weight: bold;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-        z-index: 10000;
-        transition: opacity 0.5s;
-        text-align: center;
-        white-space: nowrap;
-    `;
+    toast.innerHTML = `✅ Adicionado ao carrinho!`;
+    toast.style.cssText = `position:fixed; bottom:100px; left:50%; transform:translateX(-50%); background:#28a745; color:white; padding:12px 25px; border-radius:30px; font-weight:bold; box-shadow:0 4px 15px rgba(0,0,0,0.3); z-index:10000; text-align:center;`;
     document.body.appendChild(toast);
-
-    // Sumir depois de 2 segundos
-    setTimeout(() => {
-        toast.style.opacity = '0';
-        setTimeout(() => toast.remove(), 500);
-    }, 2000);
+    setTimeout(() => toast.remove(), 2000);
 }
 
-function updateCartCount() { 
+// ==========================================
+// 4. FUNÇÕES DINÂMICAS DO CHECKOUT
+// ==========================================
+function toggleDeliveryType() {
+    const typeSelect = document.getElementById('cust-delivery-type');
+    const fields = document.getElementById('delivery-address-fields');
+    if (typeSelect && fields) {
+        fields.style.display = (typeSelect.value === 'Retirada') ? 'none' : 'flex';
+    }
+    renderCartModal();
+}
+
+function togglePaymentFields() {
+    const pagto = document.getElementById('cust-payment').value;
+    const trocoContainer = document.getElementById('troco-container');
+    const multiContainer = document.getElementById('multi-payment-container');
+
+    if (trocoContainer) trocoContainer.style.display = (pagto === 'Dinheiro') ? 'block' : 'none';
+    if (multiContainer) multiContainer.style.display = (pagto === 'DuasFormas') ? 'block' : 'none';
+}
+
+function toggleTrocoInput() {
+    const opcao = document.getElementById('cust-troco-opcao').value;
+    const trocoBox = document.getElementById('troco-input-box');
+    if (trocoBox) {
+        trocoBox.style.display = (opcao === 'precisa_troco') ? 'block' : 'none';
+    }
+}
+
+function updateCartCount() {
     const countEl = document.getElementById('cart-count');
-    if (countEl) countEl.innerText = cart.length; 
+    if (countEl) countEl.innerText = cart.length;
 }
 
-function openCartModal() { 
+function openCartModal() {
     if (cart.length === 0) return alert("Seu carrinho está vazio!");
     const cartModal = document.getElementById('cart-modal');
     if (cartModal) {
-        cartModal.classList.remove('hidden'); 
-        renderCartModal(); 
+        cartModal.classList.remove('hidden');
+        renderCartModal();
     }
 }
 
-function closeCartModal() { 
+function closeCartModal() {
     const cartModal = document.getElementById('cart-modal');
-    if (cartModal) cartModal.classList.add('hidden'); 
+    if (cartModal) cartModal.classList.add('hidden');
 }
 
 function renderCartModal() {
     const itemsDiv = document.getElementById('cart-items');
     if (!itemsDiv) return;
     itemsDiv.innerHTML = '';
-    let subtotal = 0;
+
+    let subtotalFixos = 0;
+    let temItemAPesar = false;
 
     cart.forEach(item => {
-    itemsDiv.innerHTML += `
-        <div style="border-bottom:1px solid #eee; padding:10px 0; display:flex; justify-content:space-between; align-items:center;">
-            <div style="flex:1;">
-                <strong>${item.quantidade}x ${item.nomeFormatado}</strong>
-                <p style="font-size:12px; color:#666; margin:0;">${item.detalhes}</p>
-                <span style="color:#587e69; font-weight:bold;">R$ ${item.preco.toFixed(2)}</span>
-            </div>
-            <i class="fas fa-trash" onclick="removeItem(${item.id})" style="color:#ed3237; cursor:pointer; padding:10px;"></i>
-        </div>`;
-    subtotal += item.preco;
-});
+        let precoTexto = "";
+        if (item.isSelfServicePeso && item.preco === 0) {
+            precoTexto = `<span style="color:#e67e22; font-weight:bold;">A calcular na balança</span>`;
+            temItemAPesar = true;
+        } else {
+            precoTexto = `R$ ${item.preco.toFixed(2)}`;
+            subtotalFixos += item.preco;
+        }
 
+        itemsDiv.innerHTML += `
+            <div style="border-bottom:1px solid #eee; padding:10px 0; display:flex; justify-content:space-between; align-items:center;">
+                <div style="flex:1;">
+                    <strong>${item.quantidade}x ${item.nomeFormatado}</strong>
+                    <p style="font-size:12px; color:#666; margin:2px 0;">${item.detalhes}</p>
+                    <span style="color:#587e69; font-weight:bold;">${precoTexto}</span>
+                </div>
+                <i class="fas fa-trash" onclick="removeItem(${item.id})" style="color:#ed3237; cursor:pointer; padding:10px;"></i>
+            </div>
+        `;
+    });
+
+    const isRetirada = document.getElementById('cust-delivery-type')?.value === 'Retirada';
     const bairroSelect = document.getElementById('cust-bairro');
-    const taxaValue = bairroSelect ? parseFloat(bairroSelect.value) : 0;
-    const totalFinal = subtotal + taxaValue;
+    const taxaValue = (!isRetirada && bairroSelect) ? parseFloat(bairroSelect.value) : 0;
+    const totalParcial = subtotalFixos + taxaValue;
 
     itemsDiv.innerHTML += `
         <div style="margin-top:15px; text-align:right; background:#f9f9f9; padding:10px; border-radius:8px;">
-            <p style="margin:2px 0;">Subtotal: R$ ${subtotal.toFixed(2)}</p>
+            <p style="margin:2px 0;">Subtotal de itens fixos: R$ ${subtotalFixos.toFixed(2)}</p>
             <p style="margin:2px 0;">Taxa Entrega: R$ ${taxaValue.toFixed(2)}</p>
-            <h3 style="color:#ed3237; margin:5px 0;">TOTAL: R$ ${totalFinal.toFixed(2)}</h3>
-        </div>`;
+            <h3 style="color:#ed3237; margin:5px 0;">TOTAL PARCIAL: R$ ${totalParcial.toFixed(2)}</h3>
+        </div>
+    `;
 
     const btnSend = document.querySelector('.btn-send');
     const minMsg = document.getElementById('min-order-msg');
     if (btnSend) {
-        if (subtotal < 22) {
+        if (!isRetirada && subtotalFixos < 22 && !temItemAPesar) {
             if (minMsg) minMsg.innerHTML = `<p style="color:red; font-size:12px; font-weight:bold; text-align:center; margin-bottom:10px;">* Mínimo de R$ 22,00 para entrega.</p>`;
             btnSend.disabled = true;
             btnSend.style.opacity = "0.5";
@@ -455,63 +776,109 @@ function renderCartModal() {
 function removeItem(id) {
     cart = cart.filter(i => i.id !== id);
     updateCartCount();
-    if(cart.length === 0) closeCartModal();
+    if (cart.length === 0) closeCartModal();
     else renderCartModal();
 }
 
-function toggleTroco() {
-    const pagtoSelect = document.getElementById('cust-payment');
-    const trocoCont = document.getElementById('troco-container');
-    if (pagtoSelect && trocoCont) {
-        trocoCont.style.display = (pagtoSelect.value === 'Dinheiro') ? 'block' : 'none';
-    }
-}
-
+// ==========================================
+// 5. ENVIO AUTOMÁTICO DO PEDIDO VIA WHATSAPP
+// ==========================================
 function sendWhatsApp() {
-    const nome = document.getElementById('cust-name').value;
-    const endereco = document.getElementById('cust-address').value;
-    const bairroSelect = document.getElementById('cust-bairro');
-    
-    if(!nome || !endereco || !bairroSelect || bairroSelect.value === "0") {
-        alert("Por favor, preencha o Nome, Endereço e selecione o Bairro.");
+    const nome = document.getElementById('cust-name')?.value;
+    const isRetirada = document.getElementById('cust-delivery-type')?.value === 'Retirada';
+    const pagto = document.getElementById('cust-payment')?.value;
+
+    if (!nome) {
+        alert("Por favor, preencha o Nome.");
         return;
     }
 
-    const bairroText = bairroSelect.options[bairroSelect.selectedIndex].text;
-    const taxa = parseFloat(bairroSelect.value);
-    const pagto = document.getElementById('cust-payment').value;
-    const troco = document.getElementById('cust-troco').value;
+    let endereco = "";
+    let bairroText = "";
+    let pontoRef = "";
+    let taxa = 0;
 
-    let subtotal = 0;
-    
-    // 1. Cabeçalho e Cliente
+    if (!isRetirada) {
+        endereco = document.getElementById('cust-address')?.value;
+        pontoRef = document.getElementById('cust-ref')?.value;
+        const bairroSelect = document.getElementById('cust-bairro');
+
+        if (!endereco || !bairroSelect || bairroSelect.value === "0") {
+            alert("Por favor, preencha o Endereço e selecione o Bairro para entrega.");
+            return;
+        }
+
+        bairroText = bairroSelect.options[bairroSelect.selectedIndex].text;
+        taxa = parseFloat(bairroSelect.value);
+    }
+
+    const obsPedido = document.getElementById('cust-obs')?.value;
+
+    let subtotalFixos = 0;
+    let temItemAPesar = false;
+
+    // CABEÇALHO DO PEDIDO
     let msg = `🍦*PEDIDO - SORVETE AMIGO SALINAS*\n\n`;
     msg += `*Cliente:* ${nome}\n`;
-    msg += `----------------------------\n\n`;
-    
-    // 2. Itens do Pedido (usando o hífen "-" como você pediu)
-    cart.forEach(i => {
-        msg += `- *${i.quantidade}x ${i.nomeFormatado}*\n  _${i.detalhes}_\n\n`;
-        subtotal += i.preco;
-    });
-    
-    msg += `-----------------------------\n`;
-
-    // 3. Total e Pagamento
-    msg += `*Total:* R$ ${(subtotal + taxa).toFixed(2)}\n\n`;
-    msg += `*Pagamento:* ${pagto}`;
-    if (pagto === 'Dinheiro' && troco) {
-        msg += ` (Troco para R$ ${troco})`;
+    if (isRetirada) {
+        msg += `*Tipo:* Retirar no Estabelecimento\n`;
     }
-    msg += `\n----------------------------\n\n`;
+    msg += `----------------------------\n\n`;
 
-    // 4. Endereço e Bairro por último
-    msg += `*Endereço:* ${endereco}\n`;
-    msg += `*Bairro:* ${bairroText}`;
+    // PRODUTOS
+    cart.forEach(i => {
+        msg += `• *${i.quantidade}x ${i.nomeFormatado}*\n  _${i.detalhes}_\n`;
+        if (i.isSelfServicePeso && i.preco === 0) {
+            msg += `  _(A CALCULAR PELA LOJA NA BALANÇA)_\n\n`;
+            temItemAPesar = true;
+        } else {
+            msg += `  _R$ ${i.preco.toFixed(2)}_\n\n`;
+            subtotalFixos += i.preco;
+        }
+    });
+
+    const totalFinal = subtotalFixos + taxa;
+
+    msg += `-----------------------------\n`;
+    msg += `*Total:* R$ ${totalFinal.toFixed(2).replace('.', ',')}${temItemAPesar ? ' (+ valor a peshar)' : ''}\n\n`;
+
+    // FORMA DE PAGAMENTO
+    let pagtoTexto = pagto;
+    if (pagto === 'Dinheiro') {
+        const opcaoTroco = document.getElementById('cust-troco-opcao')?.value;
+        if (opcaoTroco === 'precisa_troco') {
+            const valTroco = document.getElementById('cust-troco')?.value;
+            pagtoTexto = `Dinheiro (Precisa de troco para R$ ${valTroco})`;
+        } else {
+            pagtoTexto = `Dinheiro (Já está trocado)`;
+        }
+    } else if (pagto === 'DuasFormas') {
+        const pay1 = document.getElementById('multi-pay-1')?.value;
+        const val1 = document.getElementById('multi-val-1')?.value || '0';
+        const pay2 = document.getElementById('multi-pay-2')?.value;
+        const val2 = document.getElementById('multi-val-2')?.value || '0';
+        pagtoTexto = `Duas Formas (${pay1}: R$ ${val1} | ${pay2}: R$ ${val2})`;
+    }
+
+    msg += `*Pagamento:* ${pagtoTexto}\n`;
+    msg += `----------------------------\n\n`;
+
+    // DADOS DE ENTREGA
+    if (!isRetirada) {
+        msg += `*Endereço:* ${endereco}\n`;
+        msg += `*Bairro:* ${bairroText}\n\n`;
+        if (pontoRef) msg += `*Referência:* ${pontoRef}\n`;
+    }
+
+    // OBSERVAÇÃO DO PEDIDO
+    if (obsPedido) {
+        msg += `*Observação:* ${obsPedido}\n`;
+    }
 
     window.open(`https://wa.me/5538988353543?text=${encodeURIComponent(msg)}`, '_blank');
 }
 
+// INICIALIZAÇÃO E UTILITÁRIOS
 window.onload = function() {
     showPage('home');
     updateCartCount();
@@ -533,8 +900,8 @@ function buscarProduto() {
     if (!listContainer) return;
     listContainer.innerHTML = '';
 
-    const resultados = database.filter(p => 
-        p.nome.toLowerCase().includes(termo) || 
+    const resultados = database.filter(p =>
+        p.nome.toLowerCase().includes(termo) ||
         p.desc.toLowerCase().includes(termo)
     );
 
@@ -544,21 +911,21 @@ function buscarProduto() {
     }
 
     resultados.forEach(p => {
-        let precoTexto = p.complexOptions ? 
-            `A partir de R$ ${Math.min(...Object.values(p.tamanhos)).toFixed(2)}` : 
+        let precoTexto = p.complexOptions ?
+            `A partir de R$ ${Math.min(...Object.values(p.tamanhos)).toFixed(2)}` :
             `R$ ${p.preco.toFixed(2)}`;
-        
+
         const div = document.createElement('div');
         div.className = 'product-item';
         div.innerHTML = `
-            <div class="product-content-wrapper" style="display: flex; align-items: center; width: 100%; gap: 15px;">
-                ${p.image ? `<img src="${p.image}" alt="${p.nome}" style="width: 70px; height: 70px; object-fit: contain; border-radius: 8px; background: #fff;">` : ''}
-                <div class="product-info" style="flex: 1;">
-                    <h4 style="margin: 0; font-size: 16px;">${p.nome}</h4>
-                    <p style="margin: 3px 0; font-size: 12px; color: #666;">${p.desc}</p>
-                    <span class="product-price" style="font-weight: bold; color: #ed3237;">${precoTexto}</span>
+            <div class="product-content-wrapper" style="display:flex; align-items:center; width:100%; gap:15px;">
+                ${p.image ? `<img src="${p.image}" alt="${p.nome}" style="width:70px; height:70px; object-fit:contain; border-radius:8px; background:#fff;">` : ''}
+                <div class="product-info" style="flex:1;">
+                    <h4 style="margin:0; font-size:16px;">${p.nome}</h4>
+                    <p style="margin:3px 0; font-size:12px; color:#666;">${p.desc}</p>
+                    <span class="product-price" style="font-weight:bold; color:#ed3237;">${precoTexto}</span>
                 </div>
-                <button class="btn-add" onclick="openOptionsModal(${p.id})" style="background: #28a745; color: white; border: none; border-radius: 50%; width: 35px; height: 35px; font-size: 20px; cursor: pointer;">+</button>
+                <button class="btn-add" onclick="openOptionsModal(${p.id})" style="background:#28a745; color:white; border:none; border-radius:50%; width:35px; height:35px; font-size:20px; cursor:pointer;">+</button>
             </div>
         `;
         div.onclick = () => openOptionsModal(p.id);
@@ -566,28 +933,12 @@ function buscarProduto() {
     });
 }
 
-// FUNÇÃO PARA ABRIR/FECHAR ADICIONAIS
-function toggleAdicionais() {
-    const container = document.getElementById('container-adicionais');
-    const icon = document.getElementById('icon-angle');
-    
-    if (container.style.display === 'none' || container.style.display === '') {
-        container.style.display = 'block';
-        icon.classList.replace('fa-plus', 'fa-minus');
-    } else {
-        container.style.display = 'none';
-        icon.classList.replace('fa-minus', 'fa-plus');
-    }
-}
-
-
 function verificarStatusLoja() {
     const agora = new Date();
     const hora = agora.getHours();
     const statusDiv = document.getElementById('status-loja-box');
     if (!statusDiv) return;
 
-    // Considerando aberto das 13h às 23h
     if (hora >= 13 && hora < 23) {
         statusDiv.innerHTML = "● ABERTO AGORA";
         statusDiv.style.color = "#28a745";
@@ -601,57 +952,32 @@ function verificarStatusLoja() {
     }
 }
 
-function verificarStatusLoja() {
-    const agora = new Date();
-    const hora = agora.getHours();
-    const statusDiv = document.getElementById('status-loja-box');
-    
-    if (!statusDiv) return;
-
-    // Regra: Aberto das 13h às 23h
-    if (hora >= 13 && hora < 23) {
-        statusDiv.innerHTML = "● ABERTO AGORA";
-        statusDiv.style.color = "#28a745";
-        statusDiv.style.background = "#e8f5e9";
-        statusDiv.style.border = "1px solid #28a745";
-    } else {
-        statusDiv.innerHTML = "○ FECHADO NO MOMENTO";
-        statusDiv.style.color = "#ed3237";
-        statusDiv.style.background = "#ffebee";
-        statusDiv.style.border = "1px solid #ed3237";
-    }
-}
-
-// LÓGICA DO BANNER
 let currentSlide = 0;
 let bannerTimer = null;
 
 function rodarBanner() {
     const slides = document.querySelectorAll('.slide');
     const dots = document.querySelectorAll('.dot');
-    if(slides.length === 0) return;
-    
-    if(bannerTimer) clearTimeout(bannerTimer);
-    
-    // Esconde tudo
+    if (slides.length === 0) return;
+
+    if (bannerTimer) clearTimeout(bannerTimer);
+
     slides.forEach(s => s.style.display = 'none');
     dots.forEach(d => {
         d.style.background = 'rgba(255,255,255,0.5)';
         d.style.transform = 'scale(1)';
     });
-    
-    // Mostra o atual e destaca a bolinha
+
     slides[currentSlide].style.display = 'block';
-    if(dots[currentSlide]) {
-        dots[currentSlide].style.background = '#fff'; // Bolinha ativa fica branca
-        dots[currentSlide].style.transform = 'scale(1.3)'; // E um pouco maior
+    if (dots[currentSlide]) {
+        dots[currentSlide].style.background = '#fff';
+        dots[currentSlide].style.transform = 'scale(1.3)';
     }
-    
+
     currentSlide = (currentSlide + 1) % slides.length;
-    bannerTimer = setTimeout(rodarBanner, 3500); 
+    bannerTimer = setTimeout(rodarBanner, 3500);
 }
 
-// Função para clicar na bolinha e ir direto para a imagem
 function jumpToSlide(index) {
     currentSlide = index;
     rodarBanner();
