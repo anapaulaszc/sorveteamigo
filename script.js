@@ -54,7 +54,7 @@ const database = [
     { id: 200, cat: 'acai', nome: 'Açaí Calor ', preco: 0, desc: 'Açaí amigo com camadas de Granola, Salada de Frutas, Leite em Pó.', image: 'img/acai-calor.png', complexOptions: true, tamanhos: { '330ml': 22.00, '440ml': 23.00, '550ml': 25.00 } },
     { id: 201, cat: 'acai', nome: 'Açaí União', preco: 0, desc: 'Açaí amigo com camadas de Creme Ninho, Mousse Morango, Creme Avelã.', image: 'img/acai-uniao.png', complexOptions: true, tamanhos: { '330ml': 22.00, '440ml': 23.00, '550ml': 25.00 } },
     { id: 202, cat: 'acai', nome: 'Açaí Companhia', preco: 0, desc: 'Açaí amigo com camadas de Creme Avelã, Creme Ninho, Gotas Chocolate.', image: 'img/acai-companhia.png', complexOptions: true, tamanhos: { '330ml': 22.00, '440ml': 23.00, '550ml': 25.00 } },
-    { id: 203, cat: 'acai', nome: 'Açaí Abraço ( tradicional) ', preco: 0, desc: 'Açaí amigo com camadas de Banana, Leite em Pó, Leite Condensado.', image: 'img/acai-abraco.png', complexOptions: true, tamanhos: { '330ml': 18.00, '440ml': 20.00, '550ml': 22.00 } },
+    { id: 203, cat: 'acai', nome: 'Açaí Abraço ( tradicional)', preco: 0, desc: 'Açaí amigo com camadas de Banana, Leite em Pó, Leite Condensado.', image: 'img/acai-abraco.png', complexOptions: true, tamanhos: { '330ml': 18.00, '440ml': 20.00, '550ml': 22.00 } },
     { id: 204, cat: 'acai', nome: 'Açaí Alegria', preco: 0, desc: 'Açaí amigo com camadas de Leite em Pó e Creme Avelã.', image: 'img/acai-alegria.png', complexOptions: true, tamanhos: { '330ml': 22.00, '440ml': 23.00, '550ml': 25.00 } },
     { id: 205, cat: 'acai', nome: 'Açaí Amor 480ml', preco: 26.00, desc: 'Açaí amigo com pedaços de Frutas da época, Leite em pó e leite condensado.', image: 'img/acai-amor.png' },
     { id: 206, cat: 'acai', nome: 'Açaí Aventura 450ml', preco: 32.00, desc: 'Açaí amigo com pedaços de Bombom, leite em pó, e um Picolé Premium.', image: 'img/acai-aventura.png' },
@@ -78,7 +78,7 @@ const database = [
     { id: 307, cat: 'outros', nome: 'Água Mineral 500ml', preco: 3.00, desc: 'Água Mineral 500ml.', image: 'img/agua-mineral.png' },
     { id: 308, cat: 'outros', nome: 'Água com Gás 500ml', preco: 4.00, desc: 'Água com Gás 500ml.', image: 'img/agua-com-gas.png' },
     { id: 309, cat: 'outros', nome: 'Coca-Cola Lata', preco: 7.00, desc: 'Coca 350ml.', image: 'img/coca-lata.png' },
-    { id: 310, cat: 'outros', nome: 'Coca-Cola Lata Zero', preco: 7.00, desc: 'coca zero açúcar 350ml.', image: 'img/coca-zero-lata.png' },
+    { id: 310, cat: 'outros', nome: 'Coca-Cola Lata Zero', preco: 7.00, desc: 'Coca zero 350ml.', image: 'img/coca-zero-lata.png' },
 
     // COBERTURAS (PRODUTO ÚNICO)
     { id: 600, cat: 'coberturas', nome: 'Coberturas & Caldas', preco: 2.00, desc: 'Escolha o sabor desejado e o valor (a partir de R$ 2,00 em números inteiros).', image: 'img/cobertura-morango.png', isCoberturaUnica: true },
@@ -133,8 +133,7 @@ const adicionaisList = [
     { nome: 'Banana', preco: 3.00, image: 'img/banana.png' },
     { nome: 'Biz', preco: 3.00, image: 'img/bis.png' },
     { nome: 'Biscoito Oreo', preco: 3.00, image: 'img/oreo.png' },
-    { nome: 'Calda de Chocolate', preco: 4.00, image: 'img/calda-chocolate.png' },
-    { nome: 'Calda de Chocolate Branco', preco: 4.00, image: 'img/calda-choc-branco.png' },
+    { nome: 'Cobertura de Chocolate', preco: 3.00, image: 'img/calda-chocolate.png' },
     { nome: 'Cereja', preco: 4.00, image: 'img/cereja.png' },
     { nome: 'Chantilly', preco: 4.00, image: 'img/chantilly.png' },
     { nome: 'Chocoball', preco: 3.00, image: 'img/chocoball.png' },
@@ -144,20 +143,18 @@ const adicionaisList = [
     { nome: 'Disquete', preco: 3.00, image: 'img/disquete.png' },
     { nome: 'Geleia de Maracujá', preco: 4.00, image: 'img/geleia-maracuja.png' },
     { nome: 'Geleia de Morango', preco: 4.00, image: 'img/geleia-morango.png' },
-    { nome: 'Gotas de Chocolate', preco: 3.50, image: 'img/gotas-chocolate.png' },
+    { nome: 'Gotas de Chocolate', preco: 3.00, image: 'img/gotas-chocolate.png' },
     { nome: 'Granola', preco: 3.00, image: 'img/granola.png' },
-    { nome: 'Granulado Colorido', preco: 2.00, image: 'img/granulado-colorido.png' },
-    { nome: 'Granulado Normal', preco: 2.00, image: 'img/granulado.png' },
+    { nome: 'Granulado Colorido', preco: 3.00, image: 'img/granulado-colorido.png' },
+    { nome: 'Granulado Normal', preco: 3.00, image: 'img/granulado.png' },
     { nome: 'Jujuba', preco: 3.00, image: 'img/jujuba.png' },
     { nome: 'Kiwi', preco: 4.00, image: 'img/kiwi.png' },
     { nome: 'Leite Condensado', preco: 3.00, image: 'img/leite-condensado.png' },
     { nome: 'Leite em Pó', preco: 3.00, image: 'img/leite-po.png' },
     { nome: 'Morango', preco: 3.00, image: 'img/morango.png' },
-    { nome: 'Mousse de Maracujá', preco: 3.00, image: 'img/mousse-maracuja.png' },
     { nome: 'Mousse de Morango', preco: 3.00, image: 'img/mousse-morango.png' },
     { nome: 'Paçoca', preco: 3.00, image: 'img/pacoca.png' },
-    { nome: 'Salada de Frutas', preco: 4.00, image: 'img/salada-frutas.png' },
-    { nome: 'Tub Waffe', preco: 3.00, image: 'img/tub-waffe.png' }
+    { nome: 'Salada de Frutas', preco: 4.00, image: 'img/salada-frutas.png' }
 ];
 
 // VARIÁVEIS GLOBAIS DE ESTADO
@@ -808,7 +805,9 @@ function sendWhatsApp() {
             return;
         }
 
-        bairroText = bairroSelect.options[bairroSelect.selectedIndex].text;
+        // Limpa o texto do bairro para remover "(Taxa R$ X,XX)" na mensagem enviada
+        let rawBairroText = bairroSelect.options[bairroSelect.selectedIndex].text;
+        bairroText = rawBairroText.replace(/\s*\(Taxa R\$\s*\d+[\.,]?\d*\)/i, '').trim();
         taxa = parseFloat(bairroSelect.value);
     }
 
@@ -819,22 +818,28 @@ function sendWhatsApp() {
 
     // CABEÇALHO DO PEDIDO
     let msg = `🍦*PEDIDO - SORVETE AMIGO SALINAS*\n\n`;
-    msg += `*Cliente:* ${nome}\n`;
+    msg += `*Cliente:* ${nome.trim()}\n`;
     if (isRetirada) {
         msg += `*Tipo:* Retirar no Estabelecimento\n`;
     }
     msg += `----------------------------\n\n`;
 
-    // PRODUTOS
+    // LISTAGEM DE PRODUTOS (Sem exibir o preço individual de cada item)
     cart.forEach(i => {
-        msg += `• *${i.quantidade}x ${i.nomeFormatado}*\n  _${i.detalhes}_\n`;
+        const nomeLimpo = i.nomeFormatado.trim();
+        
+        msg += `• *${i.quantidade}x ${nomeLimpo}*\n`;
+        if (i.detalhes) {
+            msg += `  _${i.detalhes.trim()}_\n`;
+        }
+        
         if (i.isSelfServicePeso && i.preco === 0) {
-            msg += `  _(A CALCULAR PELA LOJA NA BALANÇA)_\n\n`;
+            msg += `  _(A CALCULAR PELA LOJA NA BALANÇA)_\n`;
             temItemAPesar = true;
         } else {
-            msg += `  _R$ ${i.preco.toFixed(2)}_\n\n`;
             subtotalFixos += i.preco;
         }
+        msg += `\n`;
     });
 
     const totalFinal = subtotalFixos + taxa;
@@ -848,7 +853,7 @@ function sendWhatsApp() {
         const opcaoTroco = document.getElementById('cust-troco-opcao')?.value;
         if (opcaoTroco === 'precisa_troco') {
             const valTroco = document.getElementById('cust-troco')?.value;
-            pagtoTexto = `Dinheiro (Precisa de troco para R$ ${valTroco})`;
+            pagtoTexto = `Dinheiro (Troco para R$ ${valTroco})`;
         } else {
             pagtoTexto = `Dinheiro (Já está trocado)`;
         }
@@ -866,13 +871,13 @@ function sendWhatsApp() {
     // DADOS DE ENTREGA
     if (!isRetirada) {
         msg += `*Endereço:* ${endereco}\n`;
-        msg += `*Bairro:* ${bairroText}\n\n`;
+        msg += `*Bairro:* ${bairroText}\n`;
         if (pontoRef) msg += `*Referência:* ${pontoRef}\n`;
     }
 
-    // OBSERVAÇÃO DO PEDIDO
+    // OBSERVAÇÃO
     if (obsPedido) {
-        msg += `*Observação:* ${obsPedido}\n`;
+        msg += `\n*Observação:* ${obsPedido}\n`;
     }
 
     window.open(`https://wa.me/5538988353543?text=${encodeURIComponent(msg)}`, '_blank');
