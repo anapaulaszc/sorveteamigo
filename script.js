@@ -291,7 +291,7 @@ function openOptionsModal(id) {
         modalHTML += `
             <div style="background:#fff3cd; border:1px solid #ffeeba; color:#856404; padding:10px; border-radius:8px; font-size:13px; margin-bottom:12px;">
                 🍦 <strong>Self-Service - R$ 74,90/kg</strong><br>
-                Monte por Valor Fixo (mínimo R$ 15,00 em inteiros) ou por quantidade de bolas.
+                Monte por Valor Fixo (mínimo R$ 15,00) ou por quantidade de bolas.
             </div>
 
             <div style="margin-bottom:12px;">
