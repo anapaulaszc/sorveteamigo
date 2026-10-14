@@ -51,10 +51,10 @@ const database = [
     { id: 126, cat: 'picoles', nome: 'Picolé Jabuticaba', preco: 5.00, desc: 'picolé sabor jabuticaba', image: 'img/picole-jabuticaba.png' },
 
     // AÇAÍS
-    { id: 200, cat: 'acai', nome: 'Açaí Calor ', preco: 0, desc: 'Açaí amigo com camadas de Granola, Salada de Frutas, Leite em Pó.', image: 'img/acai-calor.png', complexOptions: true, tamanhos: { '330ml': 22.00, '440ml': 23.00, '550ml': 25.00 } },
+    { id: 200, cat: 'acai', nome: 'Açaí Calor', preco: 0, desc: 'Açaí amigo com camadas de Granola, Salada de Frutas, Leite em Pó.', image: 'img/acai-calor.png', complexOptions: true, tamanhos: { '330ml': 22.00, '440ml': 23.00, '550ml': 25.00 } },
     { id: 201, cat: 'acai', nome: 'Açaí União', preco: 0, desc: 'Açaí amigo com camadas de Creme Ninho, Mousse Morango, Creme Avelã.', image: 'img/acai-uniao.png', complexOptions: true, tamanhos: { '330ml': 22.00, '440ml': 23.00, '550ml': 25.00 } },
     { id: 202, cat: 'acai', nome: 'Açaí Companhia', preco: 0, desc: 'Açaí amigo com camadas de Creme Avelã, Creme Ninho, Gotas Chocolate.', image: 'img/acai-companhia.png', complexOptions: true, tamanhos: { '330ml': 22.00, '440ml': 23.00, '550ml': 25.00 } },
-    { id: 203, cat: 'acai', nome: 'Açaí Abraço ( tradicional)', preco: 0, desc: 'Açaí amigo com camadas de Banana, Leite em Pó, Leite Condensado.', image: 'img/acai-abraco.png', complexOptions: true, tamanhos: { '330ml': 18.00, '440ml': 20.00, '550ml': 22.00 } },
+    { id: 203, cat: 'acai', nome: 'Açaí Abraço (tradicional)', preco: 0, desc: 'Açaí amigo com camadas de Banana, Leite em Pó, Leite Condensado.', image: 'img/acai-abraco.png', complexOptions: true, tamanhos: { '330ml': 18.00, '440ml': 20.00, '550ml': 22.00 } },
     { id: 204, cat: 'acai', nome: 'Açaí Alegria', preco: 0, desc: 'Açaí amigo com camadas de Leite em Pó e Creme Avelã.', image: 'img/acai-alegria.png', complexOptions: true, tamanhos: { '330ml': 22.00, '440ml': 23.00, '550ml': 25.00 } },
     { id: 205, cat: 'acai', nome: 'Açaí Amor 480ml', preco: 26.00, desc: 'Açaí amigo com pedaços de Frutas da época, Leite em pó e leite condensado.', image: 'img/acai-amor.png' },
     { id: 206, cat: 'acai', nome: 'Açaí Aventura 450ml', preco: 32.00, desc: 'Açaí amigo com pedaços de Bombom, leite em pó, e um Picolé Premium.', image: 'img/acai-aventura.png' },
@@ -307,30 +307,41 @@ function openOptionsModal(id) {
                 <label style="font-weight:bold; display:block; margin-bottom:5px;">Digite o valor em R$ (Inteiros, mín. R$ 15):</label>
                 <input type="number" id="self-valor-input" min="15" step="1" value="15" onchange="validarValorSelf(this)" style="width:100%; padding:10px; border:1px solid #ccc; border-radius:6px; font-size:16px; margin-bottom:12px;">
                 
-                <label style="font-weight:bold; display:block; margin-bottom:5px;">Escolha os Sabores Desejados:</label>
-                <div style="max-height:150px; overflow-y:auto; border:1px solid #eee; padding:8px; border-radius:6px; background:#fafafa;">
-                    ${selfServiceSabores.map(s => `
-                        <label style="display:block; padding:4px 0; font-size:13px; cursor:pointer;">
-                            <input type="checkbox" class="self-sabor-check" value="${s}" style="margin-right:8px;"> ${s}
-                        </label>
-                    `).join('')}
+                <!-- ACORDEÃO DE SABORES COM BOTÃO + -->
+                <div style="margin-bottom:12px;">
+                    <div class="accordion-header" onclick="toggleSaboresSelf()" style="display:flex; justify-content:space-between; align-items:center; padding:10px; background:#f9f9f9; border-radius:6px; cursor:pointer; border:1px solid #eee; font-weight:bold; font-size:14px;">
+                        <span>Escolha os Sabores Desejados</span>
+                        <i id="icon-angle-sabores" class="fas fa-plus"></i>
+                    </div>
+                    <div id="container-sabores-self" style="display:none; max-height:160px; overflow-y:auto; border:1px solid #eee; padding:8px; border-radius:0 0 6px 6px; background:#fafafa; border-top:none;">
+                        ${selfServiceSabores.map(s => `
+                            <label style="display:block; padding:4px 0; font-size:13px; cursor:pointer;">
+                                <input type="checkbox" class="self-sabor-check" value="${s}" onchange="checarLimiteSaboresSelf(this)" style="margin-right:8px;"> ${s}
+                            </label>
+                        `).join('')}
+                    </div>
                 </div>
             </div>
 
-            <!-- PAINEL 2: SELEÇÃO DE BOLAS -->
+            <!-- PAINEL 2: SELEÇÃO DE BOLAS COM BOTÃO + -->
             <div id="painel-self-bolas" style="display:none;">
-                <label style="font-weight:bold; display:block; margin-bottom:6px;">Quantidade de bolas por sabor:</label>
-                <div style="max-height:160px; overflow-y:auto; border:1px solid #eee; padding:8px; border-radius:6px; background:#fafafa;">
-                    ${selfServiceSabores.map((s, idx) => `
-                        <div style="display:flex; justify-content:space-between; align-items:center; padding:5px 0; border-bottom:1px solid #f0f0f0;">
-                            <span style="font-size:13px;">${s}</span>
-                            <div style="display:flex; align-items:center; gap:8px;">
-                                <button type="button" onclick="alterarBolaCount(${idx}, -1)" style="width:26px; height:26px; border-radius:50%; border:1px solid #ccc; background:#eee; font-weight:bold; cursor:pointer;">-</button>
-                                <span id="bola-count-${idx}" style="font-weight:bold; font-size:13px; min-width:18px; text-align:center;">0</span>
-                                <button type="button" onclick="alterarBolaCount(${idx}, 1)" style="width:26px; height:26px; border-radius:50%; border:1px solid #ccc; background:#eee; font-weight:bold; cursor:pointer;">+</button>
+                <div style="margin-bottom:12px;">
+                    <div class="accordion-header" onclick="toggleBolasSelf()" style="display:flex; justify-content:space-between; align-items:center; padding:10px; background:#f9f9f9; border-radius:6px; cursor:pointer; border:1px solid #eee; font-weight:bold; font-size:14px;">
+                        <span>Quantidade de bolas por sabor</span>
+                        <i id="icon-angle-bolas" class="fas fa-plus"></i>
+                    </div>
+                    <div id="container-bolas-self" style="display:none; max-height:160px; overflow-y:auto; border:1px solid #eee; padding:8px; border-radius:0 0 6px 6px; background:#fafafa; border-top:none;">
+                        ${selfServiceSabores.map((s, idx) => `
+                            <div style="display:flex; justify-content:space-between; align-items:center; padding:5px 0; border-bottom:1px solid #f0f0f0;">
+                                <span style="font-size:13px;">${s}</span>
+                                <div style="display:flex; align-items:center; gap:8px;">
+                                    <button type="button" onclick="alterarBolaCount(${idx}, -1)" style="width:26px; height:26px; border-radius:50%; border:1px solid #ccc; background:#eee; font-weight:bold; cursor:pointer;">-</button>
+                                    <span id="bola-count-${idx}" style="font-weight:bold; font-size:13px; min-width:18px; text-align:center;">0</span>
+                                    <button type="button" onclick="alterarBolaCount(${idx}, 1)" style="width:26px; height:26px; border-radius:50%; border:1px solid #ccc; background:#eee; font-weight:bold; cursor:pointer;">+</button>
+                                </div>
                             </div>
-                        </div>
-                    `).join('')}
+                        `).join('')}
+                    </div>
                 </div>
             </div>
 
@@ -455,8 +466,64 @@ function validarValorSelf(input) {
     if (isNaN(val) || val < 15) {
         alert("O valor do Self-Service precisa ser um número inteiro de no mínimo R$ 15,00.");
         input.value = 15;
+        val = 15;
     } else {
         input.value = val;
+    }
+
+    // Se o valor estiver na faixa de R$ 15 a R$ 20, limita a no máximo 3 sabores marcados
+    if (val >= 15 && val <= 20) {
+        const selecionados = document.querySelectorAll('.self-sabor-check:checked');
+        if (selecionados.length > 3) {
+            alert("Para valores de R$ 15,00 a R$ 20,00, o limite é de até 3 sabores. Desmarcamos os sabores excedentes!");
+            selecionados.forEach((cb, idx) => {
+                if (idx >= 3) cb.checked = false;
+            });
+        }
+    }
+}
+
+function checarLimiteSaboresSelf(checkbox) {
+    const valInput = document.getElementById('self-valor-input');
+    let valor = Math.floor(parseFloat(valInput.value)) || 0;
+    
+    // Regra: Entre R$ 15 e R$ 20, máximo 3 sabores
+    if (valor >= 15 && valor <= 20) {
+        const selecionados = document.querySelectorAll('.self-sabor-check:checked');
+        if (selecionados.length > 3) {
+            alert("Para valores de R$ 15,00 a R$ 20,00, você pode escolher no máximo 3 sabores!");
+            checkbox.checked = false;
+        }
+    }
+}
+
+// ACORDEÃO PARA EXPANDIR/RECOLHER OS SABORES DESEJADOS
+function toggleSaboresSelf() {
+    const container = document.getElementById('container-sabores-self');
+    const icon = document.getElementById('icon-angle-sabores');
+    if (container) {
+        if (container.style.display === 'none' || container.style.display === '') {
+            container.style.display = 'block';
+            if (icon) icon.className = 'fas fa-minus';
+        } else {
+            container.style.display = 'none';
+            if (icon) icon.className = 'fas fa-plus';
+        }
+    }
+}
+
+// ACORDEÃO PARA EXPANDIR/RECOLHER A QUANTIDADE DE BOLAS
+function toggleBolasSelf() {
+    const container = document.getElementById('container-bolas-self');
+    const icon = document.getElementById('icon-angle-bolas');
+    if (container) {
+        if (container.style.display === 'none' || container.style.display === '') {
+            container.style.display = 'block';
+            if (icon) icon.className = 'fas fa-minus';
+        } else {
+            container.style.display = 'none';
+            if (icon) icon.className = 'fas fa-plus';
+        }
     }
 }
 
@@ -564,6 +631,11 @@ function addProductWithOptionsToCart() {
 
             if (saboresList.length === 0) {
                 alert("Por favor, selecione ao menos 1 sabor de sorvete!");
+                return;
+            }
+
+            if (valorCalculado >= 15 && valorCalculado <= 20 && saboresList.length > 3) {
+                alert("Para valores entre R$ 15,00 e R$ 20,00, selecione no máximo 3 sabores!");
                 return;
             }
 
@@ -824,12 +896,14 @@ function sendWhatsApp() {
     }
     msg += `----------------------------\n\n`;
 
-    // LISTAGEM DE PRODUTOS (Sem exibir o preço individual de cada item)
+    // LISTAGEM DE PRODUTOS (Totalmente limpa, sem travessões nem sublinhados vazios)
     cart.forEach(i => {
         const nomeLimpo = i.nomeFormatado.trim();
         
-        msg += `• *${i.quantidade}x ${nomeLimpo}*\n`;
-        if (i.detalhes) {
+        msg += `- *${i.quantidade}x ${nomeLimpo}*\n`;
+        
+        // Só adiciona detalhes se realmente existirem e não forem vazios
+        if (i.detalhes && i.detalhes.trim() !== '') {
             msg += `  _${i.detalhes.trim()}_\n`;
         }
         
@@ -847,8 +921,9 @@ function sendWhatsApp() {
     msg += `-----------------------------\n`;
     msg += `*Total:* R$ ${totalFinal.toFixed(2).replace('.', ',')}${temItemAPesar ? ' (+ valor a peshar)' : ''}\n\n`;
 
-    // FORMA DE PAGAMENTO
+    // FORMA DE PAGAMENTO COM VALIDAÇÃO
     let pagtoTexto = pagto;
+    
     if (pagto === 'Dinheiro') {
         const opcaoTroco = document.getElementById('cust-troco-opcao')?.value;
         if (opcaoTroco === 'precisa_troco') {
@@ -858,26 +933,25 @@ function sendWhatsApp() {
             pagtoTexto = `Dinheiro (Já está trocado)`;
         }
     } else if (pagto === 'DuasFormas') {
-        const pay1 = document.getElementById('multi-pay-1')?.value;
-        const val1 = document.getElementById('multi-val-1')?.value || '0';
-        const pay2 = document.getElementById('multi-pay-2')?.value;
-        const val2 = document.getElementById('multi-val-2')?.value || '0';
-        pagtoTexto = `Duas Formas (${pay1}: R$ ${val1} | ${pay2}: R$ ${val2})`;
+        const pay1 = document.getElementById('multi-pay-1')?.value || 'Opção 1';
+        const val1 = parseFloat(document.getElementById('multi-val-1')?.value || '0');
+        const pay2 = document.getElementById('multi-pay-2')?.value || 'Opção 2';
+        const val2 = parseFloat(document.getElementById('multi-val-2')?.value || '0');
+
+        const somaDuasFormas = val1 + val2;
+
+        // VALIDAÇÃO: Se houver itens com preço fixo e o valor digitado não bater com o total final
+        if (!temItemAPesar && Math.abs(somaDuasFormas - totalFinal) > 0.01) {
+            alert(`A soma das duas formas de pagamento (R$ ${somaDuasFormas.toFixed(2)}) não corresponde ao valor total do pedido (R$ ${totalFinal.toFixed(2)}).\n\nPor favor, corrija os valores antes de enviar.`);
+            return; // Interrompe o envio do pedido
+        }
+
+        pagtoTexto = `Duas Formas (${pay1}: R$ ${val1.toFixed(2)} | ${pay2}: R$ ${val2.toFixed(2)})`;
     }
 
-    msg += `*Pagamento:* ${pagtoTexto}\n`;
-    msg += `----------------------------\n\n`;
-
-    // DADOS DE ENTREGA
-    if (!isRetirada) {
-        msg += `*Endereço:* ${endereco}\n`;
-        msg += `*Bairro:* ${bairroText}\n`;
-        if (pontoRef) msg += `*Referência:* ${pontoRef}\n`;
-    }
-
-    // OBSERVAÇÃO
-    if (obsPedido) {
-        msg += `\n*Observação:* ${obsPedido}\n`;
+    // OBSERVAÇÃO DO PEDIDO
+    if (obsPedido && obsPedido.trim() !== '') {
+        msg += `\n*Observação:* ${obsPedido.trim()}\n`;
     }
 
     window.open(`https://wa.me/5538988353543?text=${encodeURIComponent(msg)}`, '_blank');
