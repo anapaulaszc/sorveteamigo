@@ -853,14 +853,16 @@ function removeItem(id) {
 // 5. ENVIO AUTOMÁTICO DO PEDIDO VIA WHATSAPP
 // ==========================================
 function sendWhatsApp() {
-    const nome = document.getElementById('cust-name')?.value;
-    const isRetirada = document.getElementById('cust-delivery-type')?.value === 'Retirada';
-    const pagto = document.getElementById('cust-payment')?.value;
+    const nomeInput = document.getElementById('cust-name');
+    const nome = nomeInput ? nomeInput.value.trim() : "";
 
     if (!nome) {
         alert("Por favor, preencha o Nome.");
         return;
     }
+
+    const deliverySelect = document.getElementById('cust-delivery-type');
+    const isRetirada = deliverySelect ? (deliverySelect.value === 'Retirada') : false;
 
     let endereco = "";
     let bairroText = "";
@@ -868,11 +870,14 @@ function sendWhatsApp() {
     let taxa = 0;
 
     if (!isRetirada) {
-        endereco = document.getElementById('cust-address')?.value;
-        pontoRef = document.getElementById('cust-ref')?.value;
+        const addrInput = document.getElementById('cust-address');
+        const refInput = document.getElementById('cust-ref');
         const bairroSelect = document.getElementById('cust-bairro');
 
-        if (!endereco || !bairroSelect || bairroSelect.value === "0") {
+        endereco = addrInput ? addrInput.value.trim() : "";
+        pontoRef = refInput ? refInput.value.trim() : "";
+
+        if (!endereco || !bairroSelect || bairroSelect.value === "0" || bairroSelect.selectedIndex === -1) {
             alert("Por favor, preencha o Endereço e selecione o Bairro para entrega.");
             return;
         }
@@ -880,29 +885,29 @@ function sendWhatsApp() {
         // Limpa o texto do bairro para remover "(Taxa R$ X,XX)" na mensagem enviada
         let rawBairroText = bairroSelect.options[bairroSelect.selectedIndex].text;
         bairroText = rawBairroText.replace(/\s*\(Taxa R\$\s*\d+[\.,]?\d*\)/i, '').trim();
-        taxa = parseFloat(bairroSelect.value);
+        taxa = parseFloat(bairroSelect.value) || 0;
     }
 
-    const obsPedido = document.getElementById('cust-obs')?.value;
+    const obsInput = document.getElementById('cust-obs');
+    const obsPedido = obsInput ? obsInput.value.trim() : "";
 
     let subtotalFixos = 0;
     let temItemAPesar = false;
 
     // CABEÇALHO DO PEDIDO
     let msg = `🍦*PEDIDO - SORVETE AMIGO SALINAS*\n\n`;
-    msg += `*Cliente:* ${nome.trim()}\n`;
+    msg += `*Cliente:* ${nome}\n`;
     if (isRetirada) {
         msg += `*Tipo:* Retirar no Estabelecimento\n`;
     }
     msg += `----------------------------\n\n`;
 
-    // LISTAGEM DE PRODUTOS (Totalmente limpa, sem travessões nem sublinhados vazios)
+    // LISTAGEM DE PRODUTOS
     cart.forEach(i => {
-        const nomeLimpo = i.nomeFormatado.trim();
+        const nomeLimpo = (i.nomeFormatado || '').trim();
         
         msg += `- *${i.quantidade}x ${nomeLimpo}*\n`;
         
-        // Só adiciona detalhes se realmente existirem e não forem vazios
         if (i.detalhes && i.detalhes.trim() !== '') {
             msg += `  _${i.detalhes.trim()}_\n`;
         }
@@ -911,47 +916,68 @@ function sendWhatsApp() {
             msg += `  _(A CALCULAR PELA LOJA NA BALANÇA)_\n`;
             temItemAPesar = true;
         } else {
-            subtotalFixos += i.preco;
+            subtotalFixos += (i.preco || 0);
         }
         msg += `\n`;
     });
 
     const totalFinal = subtotalFixos + taxa;
 
+    // LINHA DO TOTAL
     msg += `-----------------------------\n`;
-    msg += `*Total:* R$ ${totalFinal.toFixed(2).replace('.', ',')}${temItemAPesar ? ' (+ valor a peshar)' : ''}\n\n`;
+    msg += `*Total:* R$ ${totalFinal.toFixed(2).replace('.', ',')}${temItemAPesar ? ' (+ valor a pesar)' : ''}\n\n`;
 
-    // FORMA DE PAGAMENTO COM VALIDAÇÃO
+    // FORMA DE PAGAMENTO
+    const pagtoSelect = document.getElementById('cust-payment');
+    const pagto = pagtoSelect ? pagtoSelect.value : "Não informado";
     let pagtoTexto = pagto;
-    
+
     if (pagto === 'Dinheiro') {
-        const opcaoTroco = document.getElementById('cust-troco-opcao')?.value;
+        const opcaoTrocoSelect = document.getElementById('cust-troco-opcao');
+        const opcaoTroco = opcaoTrocoSelect ? opcaoTrocoSelect.value : "";
         if (opcaoTroco === 'precisa_troco') {
-            const valTroco = document.getElementById('cust-troco')?.value;
+            const valTrocoInput = document.getElementById('cust-troco');
+            const valTroco = valTrocoInput ? valTrocoInput.value : "0";
             pagtoTexto = `Dinheiro (Troco para R$ ${valTroco})`;
         } else {
             pagtoTexto = `Dinheiro (Já está trocado)`;
         }
     } else if (pagto === 'DuasFormas') {
-        const pay1 = document.getElementById('multi-pay-1')?.value || 'Opção 1';
-        const val1 = parseFloat(document.getElementById('multi-val-1')?.value || '0');
-        const pay2 = document.getElementById('multi-pay-2')?.value || 'Opção 2';
-        const val2 = parseFloat(document.getElementById('multi-val-2')?.value || '0');
+        const pay1Input = document.getElementById('multi-pay-1');
+        const val1Input = document.getElementById('multi-val-1');
+        const pay2Input = document.getElementById('multi-pay-2');
+        const val2Input = document.getElementById('multi-val-2');
+
+        const pay1 = pay1Input ? pay1Input.value : 'Opção 1';
+        const val1 = parseFloat(val1Input ? val1Input.value : '0') || 0;
+        const pay2 = pay2Input ? pay2Input.value : 'Opção 2';
+        const val2 = parseFloat(val2Input ? val2Input.value : '0') || 0;
 
         const somaDuasFormas = val1 + val2;
 
-        // VALIDAÇÃO: Se houver itens com preço fixo e o valor digitado não bater com o total final
         if (!temItemAPesar && Math.abs(somaDuasFormas - totalFinal) > 0.01) {
-            alert(`A soma das duas formas de pagamento (R$ ${somaDuasFormas.toFixed(2)}) não corresponde ao valor total do pedido (R$ ${totalFinal.toFixed(2)}).\n\nPor favor, corrija os valores antes de enviar.`);
-            return; // Interrompe o envio do pedido
+            alert(`A soma das duas formas de pagamento (R$ ${somaDuasFormas.toFixed(2).replace('.', ',')}) não corresponde ao valor total do pedido (R$ ${totalFinal.toFixed(2).replace('.', ',')}).\n\nPor favor, ajuste os valores para bater com o total.`);
+            return;
         }
 
-        pagtoTexto = `Duas Formas (${pay1}: R$ ${val1.toFixed(2)} | ${pay2}: R$ ${val2.toFixed(2)})`;
+        pagtoTexto = `Duas Formas (${pay1}: R$ ${val1.toFixed(2).replace('.', ',')} | ${pay2}: R$ ${val2.toFixed(2).replace('.', ',')})`;
+    }
+
+    msg += `*Pagamento:* ${pagtoTexto}\n`;
+    msg += `----------------------------\n\n`;
+
+    // DADOS DE ENTREGA
+    if (!isRetirada) {
+        msg += `*Endereço:* ${endereco}\n`;
+        msg += `*Bairro:* ${bairroText}\n`;
+        if (pontoRef) {
+            msg += `*Referência:* ${pontoRef}\n`;
+        }
     }
 
     // OBSERVAÇÃO DO PEDIDO
-    if (obsPedido && obsPedido.trim() !== '') {
-        msg += `\n*Observação:* ${obsPedido.trim()}\n`;
+    if (obsPedido) {
+        msg += `\n*Observação:* ${obsPedido}\n`;
     }
 
     window.open(`https://wa.me/5538988353543?text=${encodeURIComponent(msg)}`, '_blank');
