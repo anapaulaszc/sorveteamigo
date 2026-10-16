@@ -59,7 +59,7 @@ const database = [
     { id: 205, cat: 'acai', nome: 'Açaí Amor 480ml', preco: 26.00, desc: 'Açaí amigo com pedaços de Frutas da época, Leite em pó e leite condensado.', image: 'img/acai-amor.png' },
     { id: 206, cat: 'acai', nome: 'Açaí Aventura 450ml', preco: 32.00, desc: 'Açaí amigo com pedaços de Bombom, leite em pó, e um Picolé Premium.', image: 'img/acai-aventura.png' },
     { id: 207, cat: 'acai', nome: 'Açaí 750ml', preco: 28.00, desc: 'Açaí amigo com camadas de Banana, Leite em Pó, Leite Condensado.', image: 'img/acai750.png' },
-    { id: 208, cat: 'acai', nome: 'Açaí 1000ml', preco: 38.00, desc: 'Açaí amigo com camadas de Banana, Leite em Pó, Leite Condensado.', image: 'img/acai1000.png' },
+    { id: 208, cat: 'acai', nome: 'Açaí 1000ml', preco: 38.00, desc: 'Açaí amigo com camadas de Banana, Leite em Pó, Leite Condensado.', image: 'img/acai750.png' },
 
     // MILKSHAKES
     { id: 300, cat: 'shakes', nome: 'Milk Shake Amigo', preco: 0, desc: 'Escolha até 2 Sabores do Self-Service + Cobertura.', image: 'img/shake-imaginario.png', complexOptions: true, selfServiceFlavors: true, tamanhos: { '330ml': 18.00, '440ml': 19.00, '550ml': 21.00 } },
@@ -80,8 +80,10 @@ const database = [
     { id: 309, cat: 'outros', nome: 'Coca-Cola Lata', preco: 7.00, desc: 'Coca 350ml.', image: 'img/coca-lata.png' },
     { id: 310, cat: 'outros', nome: 'Coca-Cola Lata Zero', preco: 7.00, desc: 'Coca zero 350ml.', image: 'img/coca-zero-lata.png' },
 
-    // COBERTURAS (PRODUTO ÚNICO)
-    { id: 600, cat: 'coberturas', nome: 'Coberturas & Caldas', preco: 2.00, desc: 'Escolha o sabor desejado e o valor (a partir de R$ 2,00 em números inteiros).', image: 'img/cobertura-morango.png', isCoberturaUnica: true },
+    // COBERTURAS, CALDAS E LEITE CONDENSADO
+    { id: 600, cat: 'coberturas', nome: 'Coberturas', preco: 3.00, desc: 'Escolha o sabor da cobertura desejada e o valor (a partir de R$ 3,00).', image: 'img/cobertura-morango.png', isCoberturaUnica: true, tipoItem: 'Cobertura' },
+    { id: 601, cat: 'coberturas', nome: 'Caldas Quentes', preco: 3.00, desc: 'Escolha o sabor da calda e o valor (a partir de R$ 3,00).', image: 'img/calda-chocolate.png', isCoberturaUnica: true, tipoItem: 'Calda' },
+    { id: 602, cat: 'coberturas', nome: 'Leite Condensado', preco: 3.00, desc: 'Escolha a porção de Leite Condensado e o valor (a partir de R$ 3,00).', image: 'img/leite-condensado.png', isCoberturaUnica: true, tipoItem: 'Leite Condensado' },
 
     // SELF-SERVICE
     { id: 700, cat: 'selfservice', nome: 'Self-Service Monte o Seu', preco: 0, desc: 'Self-service a R$ 74,90/kg. Monte por valor fixo (mínimo R$ 15,00) ou quantidade de bolas.', image: 'img/selfservice-banner.png', isSelfService: true }
@@ -120,12 +122,20 @@ const selfServiceComplementosDivisao = {
     ]
 };
 
-// OPCIONAIS DE COBERTURA/CALDA DO PRODUTO ÚNICO
-const listaOpcoesCoberturaUnica = [
-    "abacaxi", "blue ice", "caramelo", "chicletes", "chocolate",
-    "leite condensado", "limão", "maraculá", "morango", "uva",
-    "calda de chocolate quente"
-];
+// LISTAS SEPARADAS DE SABORES
+const opcoesCoberturas = ["abacaxi", "blue ice", "caramelo", "chicletes", "chocolate", "limão", "maracujá", "morango", "uva"];
+const opcoesCaldas = ["calda de chocolate quente"];
+const opcoesLeiteCondensado = ["Leite Condensado"];
+
+function validarValorCobertura(input) {
+    let val = Math.floor(parseFloat(input.value));
+    if (isNaN(val) || val < 3) {
+        alert("O valor mínimo é R$ 3,00.");
+        input.value = 3;
+    } else {
+        input.value = val;
+    }
+}
 
 // ADICIONAIS GERAIS PARA AÇAÍS E MILKSHAKES
 const adicionaisList = [
@@ -213,7 +223,7 @@ function filterMenu(category) {
         if (p.isSelfService) {
             precoTexto = "Self-Service (R$ 74,90/kg)";
         } else if (p.isCoberturaUnica) {
-            precoTexto = "A partir de R$ 2,00";
+            precoTexto = "A partir de R$ 3,00";
         } else if (p.complexOptions) {
             precoTexto = `A partir de R$ ${Math.min(...Object.values(p.tamanhos)).toFixed(2)}`;
         } else {
@@ -269,23 +279,28 @@ function openOptionsModal(id) {
         <hr style="border:0; border-top:1px solid #eee; margin:12px 0;">
     `;
 
-    // --- MODO COBERTURAS & CALDAS (PRODUTO ÚNICO DE COBERTURA) ---
+    // --- MODO COBERTURAS, CALDAS E LEITE CONDENSADO ---
     if (prod.isCoberturaUnica) {
+        let listaUsar = opcoesCoberturas;
+        if (prod.tipoItem === 'Calda') listaUsar = opcoesCaldas;
+        if (prod.tipoItem === 'Leite Condensado') listaUsar = opcoesLeiteCondensado;
+
         modalHTML += `
             <div style="margin-bottom:12px;">
-                <label style="font-weight:bold; display:block; margin-bottom:5px;">Escolha o Sabor da Cobertura / Calda:</label>
+                <label style="font-weight:bold; display:block; margin-bottom:5px;">Escolha a Opção Desejada:</label>
                 <select id="cob-sabor-select" style="width:100%; padding:10px; border-radius:6px; border:1px solid #ccc; font-size:14px;">
-                    ${listaOpcoesCoberturaUnica.map(c => `<option value="${c}">${c}</option>`).join('')}
+                    ${listaUsar.map(c => `<option value="${c}">${c}</option>`).join('')}
                 </select>
             </div>
             <div style="margin-bottom:12px;">
-                <label style="font-weight:bold; display:block; margin-bottom:5px;">Digite o valor em R$ (Mínimo R$ 2,00):</label>
-                <input type="number" id="cob-valor-input" min="2" step="1" value="2" onchange="validarValorCobertura(this)" style="width:100%; padding:10px; border:1px solid #ccc; border-radius:6px; font-size:16px;">
+                <label style="font-weight:bold; display:block; margin-bottom:5px;">Digite o valor em R$ (Mínimo R$ 3,00):</label>
+                <input type="number" id="cob-valor-input" min="3" step="1" value="3" onchange="validarValorCobertura(this)" style="width:100%; padding:10px; border:1px solid #ccc; border-radius:6px; font-size:16px;">
             </div>
             <h4 style="margin-top:12px; font-size:14px;">Observações:</h4>
-            <textarea id="opt-obs" style="width:100%; height:55px; border-radius:6px; border:1px solid #ccc; padding:8px; font-family:inherit; font-size:13px;" placeholder="Ex: Caprichar na calda..."></textarea>
+            <textarea id="opt-obs" style="width:100%; height:55px; border-radius:6px; border:1px solid #ccc; padding:8px; font-family:inherit; font-size:13px;" placeholder="Ex: Caprichar no produto..."></textarea>
         `;
     }
+
     // --- MODO SELF-SERVICE (R$ 74,90/kg) ---
     else if (prod.isSelfService) {
         modalHTML += `
@@ -589,12 +604,12 @@ function addProductWithOptionsToCart() {
 
     const p = currentItemWithOptions;
 
-    // LÓGICA COBERTURA ÚNICA
+    // LÓGICA COBERTURA / CALDA / LEITE CONDENSADO
     if (p.isCoberturaUnica) {
         const sabor = document.getElementById('cob-sabor-select').value;
         const valInput = document.getElementById('cob-valor-input');
         let valorCalculado = Math.floor(parseFloat(valInput.value));
-        if (isNaN(valorCalculado) || valorCalculado < 2) valorCalculado = 2;
+        if (isNaN(valorCalculado) || valorCalculado < 3) valorCalculado = 3;
 
         const obsField = document.getElementById('opt-obs');
         let detalhesStr = `Sabor: ${sabor}`;
@@ -602,13 +617,14 @@ function addProductWithOptionsToCart() {
 
         cart.push({
             id: Date.now(),
-            nomeFormatado: `Cobertura - ${sabor}`,
+            nomeFormatado: `${p.nome} (R$ ${valorCalculado.toFixed(2).replace('.', ',')})`,
             detalhes: detalhesStr,
             preco: valorCalculado * currentQty,
             quantidade: currentQty,
             isSelfServicePeso: false
         });
     }
+
     // LÓGICA SELF-SERVICE
     else if (p.isSelfService) {
         const tipoChoice = document.getElementById('self-tipo-escolha').value;
@@ -1016,9 +1032,16 @@ function buscarProduto() {
     }
 
     resultados.forEach(p => {
-        let precoTexto = p.complexOptions ?
-            `A partir de R$ ${Math.min(...Object.values(p.tamanhos)).toFixed(2)}` :
-            `R$ ${p.preco.toFixed(2)}`;
+        let precoTexto = "";
+        if (p.isSelfService) {
+            precoTexto = "Self-Service (R$ 74,90/kg)";
+        } else if (p.isCoberturaUnica) {
+            precoTexto = "A partir de R$ 3,00";
+        } else if (p.complexOptions) {
+            precoTexto = `A partir de R$ ${Math.min(...Object.values(p.tamanhos)).toFixed(2)}`;
+        } else {
+            precoTexto = `R$ ${p.preco.toFixed(2)}`;
+        }
 
         const div = document.createElement('div');
         div.className = 'product-item';
