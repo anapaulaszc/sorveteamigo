@@ -935,7 +935,9 @@ function sendWhatsApp() {
         } else {
             subtotalFixos += (i.preco || 0);
         }
-        msg += `\n`;
+
+        // ADICIONADO AQUI: Linha de separação individual para cada item
+        msg += `--\n\n`;
     });
 
     const totalFinal = subtotalFixos + taxa;
